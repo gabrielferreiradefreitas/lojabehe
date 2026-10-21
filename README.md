@@ -52,7 +52,9 @@ Tudo fica no `index.html`. Procure pelos marcadores:
   estruturados de propósito: o Google não mostra estrelas de avaliações publicadas pela própria loja e pune dado falso.
 - **Títulos**: um único `<h1>` (no topo); cada seção tem um `<h2>` e os cards têm `<h3>` com marca e categoria.
 - **Fotos**: toda foto de conteúdo tem `alt` descrevendo a imagem real. Ao trocar uma foto, troque o `alt` também.
-- **Ao mudar o conteúdo**, atualize a data `<lastmod>` do `sitemap.xml`.
+- **Ao mudar o conteúdo**, atualize a data `<lastmod>` do `sitemap.xml` (e liste lá as fotos novas de produto).
+- **`c940f27d30032e845ff535f132157a98.txt`** na raiz é a chave do IndexNow (o aviso de página nova para o Bing e
+  outros buscadores) — não apague. Para avisar de uma mudança: `curl "https://www.bing.com/indexnow?url=https%3A%2F%2Flojabehe.com%2F&key=c940f27d30032e845ff535f132157a98"`.
 
 ## Publicar uma alteração
 

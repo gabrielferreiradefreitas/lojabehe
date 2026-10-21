@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Mapa do site para o Google e o Bing. Página única: atualize o lastmod quando o conteúdo mudar. -->
+<!-- Mapa do site para o Google e o Bing. Página única: atualize o lastmod quando o conteúdo mudar.
+     As fotos reais dos produtos entram como image:image (aparecem no Google Imagens). -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
@@ -7,6 +8,24 @@
     <lastmod>2026-10-21</lastmod>
     <image:image>
       <image:loc>https://lojabehe.com/assets/og-lojabehe.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://lojabehe.com/assets/produtos/sony-fx30-800.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://lojabehe.com/assets/produtos/sony-a6700-800.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://lojabehe.com/assets/produtos/canon-eos-rp-800.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://lojabehe.com/assets/produtos/sigma-24-70-f2-8-dg-dn-art-ii-800.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://lojabehe.com/assets/produtos/tamron-28-75-f2-8-g2-800.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://lojabehe.com/assets/produtos/tamron-17-70-f2-8-800.webp</image:loc>
     </image:image>
   </url>
 </urlset>
