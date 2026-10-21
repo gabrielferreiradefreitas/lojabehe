@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!--
+    ============================================================================================
+    BeHe Import — landing page de venda (https://lojabehe.com)
+    Versão final: conversão direta mobile-first (a visita chega pelo link da bio do Instagram, no celular).
+
+    Por que não há Tailwind (Play CDN) nem Font Awesome aqui:
+    - O Play CDN do Tailwind compila o CSS no navegador a cada visita (≈100 KB de JavaScript + atraso
+      na primeira pintura). O Font Awesome baixa uma fonte inteira de ícones para usar meia dúzia.
+    - Mais de 85% do tráfego vem do celular e a página precisa abrir rápido. Por isso o CSS é escrito
+      à mão (variáveis, mobile-first, clamp(), grid/flex) e todos os ícones são SVG inline (<symbol> + <use>).
+
+    Zero salto de layout: toda <img> tem width/height, e a fonte reserva ("Inter Reserva") usa as métricas
+    da Inter (size-adjust/ascent/descent). Quando a Inter chega, o texto não muda de linha nem empurra o botão.
+    A Inter carrega sem bloquear a pintura (media="print" + onload, com <noscript> de reserva).
+
+    Como trocar as imagens: cada foto provisória do Unsplash está marcada com um comentário "TROCAR:".
+    Basta trocar o src/srcset pela foto real (de preferência .webp) mantendo width/height na mesma proporção.
+    O mural de Stories tem espaços reservados (sem foto) e um passo a passo logo acima dele.
+
+    Como trocar o WhatsApp: busque por "5545998382728" (todos os links) E por "99838-2728" (número escrito:
+    JSON-LD no <head>, chamada final e rodapé). Cada botão tem uma origem única (data-origem e
+    "(origem: ...)" no texto), para saber de qual botão o cliente veio.
+
+    A página funciona 100% sem JavaScript: links, âncoras, perguntas frequentes (<details>) e termos (:target).
+    O menu do celular usa o popover nativo do navegador (abre e fecha mesmo se o script falhar).
+    O JavaScript no fim só melhora: medição de cliques, foco do menu, carrossel, botão flutuante e o
+    contador do visor da câmera (só no computador).
+    ============================================================================================
+  -->
+  <title>BeHe Import | Câmeras, Lentes, Drones e Áudio em até 21x</title>
+  <meta name="description" content="Câmeras Sony e Nikon, lentes, drones DJI, luz Nanlite, áudio Hollyland e informática de alta performance. Até 21x no cartão e envio seguro para todo o Brasil.">
+  <link rel="canonical" href="https://lojabehe.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0B0F19">
+  <meta name="color-scheme" content="dark">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Compartilhamento (Open Graph / WhatsApp / Instagram / X) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="BeHe Import">
+  <meta property="og:title" content="BeHe Import | Equipamento audiovisual em até 21x no cartão">
+  <meta property="og:description" content="Câmeras, lentes, drones, iluminação e áudio profissional. 100% originais com garantia, envio seguro para todo o Brasil e atendimento humanizado no WhatsApp.">
+  <meta property="og:url" content="https://lojabehe.com/">
+  <meta property="og:image" content="https://lojabehe.com/assets/og-behe.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo da BeHe Import sobre fundo escuro">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BeHe Import | Equipamento audiovisual em até 21x no cartão">
+  <meta name="twitter:description" content="Câmeras, lentes, drones, iluminação e áudio profissional com envio seguro para todo o Brasil.">
+  <meta name="twitter:image" content="https://lojabehe.com/assets/og-behe.jpg">
+  <meta name="twitter:image:alt" content="Logo da BeHe Import sobre fundo escuro">
+
+  <!-- Ícones -->
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+  <!-- Fontes e imagens: conexões antecipadas para ganhar tempo no 4G -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <!-- Inter só nos pesos usados (400, 600, 700, 800 — o Google entrega um único arquivo variável).
+       Carrega sem bloquear a pintura; enquanto não chega, vale a "Inter Reserva" com as mesmas métricas. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap"></noscript>
+
+  <!-- Imagem do topo: as duas pré-cargas espelham EXATAMENTE o <picture> do hero (mesmo media, srcset e sizes).
+       TROCAR junto com a foto do hero. -->
+  <link rel="preload" as="image" fetchpriority="high" media="(max-width: 599.98px)"
+        href="https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.42&amp;fp-y=.42&amp;w=720&amp;h=555&amp;hue=150&amp;sat=30&amp;q=70"
+        imagesrcset="https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.42&amp;fp-y=.42&amp;w=480&amp;h=370&amp;hue=150&amp;sat=30&amp;q=70 480w, https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.42&amp;fp-y=.42&amp;w=720&amp;h=555&amp;hue=150&amp;sat=30&amp;q=70 720w, https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.42&amp;fp-y=.42&amp;w=800&amp;h=617&amp;hue=150&amp;sat=30&amp;q=70 800w, https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.42&amp;fp-y=.42&amp;w=960&amp;h=740&amp;hue=150&amp;sat=30&amp;q=70 960w"
+        imagesizes="100vw">
+  <link rel="preload" as="image" fetchpriority="high" media="(min-width: 600px)"
+        href="https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;w=1280&amp;hue=150&amp;sat=30&amp;q=70"
+        imagesrcset="https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;w=960&amp;hue=150&amp;sat=30&amp;q=70 960w, https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;w=1280&amp;hue=150&amp;sat=30&amp;q=70 1280w, https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;w=1600&amp;hue=150&amp;sat=30&amp;q=70 1600w, https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;w=1920&amp;hue=150&amp;sat=30&amp;q=70 1920w"
+        imagesizes="(min-width: 1024px) 64vw, 100vw">
+
+  <!-- Marca a página como "com JavaScript" antes da primeira pintura (o menu do celular depende disso) -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- ==================== PIXEL DO META (Facebook/Instagram Ads) ====================
+       Para ativar: troque SEU_PIXEL_ID (2 lugares) pelo ID do seu Pixel e apague SÓ as duas linhas marcadas
+       com ✂ (a que vem logo abaixo e a do fim do bloco). Enquanto elas existirem, nada é carregado nem disparado.
+       Os cliques no WhatsApp já disparam fbq('track', 'Contact') sozinhos quando o Pixel existir. -->
+  <!-- ✂ apague esta linha para ativar o Pixel
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"></noscript>
+  ✂ apague esta linha para ativar o Pixel -->
+
+  <!-- ==================== GOOGLE ANALYTICS 4 ====================
+       Para ativar: troque G-XXXXXXX pelo seu ID de medição (nos dois lugares) e apague SÓ as duas linhas
+       marcadas com ✂ (a que vem logo abaixo e a do fim do bloco). Os cliques no WhatsApp já disparam o evento
+       "clique_whatsapp" (parâmetro "origem"). Se usar Google Tag Manager em vez do gtag, o mesmo evento
+       vai para o dataLayer. -->
+  <!-- ✂ apague esta linha para ativar o Google Analytics
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+  ✂ apague esta linha para ativar o Google Analytics -->
+
+  <!-- Dados estruturados: só informações reais da loja (nome, site, logo, Instagram, WhatsApp de vendas) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "OnlineStore",
+        "@id": "https://lojabehe.com/#loja",
+        "name": "BeHe Import",
+        "url": "https://lojabehe.com/",
+        "logo": "https://lojabehe.com/assets/apple-touch-icon.png",
+        "image": "https://lojabehe.com/assets/og-behe.jpg",
+        "description": "Equipamentos audiovisuais premium: câmeras, lentes, drones, iluminação e áudio profissional, com parcelamento em até 21x e envio seguro para todo o Brasil.",
+        "areaServed": "BR",
+        "sameAs": [
+          "https://www.instagram.com/behe_ofc/",
+          "https://www.instagram.com/beheimport_reserva/",
+          "https://linktr.ee/Behe_ofc"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+55-45-99838-2728",
+          "contactType": "sales",
+          "areaServed": "BR",
+          "availableLanguage": "Portuguese"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://lojabehe.com/#site",
+        "url": "https://lojabehe.com/",
+        "name": "BeHe Import",
+        "inLanguage": "pt-BR",
+        "publisher": { "@id": "https://lojabehe.com/#loja" }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* =========================================================================================
+       1. TOKENS DE DESIGN (paleta do documento oficial + verde-água da marca como acento)
+       ========================================================================================= */
+    :root {
+      --bg: #0B0F19;            /* fundo principal (preto azulado) */
+      --bg-deep: #070A12;       /* rodapé */
+      --surface: #1E293B;       /* cards */
+      --surface-2: #131B2B;     /* cards sobre seções alternadas */
+      --line: rgba(148, 163, 184, .16);
+      --line-strong: rgba(148, 163, 184, .28);
+      --text: #F8FAFC;          /* texto principal */
+      --soft: #CBD5E1;          /* texto de apoio com mais contraste */
+      --muted: #94A3B8;         /* texto secundário / especificações */
+      --green: #10B981;         /* ação: tudo que leva ao WhatsApp */
+      --green-hi: #34D399;
+      --green-ink: #03140D;     /* texto sobre o verde (contraste AA) */
+      --amber: #F59E0B;         /* selos e tags */
+      --amber-ink: #1C1204;
+      --teal: #00B8B0;          /* verde-água do logo */
+      --teal-hi: #5EEAD4;
+      --radius: 20px;
+      --radius-sm: 14px;
+      --gutter: 16px;
+      --header-h: 64px;
+      --max: 1200px;
+      --font: "Inter", "Inter Reserva", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color-scheme: dark;
+    }
+    @media (min-width: 760px) { :root { --gutter: 28px; --header-h: 72px; } }
+
+    /* Fonte reserva com as métricas da Inter: enquanto a Inter baixa, o texto já ocupa o mesmo espaço.
+       Uma face por faixa de peso, porque o negrito da Inter é bem mais largo que o Arial "engordado" pelo
+       navegador. Larguras medidas com texto em português: Inter 400 = Arial × 105,5%;
+       Inter 600 / 700 / 800 = Arial Bold × 100,3% / 101,1% / 102,1%.
+       ascent/descent = métricas da Inter (0,96875 / 0,2421875) divididas pelo mesmo fator. */
+    @font-face {
+      font-family: "Inter Reserva"; font-weight: 100 549;
+      src: local("Arial"), local("ArialMT"), local("Helvetica Neue"), local("Helvetica"), local("Roboto");
+      size-adjust: 105.5%; ascent-override: 91.83%; descent-override: 22.96%; line-gap-override: 0%;
+    }
+    @font-face {
+      font-family: "Inter Reserva"; font-weight: 550 649;
+      src: local("Arial Bold"), local("Arial-BoldMT"), local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"), local("Roboto Bold"), local("Roboto-Bold");
+      size-adjust: 100.3%; ascent-override: 96.59%; descent-override: 24.15%; line-gap-override: 0%;
+    }
+    @font-face {
+      font-family: "Inter Reserva"; font-weight: 650 749;
+      src: local("Arial Bold"), local("Arial-BoldMT"), local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"), local("Roboto Bold"), local("Roboto-Bold");
+      size-adjust: 101.1%; ascent-override: 95.82%; descent-override: 23.96%; line-gap-override: 0%;
+    }
+    @font-face {
+      font-family: "Inter Reserva"; font-weight: 750 1000;
+      src: local("Arial Bold"), local("Arial-BoldMT"), local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"), local("Roboto Bold"), local("Roboto-Bold");
+      size-adjust: 102.1%; ascent-override: 94.88%; descent-override: 23.72%; line-gap-override: 0%;
+    }
+
+    /* =========================================================================================
+       2. BASE
+       ========================================================================================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    /* Rolagem suave só ao navegar pelos links internos (html:focus-within): rolagem feita por script
+       e a busca do navegador continuam instantâneas */
+    @media (prefers-reduced-motion: no-preference) { html:focus-within { scroll-behavior: smooth; } }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { margin: 0; text-wrap: balance; }
+    p { margin: 0; text-wrap: pretty; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    :focus-visible { outline: 3px solid var(--teal-hi); outline-offset: 3px; border-radius: 8px; }
+    [id] { scroll-margin-top: calc(var(--header-h) + 12px); }
+    .container { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+    .nowrap { white-space: nowrap; }
+    .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+    /* Todo link que carrega texto .sr-only é a referência de posição dele: sem isso, o texto escondido de um
+       botão dentro de uma faixa que rola "escapa" da faixa e cria rolagem horizontal na página. */
+    .btn, .flink, .dif-cta, .inline-link, .marcas { position: relative; }
+    .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+    .ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ico-fill { fill: currentColor; stroke: none; }
+
+    /* Link "pular para o conteúdo" (aparece só com o teclado) */
+    .skip {
+      position: absolute; left: 12px; top: -120px; z-index: 200;
+      display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px;
+      background: var(--text); color: var(--bg); font-weight: 700; border-radius: 12px; text-decoration: none;
+    }
+    .skip:focus { top: 12px; }
+
+    /* Link dentro de texto corrido: área de toque maior sem mexer no desenho da linha */
+    .inline-link {
+      color: var(--teal-hi); font-weight: 700; text-decoration: underline; text-underline-offset: 3px;
+      text-decoration-thickness: 1px; padding-block: 13px; -webkit-tap-highlight-color: transparent;
+    }
+    .inline-link:hover { color: var(--text); }
+
+    /* =========================================================================================
+       3. BOTÕES
+       ========================================================================================= */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 48px; padding: 12px 22px; border-radius: 999px; border: 2px solid transparent;
+      font: inherit; font-weight: 700; font-size: 1rem; line-height: 1.2; text-align: center;
+      text-decoration: none; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+      transition: transform .15s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn .ico { width: 20px; height: 20px; }
+    .btn-wa { background: var(--green); color: var(--green-ink); box-shadow: 0 10px 28px -10px rgba(16, 185, 129, .75); }
+    .btn-wa:hover { background: var(--green-hi); }
+    .btn-wa-outline { border-color: var(--green); color: var(--green-hi); background: rgba(16, 185, 129, .06); }
+    .btn-wa-outline:hover { background: var(--green); color: var(--green-ink); }
+    .btn-ghost { border-color: rgba(248, 250, 252, .78); color: var(--text); background: transparent; }
+    .btn-ghost:hover { background: var(--text); color: var(--bg); }
+    .btn-quiet { border-color: var(--line-strong); color: var(--text); background: rgba(30, 41, 59, .55); }
+    .btn-quiet:hover { border-color: var(--soft); }
+    .btn-sm { min-height: 44px; padding: 10px 16px; font-size: .9375rem; }
+    .btn-lg { min-height: 58px; padding: 16px 28px; font-size: 1.0625rem; }
+    .btn-block { width: 100%; }
+    .btn-wa .ico-wa, .btn-wa-outline .ico-wa { width: 22px; height: 22px; }
+
+    /* Pulsação leve do botão principal: um "eco" verde que cresce e some atrás do botão.
+       Só anima transform e opacity (roda na placa de vídeo, sem repintar) e some em prefers-reduced-motion. */
+    .btn-pulse { position: relative; isolation: isolate; }
+    .btn-pulse::before {
+      content: ""; position: absolute; inset: -2px; z-index: -1; border-radius: inherit;
+      background: var(--green); opacity: 0; pointer-events: none;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .btn-pulse::before { animation: pulsar 2.4s cubic-bezier(.2, .6, .35, 1) infinite; }
+    }
+    @keyframes pulsar {
+      0%        { transform: scale(1); opacity: .5; }
+      70%, 100% { transform: scale(1.06, 1.38); opacity: 0; }
+    }
+
+    /* =========================================================================================
+       4. CABEÇALHO FIXO
+       Celular: marca à esquerda; menu e "Acessar Loja" à direita, com "Acessar Loja" encostado no canto.
+       ========================================================================================= */
+    .header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11, 15, 25, .86);
+      -webkit-backdrop-filter: saturate(150%) blur(14px); backdrop-filter: saturate(150%) blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header::after { /* fio de luz verde-água sob o cabeçalho */
+      content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; pointer-events: none;
+      background: linear-gradient(90deg, transparent, rgba(0, 184, 176, .5) 30%, rgba(16, 185, 129, .4) 70%, transparent);
+    }
+    .header-bar { display: flex; align-items: center; gap: 10px; height: var(--header-h); }
+    .brand { display: inline-flex; align-items: center; min-height: 48px; min-width: 48px; margin-right: auto; border-radius: 10px; }
+    .brand img { height: 40px; width: auto; }
+    .header-actions { display: flex; align-items: center; gap: 8px; }
+    .header .btn-consultor { display: none; }
+    .btn-loja { white-space: nowrap; }
+    .nav-toggle {
+      display: none; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line-strong);
+      background: transparent; color: var(--text); cursor: pointer; place-items: center; padding: 0; font: inherit;
+    }
+    .nav-toggle .ico { width: 22px; height: 22px; }
+    /* Ícone ☰/✕: o script marca .is-aberto. O estado "expandido" o navegador já informa sozinho ao leitor de tela,
+       porque o botão usa popovertarget (aria-expanded só entra no modo sem popover, pelo script). */
+    .nav-toggle .i-close, .nav-toggle.is-aberto .i-menu { display: none; }
+    .nav-toggle.is-aberto .i-close { display: block; }
+
+    /* O <nav> tem o atributo popover (menu do celular nativo). Aqui ele volta a ser um bloco comum. */
+    .nav {
+      display: block; position: static; inset: auto; width: auto; height: auto; margin: 0; padding: 0;
+      border: 0; overflow: visible; color: inherit; background: transparent;
+    }
+    .nav ul { display: flex; gap: 2px; }
+    .nav li a {
+      display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px;
+      color: var(--soft); text-decoration: none; font-weight: 600; font-size: .9375rem; white-space: nowrap;
+    }
+    .nav li a:hover { color: var(--text); background: rgba(148, 163, 184, .08); }
+    .nav .nav-wa { display: none; }
+
+    /* Celular e tablet: sem JavaScript os links ficam numa faixa rolável; com JavaScript viram menu */
+    @media (max-width: 1023.98px) {
+      html:not(.js) .header-bar { flex-wrap: wrap; height: auto; min-height: var(--header-h); }
+      html:not(.js) .nav { order: 3; width: 100%; border-top: 1px solid var(--line); }
+      html:not(.js) .nav ul { overflow-x: auto; padding-block: 4px; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 84%, transparent); mask-image: linear-gradient(90deg, #000 84%, transparent); }
+      html:not(.js) [id] { scroll-margin-top: calc(var(--header-h) + 64px); }
+      html.js .nav-toggle { display: inline-grid; }
+      html.js .nav {
+        display: none; position: fixed; top: var(--header-h); left: 0; right: 0; bottom: auto;
+        max-height: calc(100dvh - var(--header-h)); overflow-y: auto; z-index: 70;
+        background: var(--bg); border-bottom: 1px solid var(--line);
+        padding: 8px var(--gutter) 18px; box-shadow: 0 24px 40px -20px rgba(0, 0, 0, .8);
+      }
+      html.js .nav.is-open { display: block; }
+      html.js .nav:popover-open { display: block; }
+      html.js .nav ul { flex-direction: column; gap: 0; }
+      html.js .nav li a { min-height: 52px; padding: 0 4px; border-radius: 0; border-bottom: 1px solid var(--line); font-size: 1.0625rem; color: var(--text); }
+      html.js .nav .nav-wa { display: flex; margin-top: 14px; }
+    }
+    @media (min-width: 1024px) {
+      .nav { margin-inline: auto; }
+      .header .btn-consultor { display: inline-flex; }
+      .brand { margin-right: 0; }
+    }
+    /* Celulares bem estreitos (320–359 px): tudo cabe numa linha, sem quebrar "Acessar Loja" */
+    @media (max-width: 359.98px) {
+      .brand img { height: 36px; }
+      .header-actions { gap: 6px; }
+      .btn-loja { padding: 0 12px; font-size: .875rem; gap: 6px; }
+      .btn-loja .ico { width: 18px; height: 18px; }
+    }
+
+    /* =========================================================================================
+       5. HERO — câmera de cinema entre bastões de luz, com o visor da câmera por cima
+       ========================================================================================= */
+    .hero { position: relative; isolation: isolate; overflow: hidden; }
+    .hero-media { position: absolute; z-index: -2; left: 0; right: 0; top: 0; height: 300px; background: #0A1414; }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+    .hero-media::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11, 15, 25, .05) 0%, rgba(11, 15, 25, .22) 40%, rgba(11, 15, 25, .86) 76%, var(--bg) 100%);
+    }
+    .hero::before { /* brilho verde-água atrás do texto, lembra luz de estúdio */
+      content: ""; position: absolute; z-index: -1; width: 560px; height: 560px; left: -260px; top: auto; bottom: 0;
+      background: radial-gradient(closest-side, rgba(0, 184, 176, .20), transparent);
+    }
+
+    /* Visor da câmera (decorativo, aria-hidden): cantos de enquadramento, REC e identificação da câmera */
+    .visor {
+      position: absolute; z-index: 1; left: 12px; right: 12px; top: 12px; height: 124px; pointer-events: none;
+      font: 600 .6875rem/1 var(--font); letter-spacing: .14em; color: rgba(248, 250, 252, .85);
+      font-variant-numeric: tabular-nums; text-shadow: 0 1px 6px rgba(0, 0, 0, .6);
+    }
+    .visor-canto { position: absolute; width: 18px; height: 18px; border: 0 solid rgba(248, 250, 252, .7); }
+    .visor-canto:nth-child(1) { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; }
+    .visor-canto:nth-child(2) { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; }
+    .visor-canto:nth-child(3) { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; }
+    .visor-canto:nth-child(4) { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
+    .visor-rec { position: absolute; top: 10px; left: 12px; display: flex; align-items: center; gap: 7px; }
+    .visor-rec::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; box-shadow: 0 0 8px #EF4444; }
+    .visor-tc { position: absolute; top: 10px; right: 12px; display: none; }
+    .visor-info { position: absolute; bottom: 10px; left: 12px; opacity: .8; }
+    .visor-mira { position: absolute; left: 50%; top: 50%; width: 22px; height: 22px; margin: -11px 0 0 -11px; opacity: .45; }
+    .visor-mira::before, .visor-mira::after { content: ""; position: absolute; background: #fff; }
+    .visor-mira::before { left: 50%; top: 0; bottom: 0; width: 1px; }
+    .visor-mira::after { top: 50%; left: 0; right: 0; height: 1px; }
+
+    .hero-inner { padding-top: 156px; padding-bottom: 24px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border-radius: 999px;
+      background: rgba(11, 15, 25, .72); border: 1px solid rgba(255, 255, 255, .16);
+      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+      font-size: .875rem; font-weight: 600; color: var(--text);
+    }
+    .chip b { font-weight: 800; }
+    .chip-ic { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--green); color: var(--green-ink); }
+    .chip-ic .ico { width: 16px; height: 16px; stroke-width: 2.4; }
+    .hero h1 {
+      margin: 14px 0 12px;
+      font-size: clamp(1.9rem, 1.15rem + 3.6vw, 3.6rem); line-height: 1.07; letter-spacing: -.028em; font-weight: 800;
+      text-shadow: 0 2px 24px rgba(11, 15, 25, .6);
+    }
+    .grad { background: linear-gradient(92deg, var(--teal-hi) 0%, var(--green) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; }
+    .lead { font-size: 1.0625rem; color: var(--soft); max-width: 36em; }
+    .lead strong { color: var(--text); }
+    .hero-ctas { display: grid; gap: 10px; margin-top: 20px; }
+
+    /* Faixa de prova compacta (ícone + texto, sem cartão): as 4 garantias cabem na primeira tela */
+    .proof {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 12px;
+      margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line);
+      font-size: .8125rem; line-height: 1.3; color: var(--soft);
+    }
+    .proof li { display: flex; align-items: center; gap: 9px; }
+    .proof .ic { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; flex: none; background: rgba(16, 185, 129, .13); color: var(--green-hi); }
+    .proof .ic .ico { width: 17px; height: 17px; }
+    .proof strong { color: var(--text); font-weight: 700; }
+
+    /* Celular de tela baixa (ex.: iPhone SE dentro do navegador do Instagram): o botão principal continua na primeira tela */
+    @media (max-width: 599.98px) and (max-height: 620px) {
+      .hero-media { height: 230px; }
+      .visor { display: none; }
+      .hero-inner { padding-top: 84px; }
+      .hero h1 { font-size: 1.7rem; margin: 12px 0 10px; }
+      .lead { font-size: .975rem; line-height: 1.5; }
+      .hero-ctas { margin-top: 16px; }
+    }
+    /* Celulares de altura média (360×640, 390×664 do Instagram): um pouco menos de foto acima do texto */
+    @media (max-width: 599.98px) and (min-height: 620.02px) and (max-height: 700px) {
+      .hero-media { height: 272px; }
+      .visor { height: 104px; }
+      .hero-inner { padding-top: 132px; }
+      .hero h1 { margin: 12px 0 10px; }
+    }
+    @media (max-width: 359.98px) {
+      .btn-lg { padding-inline: 16px; font-size: 1rem; }
+      .proof { gap: 10px 8px; }
+    }
+    @media (min-width: 600px) {
+      .hero-media { height: 420px; }
+      .visor { left: 22px; right: 22px; top: 22px; height: 220px; }
+      .hero-inner { padding-top: 260px; }
+      .hero-ctas { grid-auto-flow: column; justify-content: start; }
+      .proof { grid-template-columns: repeat(4, auto); justify-content: start; gap: 12px 28px; font-size: .875rem; }
+    }
+    /* Celular deitado (tela baixa e larga): foto à direita, título e botão principal na primeira tela */
+    @media (min-width: 600px) and (max-width: 1023.98px) and (max-height: 500px) {
+      .hero-media { left: auto; width: 46%; height: auto; bottom: 0; }
+      .hero-media::after { background: linear-gradient(90deg, var(--bg) 0%, rgba(11, 15, 25, .55) 35%, rgba(11, 15, 25, .1) 75%); }
+      .visor { display: none; }
+      .hero-inner { padding-top: 16px; }
+      .hero-copy { max-width: 58%; }
+      .hero h1 { font-size: 1.6rem; margin: 10px 0 8px; }
+      .lead { font-size: .9375rem; line-height: 1.45; }
+      /* os botões passam da coluna do texto (sem quebrar linha), por cima do degradê da foto */
+      .hero-ctas { margin-top: 12px; width: max-content; max-width: calc(100vw - 2 * var(--gutter)); }
+      .hero-ctas .btn-lg { min-height: 52px; padding: 12px 20px; font-size: 1rem; white-space: nowrap; }
+    }
+    @media (min-width: 1024px) {
+      .hero-media { left: auto; width: 64%; height: auto; bottom: 0; }
+      .hero-media img { object-position: 50% 45%; }
+      .hero-media::after {
+        background:
+          linear-gradient(90deg, var(--bg) 0%, rgba(11, 15, 25, .72) 22%, rgba(11, 15, 25, .1) 52%, rgba(11, 15, 25, .05) 100%),
+          linear-gradient(0deg, var(--bg) 0%, rgba(11, 15, 25, 0) 30%);
+      }
+      .visor { left: 36%; right: 5%; top: 9%; bottom: 24%; height: auto; font-size: .75rem; }
+      .visor-canto { width: 24px; height: 24px; }
+      .visor-rec, .visor-tc { top: 14px; }
+      .visor-rec { left: 16px; }
+      .visor-tc { right: 16px; display: block; }
+      .visor-info { left: 16px; bottom: 14px; }
+      .hero::before { top: 40px; bottom: auto; left: -200px; }
+      .hero-inner { padding-top: 104px; padding-bottom: 24px; }
+      .hero-copy { max-width: min(640px, 46vw); } /* o texto nunca encosta no visor da câmera (1024–1280 px) */
+      .proof { margin-top: 64px; padding-top: 22px; gap: 14px 36px; }
+      .proof .ic { width: 36px; height: 36px; border-radius: 11px; }
+      .proof .ic .ico { width: 20px; height: 20px; }
+    }
+    /* Computador estreito (1024–1199 px): os dois botões do topo continuam em uma linha cada */
+    @media (min-width: 1024px) and (max-width: 1199.98px) {
+      .hero-ctas .btn-lg { padding-inline: 20px; white-space: nowrap; }
+    }
+    /* O ponto do REC pisca só no computador (no celular fica aceso, sem gastar bateria) */
+    @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+      .visor-rec::before { animation: piscar 1.2s steps(1) infinite; }
+    }
+    @keyframes piscar { 50% { opacity: .15; } }
+
+    /* =========================================================================================
+       6. SEÇÕES (estrutura comum) — rótulo em forma de claquete ("Cena 01", "Cena 02"…)
+       ========================================================================================= */
+    .section { padding: 48px 0; position: relative; }
+    .section-alt { background: linear-gradient(180deg, var(--bg) 0%, #0D1322 12%, #0D1322 88%, var(--bg) 100%); }
+    .section-head { margin-bottom: 22px; }
+    .cena {
+      display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+      font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--soft);
+    }
+    .cena-num {
+      position: relative; flex: none; white-space: nowrap; padding: 5px 9px 5px 28px; border-radius: 6px;
+      background: rgba(0, 184, 176, .1); box-shadow: inset 0 0 0 1px rgba(0, 184, 176, .4); color: var(--teal-hi);
+    }
+    .cena-num::before { /* listras da claquete */
+      content: ""; position: absolute; left: 6px; top: 5px; bottom: 5px; width: 15px; border-radius: 3px;
+      background: repeating-linear-gradient(135deg, var(--teal-hi) 0 3px, transparent 3px 6px); opacity: .85;
+    }
+    .section h2 { margin: 12px 0 10px; font-size: clamp(1.7rem, 1.15rem + 2.4vw, 2.75rem); line-height: 1.1; letter-spacing: -.022em; font-weight: 800; }
+    .section-sub { color: var(--muted); max-width: 40em; }
+    .section.section-cta { padding-top: 8px; }
+    .ico-verde { color: var(--green-hi); }
+    /* Linha de autoridade: marcas que a loja trabalha */
+    /* O ponto separador fica no vão entre as marcas; se a linha quebrar, o ponto do início da nova linha
+       cai fora da caixa e é cortado (overflow: hidden), então nunca sobra um "·" solto. */
+    .marcas {
+      display: flex; flex-wrap: wrap; align-items: center; column-gap: 1.25em; row-gap: 2px; overflow: hidden;
+      margin-top: 14px; font-size: .8125rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--soft);
+    }
+    .marcas > span:not(.sr-only) { position: relative; }
+    .marcas > span:nth-child(n+3)::before { content: "·"; position: absolute; left: -.8em; color: var(--teal); }
+    @media (min-width: 1024px) {
+      .section { padding: 92px 0; }
+      .section-head { margin-bottom: 40px; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+      .section-head .section-sub { max-width: 30em; }
+      .section-head .marcas { justify-content: flex-start; }
+    }
+
+    /* =========================================================================================
+       7. CATEGORIAS — cards com imagem de fundo fosca + botão de WhatsApp em cada um
+       ========================================================================================= */
+    .cat-grid { display: grid; gap: 12px; }
+    .cat {
+      position: relative; isolation: isolate; overflow: hidden; min-height: 248px;
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 18px;
+      border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line);
+    }
+    .cat img {
+      position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover;
+      filter: saturate(.85) brightness(.78) contrast(1.05); transition: transform .7s ease;
+    }
+    .cat::after {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(180deg, rgba(11, 15, 25, .05) 0%, rgba(11, 15, 25, .5) 34%, rgba(11, 15, 25, .95) 68%);
+    }
+    .cat-num {
+      position: absolute; top: 10px; left: 12px; padding: 3px 7px; border-radius: 6px; background: rgba(11, 15, 25, .6);
+      font-size: .75rem; font-weight: 800; letter-spacing: .14em; color: rgba(248, 250, 252, .75);
+    }
+    .cat h3 { font-size: 1.4rem; font-weight: 800; letter-spacing: -.012em; line-height: 1.15; }
+    .cat p { margin: 6px 0 16px; color: var(--soft); font-size: .9375rem; line-height: 1.45; max-width: 30em; }
+    .cat .btn { align-self: flex-start; white-space: nowrap; padding-inline: 16px; gap: 8px; }
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) { .cat:hover img { transform: scale(1.05); } }
+    @media (min-width: 760px) { .cat-grid { grid-template-columns: 1fr 1fr; } .cat { min-height: 320px; } }
+    @media (min-width: 1200px) {
+      .cat-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+      .cat { min-height: 440px; padding: 22px; }
+      .cat .btn { align-self: stretch; }
+    }
+
+    /* =========================================================================================
+       8. DESTAQUES — carrossel deslizável no celular, grade no computador
+       ========================================================================================= */
+    .prod-track {
+      display: grid; grid-auto-flow: column; grid-auto-columns: 88%; gap: 12px;
+      overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+      margin-inline: calc(var(--gutter) * -1); padding: 4px var(--gutter) 10px; scroll-padding-inline: var(--gutter);
+      scrollbar-width: none;
+    }
+    .prod-track::-webkit-scrollbar { display: none; }
+    .prod {
+      scroll-snap-align: start; display: flex; flex-direction: column; overflow: hidden;
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    }
+    .prod-media { position: relative; aspect-ratio: 4 / 3; background: #0F172A; overflow: hidden; }
+    .prod-media img { width: 100%; height: 100%; object-fit: cover; }
+    .tag {
+      position: absolute; top: 12px; left: 12px; padding: 6px 11px; border-radius: 999px;
+      background: var(--amber); color: var(--amber-ink); font-size: .75rem; font-weight: 800; letter-spacing: .02em;
+      box-shadow: 0 6px 16px -6px rgba(0, 0, 0, .6);
+    }
+    .prod-body { display: flex; flex-direction: column; gap: 14px; flex: 1; padding: 16px; }
+    .prod h3 { font-size: 1.0625rem; line-height: 1.3; font-weight: 700; }
+    .specs { display: grid; gap: 7px; font-size: .9rem; color: var(--soft); }
+    .specs li { display: flex; align-items: flex-start; gap: 9px; line-height: 1.35; }
+    .specs .ico { width: 17px; height: 17px; color: var(--green-hi); margin-top: 1px; stroke-width: 2.6; }
+    .prod-cond { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); display: grid; gap: 3px; }
+    .parc { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: .9375rem; }
+    .parc .ico { width: 18px; height: 18px; color: var(--teal-hi); }
+    .preco { font-size: .8125rem; color: var(--muted); padding-left: 26px; }
+    .prod .btn { font-size: .9rem; padding-inline: 12px; gap: 8px; letter-spacing: -.005em; }
+    .swipe { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 8px; color: var(--muted); font-size: .8125rem; }
+    .dots { display: flex; gap: 6px; }
+    .dots span { width: 7px; height: 7px; border-radius: 99px; background: var(--line-strong); transition: width .25s, background-color .25s; }
+    .dots span.is-on { width: 22px; background: var(--green); }
+    html:not(.js) .dots { display: none; }
+    @media (min-width: 760px) {
+      .prod-track { grid-auto-flow: row; grid-template-columns: 1fr 1fr; overflow: visible; margin-inline: 0; padding: 0; gap: 16px; }
+      .swipe { display: none; }
+    }
+    @media (min-width: 1200px) {
+      .prod { flex-direction: column; }
+      .prod-media { width: auto; aspect-ratio: 4 / 3; }
+      .prod-body { padding: 22px; }
+      .prod h3 { font-size: 1.125rem; }
+    }
+
+    /* =========================================================================================
+       9. DIFERENCIAIS
+       ========================================================================================= */
+    .dif-grid { display: grid; gap: 12px; }
+    .dif {
+      display: grid; grid-template-columns: 50px 1fr; gap: 14px; align-items: start; align-content: start; padding: 18px;
+      border-radius: var(--radius); background: var(--surface-2); border: 1px solid var(--line);
+    }
+    .dif .ic {
+      width: 50px; height: 50px; border-radius: 15px; display: grid; place-items: center; color: var(--green-hi);
+      background: linear-gradient(150deg, rgba(16, 185, 129, .2), rgba(0, 184, 176, .06)); border: 1px solid rgba(16, 185, 129, .28);
+    }
+    .dif .ic .ico { width: 24px; height: 24px; }
+    .dif h3 { font-size: 1.0625rem; font-weight: 700; margin: 3px 0 5px; line-height: 1.3; }
+    .dif p { color: var(--muted); font-size: .9375rem; }
+    .dif p strong { color: var(--text); }
+    .dif-cta { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 6px; color: var(--green-hi); font-weight: 700; text-decoration: none; }
+    .dif-cta:hover { color: var(--text); }
+    .dif-cta .ico { width: 18px; height: 18px; }
+    /* Bloco de destaque: o "21x" é o maior argumento de venda */
+    .dif-hero {
+      grid-template-columns: 1fr; position: relative; overflow: hidden; padding: 22px;
+      background: radial-gradient(120% 120% at 100% 0%, rgba(16, 185, 129, .22) 0%, transparent 55%), var(--surface);
+      border-color: rgba(16, 185, 129, .32);
+    }
+    .big-21 { font-size: clamp(4.5rem, 3rem + 8vw, 7.5rem); line-height: .9; font-weight: 800; letter-spacing: -.05em; white-space: nowrap; flex: none; }
+    .big-21 small { font-size: .32em; letter-spacing: -.01em; font-weight: 700; color: var(--soft); margin-left: 6px; }
+    .dif-hero h3 { font-size: 1.25rem; margin-top: 6px; }
+    .dif-hero p { font-size: 1rem; color: var(--soft); max-width: 34em; }
+    @media (min-width: 760px) { .dif-grid { grid-template-columns: 1fr 1fr; } .dif-hero { grid-column: 1 / -1; } }
+    @media (min-width: 1024px) {
+      .dif-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .dif-hero { grid-column: span 2; padding: 32px; display: flex; align-items: center; gap: 36px; }
+      .dif { padding: 24px; grid-template-columns: 1fr; }
+    }
+
+    /* =========================================================================================
+       10. PROVA SOCIAL + GARANTIA
+       ========================================================================================= */
+    .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 22px 0 18px; }
+    .stat { padding: 16px; border-radius: var(--radius-sm); background: var(--surface-2); border: 1px solid var(--line); }
+    .stat b { display: block; font-size: 1.85rem; line-height: 1.05; font-weight: 800; letter-spacing: -.03em; }
+    .stat span { display: block; margin-top: 4px; font-size: .8125rem; color: var(--muted); line-height: 1.3; }
+
+    /* Mural estilo Stories: a faixa rola para os lados no celular (região focável pelo teclado) */
+    .stories-wrap {
+      margin-inline: calc(var(--gutter) * -1); overflow-x: auto; overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); scrollbar-width: none; border-radius: 4px;
+    }
+    .stories-wrap::-webkit-scrollbar { display: none; }
+    .stories-wrap:focus-visible { outline-offset: -3px; }
+    .stories { display: grid; grid-auto-flow: column; grid-auto-columns: 148px; gap: 10px; width: max-content; padding: 4px var(--gutter) 8px; }
+    .story {
+      position: relative; aspect-ratio: 9 / 16; overflow: hidden; scroll-snap-align: start;
+      border-radius: 16px; border: 1px solid var(--line);
+      background:
+        radial-gradient(120% 60% at 50% 0%, rgba(0, 184, 176, .26), transparent 62%),
+        linear-gradient(170deg, var(--story-cor, #0F3D3A), #0B0F19 74%);
+    }
+    .story:nth-child(1) { --p: 100%; --story-cor: #0F3D3A; }
+    .story:nth-child(2) { --p: 72%;  --story-cor: #12324A; }
+    .story:nth-child(3) { --p: 46%;  --story-cor: #0D3B2C; }
+    .story:nth-child(4) { --p: 22%;  --story-cor: #1F2F45; }
+    .story::before { /* barra de progresso dos Stories */
+      content: ""; position: absolute; z-index: 2; top: 8px; left: 8px; right: 8px; height: 3px; border-radius: 3px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, .9) var(--p, 60%), rgba(255, 255, 255, .3) var(--p, 60%));
+    }
+    .story-ph { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 8px; padding: 48px 12px 52px; text-align: center; }
+    .story-topo { position: absolute; top: 19px; left: 9px; right: 9px; display: flex; align-items: center; gap: 7px; font-size: .72rem; font-weight: 600; color: rgba(248, 250, 252, .85); }
+    .story-av { /* anel em degradê do avatar, como no Instagram, nas cores da marca */
+      width: 24px; height: 24px; border-radius: 50%; padding: 2px; flex: none;
+      background: conic-gradient(var(--teal), var(--green), var(--amber), var(--teal));
+    }
+    .story-av::after { content: ""; display: block; width: 100%; height: 100%; border-radius: 50%; background: #1E293B; }
+    .story-ph .ico { width: 30px; height: 30px; color: var(--teal-hi); stroke-width: 1.7; }
+    .story-ph b { font-size: .9375rem; font-weight: 800; letter-spacing: -.01em; color: var(--text); }
+    .story-ph small { font-size: .6875rem; line-height: 1.35; letter-spacing: .06em; text-transform: uppercase; color: rgba(248, 250, 252, .66); }
+    .story-mencao { /* figurinha de menção, como nos Stories */
+      position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); padding: 6px 10px; border-radius: 8px;
+      background: rgba(248, 250, 252, .94); color: #0B0F19; font-size: .6875rem; font-weight: 800; white-space: nowrap;
+    }
+    .story-ig a {
+      position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 6px; padding: 16px; text-align: center;
+      text-decoration: none; background: radial-gradient(90% 60% at 50% 40%, rgba(0, 184, 176, .3), transparent 70%), linear-gradient(170deg, #12324A, #0B0F19 75%);
+    }
+    .story-ig .ico { width: 36px; height: 36px; color: var(--teal-hi); }
+    .story-ig strong { font-size: .9375rem; line-height: 1.25; }
+    .story-ig span { font-size: .8125rem; color: var(--soft); }
+    .story-ig a:hover strong { text-decoration: underline; }
+    .story > a:focus-visible { outline-offset: -4px; border-radius: 15px; }
+    a.story-ph { text-decoration: none; color: inherit; }
+    a.story-ph:hover small { color: var(--text); }
+    .ig-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 16px; }
+    .ig-row .btn .ico { width: 20px; height: 20px; }
+    .garantia {
+      margin-top: 28px; padding: 22px; border-radius: var(--radius);
+      background: linear-gradient(160deg, rgba(16, 185, 129, .14) 0%, rgba(30, 41, 59, .92) 48%); border: 1px solid rgba(16, 185, 129, .32);
+    }
+    .garantia-top { display: flex; align-items: center; gap: 12px; }
+    .garantia-top .ic { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: var(--green); color: var(--green-ink); flex: none; }
+    .garantia-top .ic .ico { width: 26px; height: 26px; }
+    .garantia h3 { font-size: 1.25rem; font-weight: 800; }
+    .garantia ul { display: grid; gap: 10px; margin: 18px 0 18px; }
+    .garantia li { display: flex; gap: 10px; align-items: flex-start; color: var(--soft); font-size: .9375rem; line-height: 1.45; }
+    .garantia li .ico { width: 20px; height: 20px; color: var(--green-hi); margin-top: 1px; stroke-width: 2.6; }
+    @media (min-width: 760px) { .stats { grid-template-columns: repeat(2, minmax(0, 220px)); } }
+    @media (min-width: 1024px) {
+      .prova-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
+      .stories-wrap { margin-inline: 0; overflow: visible; }
+      .stories { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); width: auto; padding: 0; gap: 12px; }
+      .story-ig { display: none; } /* no computador o botão "Ver o perfil" logo abaixo cumpre esse papel */
+      .garantia { margin-top: 0; padding: 30px; position: sticky; top: calc(var(--header-h) + 24px); }
+    }
+
+    /* =========================================================================================
+       11. PERGUNTAS FREQUENTES (<details>, funciona sem JavaScript)
+       No celular: título → perguntas → botão. No computador: título e botão à esquerda, perguntas à direita.
+       ========================================================================================= */
+    .faq-wrap { display: grid; gap: 22px; }
+    .faq-list { display: grid; gap: 10px; }
+    .faq { border-radius: var(--radius-sm); background: var(--surface); border: 1px solid var(--line); transition: border-color .2s; }
+    .faq[open] { border-color: rgba(16, 185, 129, .4); }
+    .faq summary {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; padding: 16px 18px;
+      cursor: pointer; list-style: none; font-weight: 700; font-size: 1rem; line-height: 1.35; border-radius: var(--radius-sm);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary .chev { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; flex: none; background: rgba(148, 163, 184, .1); transition: transform .3s ease, background-color .3s; }
+    .faq summary .chev .ico { width: 18px; height: 18px; }
+    .faq[open] summary .chev { transform: rotate(180deg); background: var(--green); color: var(--green-ink); }
+    .faq-a { padding: 0 18px 18px; color: var(--soft); }
+    .faq-a .btn { margin-top: 14px; }
+    @media (prefers-reduced-motion: no-preference) {
+      .faq[open] .faq-a { animation: abrir .32s ease; }
+      /* Navegadores novos: altura anima suavemente ao abrir e fechar */
+      @supports (interpolate-size: allow-keywords) {
+        .faq { interpolate-size: allow-keywords; }
+        .faq::details-content { height: 0; overflow: clip; transition: height .32s ease, content-visibility .32s allow-discrete; }
+        .faq[open]::details-content { height: auto; }
+      }
+    }
+    @keyframes abrir { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+    @media (min-width: 1024px) {
+      .faq-wrap { grid-template-columns: 1fr 1.5fr; grid-template-rows: auto 1fr; column-gap: 56px; row-gap: 20px; align-items: start; }
+      .faq-head { grid-column: 1; grid-row: 1; }
+      .faq-cta { grid-column: 1; grid-row: 2; }
+      .faq-list { grid-column: 2; grid-row: 1 / span 2; }
+      .faq summary { padding: 18px 22px; font-size: 1.0625rem; }
+      .faq-a { padding: 0 22px 22px; }
+    }
+
+    /* =========================================================================================
+       12. CHAMADA FINAL — foto de estúdio escurecida ao fundo
+       ========================================================================================= */
+    .cta-final {
+      position: relative; overflow: hidden; isolation: isolate; text-align: center; padding: 44px 20px 36px;
+      border-radius: 28px; border: 1px solid rgba(94, 234, 212, .26); background: var(--surface);
+    }
+    .cta-bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+    .cta-final::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(120% 80% at 50% 0%, rgba(0, 184, 176, .28) 0%, transparent 60%),
+        radial-gradient(70% 70% at 100% 100%, rgba(16, 185, 129, .16) 0%, transparent 60%),
+        linear-gradient(180deg, rgba(11, 15, 25, .78) 0%, rgba(11, 15, 25, .9) 100%);
+    }
+    .cta-final h2 { margin: 14px auto 12px; max-width: 18em; font-size: clamp(1.75rem, 1.1rem + 2.8vw, 3rem); line-height: 1.08; letter-spacing: -.025em; font-weight: 800; }
+    .cta-final p { color: var(--soft); max-width: 34em; margin-inline: auto; }
+    .cta-final .btn { margin-top: 24px; width: 100%; max-width: 380px; padding-inline: 18px; }
+    .cta-fone { margin-top: 14px; font-size: .9375rem; color: var(--soft); }
+    .cta-fone strong { color: var(--text); font-weight: 700; }
+    .cta-checks { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; margin-top: 18px; font-size: .875rem; color: var(--soft); }
+    .cta-checks li { display: inline-flex; align-items: center; gap: 6px; }
+    .cta-checks .ico { width: 16px; height: 16px; color: var(--green-hi); stroke-width: 2.8; }
+    @media (min-width: 760px) { .cta-final { padding: 72px 40px 56px; } }
+
+    /* =========================================================================================
+       13. RODAPÉ
+       ========================================================================================= */
+    .footer { background: var(--bg-deep); border-top: 1px solid var(--line); padding: 52px 0 calc(100px + env(safe-area-inset-bottom)); }
+    .footer-grid { display: grid; gap: 30px; }
+    .footer .brand img { height: 44px; }
+    .footer-about p { margin-top: 12px; color: var(--soft); max-width: 26em; }
+    .footer h2 { font-size: .8125rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .flink { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--soft); text-decoration: none; font-weight: 400; }
+    .flink:hover { color: var(--text); }
+    .flink .ico { width: 20px; height: 20px; color: var(--teal-hi); }
+    .legal { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); display: grid; gap: 10px; font-size: .8125rem; color: var(--muted); line-height: 1.55; }
+    .legal .copy { color: var(--soft); }
+    @media (min-width: 760px) { .footer-grid { grid-template-columns: 1.3fr 1fr 1.4fr; gap: 40px; } .footer { padding-bottom: 48px; } }
+
+    /* Termos de Uso: <dialog> com JavaScript; sem JavaScript abre pela âncora (#termos) */
+    .termos {
+      width: min(560px, calc(100% - 2 * var(--gutter))); max-height: min(86vh, 760px); padding: 0; overflow: auto;
+      border: 1px solid var(--line-strong); border-radius: 22px; background: var(--surface); color: var(--text);
+      box-shadow: 0 40px 80px -20px rgba(0, 0, 0, .8);
+    }
+    .termos::backdrop { background: rgba(3, 6, 12, .74); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+    #termos:target { display: block; position: fixed; inset: 0; margin: auto; height: fit-content; z-index: 120; }
+    .termos-in { padding: 26px 22px 22px; position: relative; }
+    .termos-x {
+      position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border-radius: 50%;
+      display: grid; place-items: center; color: var(--soft); background: rgba(148, 163, 184, .1); text-decoration: none;
+    }
+    .termos-x:hover { color: var(--text); background: rgba(148, 163, 184, .2); }
+    .termos h2 { padding-right: 52px; font-size: 1.375rem; font-weight: 800; }
+    .termos p.intro { color: var(--muted); margin: 8px 0 16px; font-size: .9375rem; }
+    .termos ol { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; color: var(--soft); font-size: .9375rem; }
+    .termos-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+
+    /* Celulares de até 399 px (iPhone SE, mini, X/11 Pro e a maioria dos Android): os botões principais
+       cabem em uma linha, sem o ícone sozinho de um lado e o texto partido do outro */
+    @media (max-width: 399.98px) {
+      .prod .btn { font-size: .8125rem; padding-inline: 8px; gap: 6px; }
+      .prod .btn .ico-wa { width: 20px; height: 20px; }
+      .cta-final { padding-inline: 14px; }
+      .cta-final .btn-lg { font-size: 1rem; padding-inline: 12px; gap: 8px; }
+      .garantia { padding: 18px; }
+      .garantia .btn { font-size: .9375rem; padding-inline: 12px; gap: 8px; }
+    }
+
+    /* =========================================================================================
+       14. BOTÃO FLUTUANTE DE WHATSAPP (só celular/tablet; respeita a área segura do iPhone)
+       Aparece quando o botão do topo sai da tela; some perto das perguntas frequentes e da chamada final.
+       Mostra "Orçamento" por um instante e vira círculo (não cobre os cards), inclusive depois de um pulo por
+       link do menu; ao rolar para cima mostra a palavra de novo e volta a ser círculo quando a rolagem para.
+       ========================================================================================= */
+    .fab {
+      position: fixed; z-index: 60; right: max(16px, env(safe-area-inset-right)); bottom: calc(16px + env(safe-area-inset-bottom));
+      display: inline-flex; align-items: center; height: 56px; padding: 0 20px 0 14px; border-radius: 999px;
+      background: var(--green); color: var(--green-ink); font-weight: 800; font-size: 1rem; text-decoration: none;
+      box-shadow: 0 14px 34px -10px rgba(16, 185, 129, .7), 0 6px 16px rgba(0, 0, 0, .45);
+      transition: transform .3s ease, opacity .3s ease, visibility 0s linear 0s, padding .25s ease; -webkit-tap-highlight-color: transparent;
+    }
+    .fab .ico { width: 28px; height: 28px; }
+    .fab-txt { display: inline-block; max-width: 7em; margin-left: 8px; overflow: hidden; white-space: nowrap; transition: max-width .25s ease, margin .25s ease, opacity .2s ease; }
+    .fab.is-compacto { padding: 0 14px; }
+    .fab.is-compacto .fab-txt { max-width: 0; margin-left: 0; opacity: 0; }
+    .fab:hover { background: var(--green-hi); }
+    html:not(.js) .fab { display: none; } /* sem JavaScript não há como saber se ele cobriria o botão do topo */
+    html.js .fab:not(.is-on) {
+      opacity: 0; visibility: hidden; transform: translateY(150%); pointer-events: none;
+      transition: transform .3s ease, opacity .3s ease, visibility 0s linear .3s; /* escondido = fora do Tab */
+    }
+    @media (min-width: 1024px) { .fab { display: none; } }
+
+    /* Movimento reduzido: sem pulsação, sem animações, sem rolagem suave */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Biblioteca de ícones SVG (desenhados inline; nenhum arquivo externo) -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/><path d="m7.5 4.27 9 5.15"/></symbol>
+    <symbol id="i-box-open" viewBox="0 0 24 24"><path d="M12 22v-9"/><path d="M15.17 2.21a1.67 1.67 0 0 1 1.63 0L21 4.57a1.93 1.93 0 0 1 0 3.36L8.82 14.79a1.66 1.66 0 0 1-1.64 0L3 12.43a1.93 1.93 0 0 1 0-3.36z"/><path d="M20 13v3.87a2.06 2.06 0 0 1-1.11 1.83l-6 3.08a1.93 1.93 0 0 1-1.78 0l-6-3.08A2.06 2.06 0 0 1 4 16.87V13"/><path d="M21 12.43a1.93 1.93 0 0 0 0-3.36L8.83 2.2a1.64 1.64 0 0 0-1.63 0L3 4.57a1.93 1.93 0 0 0 0 3.36l12.18 6.86a1.64 1.64 0 0 0 1.63 0z"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 13H8"/><path d="M16 17H8"/><path d="M16 13h-2"/></symbol>
+    <symbol id="i-group" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M16 11h.01"/><path d="M12 11h.01"/><path d="M8 11h.01"/></symbol>
+  </svg>
+
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ================================ CABEÇALHO FIXO ================================ -->
+  <header class="header" id="topo">
+    <div class="container header-bar">
+      <a class="brand" href="#topo" aria-label="BeHe Import — voltar ao início">
+        <picture>
+          <source srcset="assets/logo-behe.webp" type="image/webp">
+          <img src="assets/logo-behe.png" width="181" height="96" alt="BeHe Import">
+        </picture>
+      </a>
+
+      <!-- No celular este <nav> é um popover nativo: o botão de menu abre e fecha mesmo sem o script -->
+      <nav class="nav" id="menu" aria-label="Navegação principal" popover>
+        <ul>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#garantia">Garantia</a></li>
+          <li><a href="#faq">Perguntas Frequentes</a></li>
+        </ul>
+        <a class="btn btn-wa btn-block nav-wa" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vim%20pela%20landing%20page%20e%20gostaria%20de%20falar%20com%20um%20consultor.%20(origem%3A%20lp-menu)" data-origem="lp-menu" target="_blank" rel="noopener">
+          <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Falar com Consultor<span class="sr-only"> (abre o WhatsApp em nova aba)</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost btn-sm btn-consultor" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vim%20pela%20landing%20page%20e%20gostaria%20de%20falar%20com%20um%20consultor.%20(origem%3A%20lp-header)" data-origem="lp-header" target="_blank" rel="noopener">
+          <svg class="ico ico-fill ico-verde" aria-hidden="true"><use href="#i-wa"/></svg>Falar com Consultor<span class="sr-only"> (abre o WhatsApp em nova aba)</span>
+        </a>
+        <button class="nav-toggle" type="button" popovertarget="menu" aria-controls="menu" aria-label="Abrir menu">
+          <svg class="ico i-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="ico i-close" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+        <!-- Botão obrigatório do canto superior direito (o último item do cabeçalho, também no celular) -->
+        <a class="btn btn-wa btn-sm btn-loja" href="#produtos">
+          <svg class="ico" aria-hidden="true"><use href="#i-bag"/></svg>Acessar Loja
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ================================ HERO ================================ -->
+    <section class="hero" aria-labelledby="titulo-hero">
+      <div class="hero-media">
+        <!-- TROCAR: foto real de câmera de cinema em estúdio com luz neon (de preferência .webp).
+             O celular usa um recorte próprio (480×370) centrado na câmera; o ajuste de cor para o
+             verde-água da marca é feito no servidor de imagens (hue=150&sat=30), sem custo no aparelho. -->
+        <picture>
+          <source media="(max-width: 599.98px)"
+                  srcset="https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.42&amp;fp-y=.42&amp;w=480&amp;h=370&amp;hue=150&amp;sat=30&amp;q=70 480w,
+                          https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.42&amp;fp-y=.42&amp;w=720&amp;h=555&amp;hue=150&amp;sat=30&amp;q=70 720w,
+                          https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.42&amp;fp-y=.42&amp;w=800&amp;h=617&amp;hue=150&amp;sat=30&amp;q=70 800w,
+                          https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.42&amp;fp-y=.42&amp;w=960&amp;h=740&amp;hue=150&amp;sat=30&amp;q=70 960w"
+                  sizes="100vw" width="480" height="370">
+          <img src="https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;w=1280&amp;hue=150&amp;sat=30&amp;q=70"
+               srcset="https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;w=960&amp;hue=150&amp;sat=30&amp;q=70 960w,
+                       https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;w=1280&amp;hue=150&amp;sat=30&amp;q=70 1280w,
+                       https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;w=1600&amp;hue=150&amp;sat=30&amp;q=70 1600w,
+                       https://images.unsplash.com/photo-1598703900524-09a0c7defa29?auto=format&amp;fit=crop&amp;w=1920&amp;hue=150&amp;sat=30&amp;q=70 1920w"
+               sizes="(min-width: 1024px) 64vw, 100vw" width="1920" height="1080"
+               alt="Câmera de cinema Sony montada em tripé, entre dois bastões de luz em estúdio com fumaça"
+               fetchpriority="high" decoding="async">
+        </picture>
+        <!-- Visor da câmera: só enfeite (aria-hidden). O contador de tempo roda só no computador. -->
+        <div class="visor" aria-hidden="true">
+          <span class="visor-canto"></span><span class="visor-canto"></span><span class="visor-canto"></span><span class="visor-canto"></span>
+          <span class="visor-rec">REC</span>
+          <span class="visor-tc" data-timecode>00:00:00:00</span>
+          <span class="visor-info">CAM A · BEHE</span>
+          <span class="visor-mira"></span>
+        </div>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="chip">
+            <span class="chip-ic"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></span>
+            <span><b>+2.300 clientes</b> no Brasil</span>
+          </p>
+          <h1 id="titulo-hero">Equipamento Audiovisual de <span class="grad">Alta Performance</span> com Envio para Todo o Brasil.</h1>
+          <p class="lead">Encontre as melhores câmeras, lentes, drones e iluminação profissional. Compre com total segurança, garantia e <strong>parcele em até 21x no cartão.</strong></p>
+
+          <div class="hero-ctas">
+            <a id="cta-hero" class="btn btn-wa btn-lg btn-pulse" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Quero%20renovar%20meu%20setup%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-hero)" data-origem="lp-hero" target="_blank" rel="noopener">
+              <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero Renovar Meu Setup<span class="sr-only"> (abre o WhatsApp em nova aba)</span>
+            </a>
+            <a class="btn btn-quiet btn-lg" href="#categorias">
+              Ver catálogo<svg class="ico" aria-hidden="true"><use href="#i-down"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Faixa de prova: os 4 motivos para comprar, legíveis em 2 segundos -->
+        <ul class="proof">
+          <li><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg></span><span><strong>Até 21x</strong> no cartão de crédito</span></li>
+          <li><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg></span><span><strong>Envio seguro</strong> para todo o Brasil</span></li>
+          <li><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-badge"/></svg></span><span><strong>100% originais</strong> com garantia</span></li>
+          <li><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-headset"/></svg></span><span><strong>Atendimento humanizado</strong> no WhatsApp</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================================ CATEGORIAS ================================ -->
+    <section class="section" id="categorias" aria-labelledby="titulo-categorias">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="cena"><span class="cena-num">Cena 01</span>Categorias</p>
+            <h2 id="titulo-categorias">Tudo o que seu Estúdio Precisa</h2>
+          </div>
+          <div>
+            <p class="section-sub">Câmeras, lentes, drones, iluminação, áudio e informática de alta performance: escolha a linha e fale direto com um consultor; a cotação do dia chega pelo WhatsApp.</p>
+            <p class="marcas"><span class="sr-only">Marcas: </span><span>Sony</span><span>Canon</span><span>Nikon</span><span>DJI</span><span>Nanlite</span><span>Hollyland</span></p>
+          </div>
+        </div>
+
+        <!-- As fotos dos cards são fundo decorativo (alt vazio): o nome da categoria já está no título -->
+        <ul class="cat-grid">
+          <li class="cat">
+            <!-- TROCAR: foto real de câmeras e filmadoras da loja -->
+            <img src="https://images.unsplash.com/photo-1601506521793-dc748fc80b67?auto=format&amp;fit=crop&amp;w=720&amp;q=70"
+                 srcset="https://images.unsplash.com/photo-1601506521793-dc748fc80b67?auto=format&amp;fit=crop&amp;w=480&amp;q=70 480w,
+                         https://images.unsplash.com/photo-1601506521793-dc748fc80b67?auto=format&amp;fit=crop&amp;w=720&amp;q=70 720w,
+                         https://images.unsplash.com/photo-1601506521793-dc748fc80b67?auto=format&amp;fit=crop&amp;w=960&amp;q=70 960w"
+                 sizes="(min-width: 1200px) 280px, (min-width: 760px) 46vw, 92vw" width="960" height="640"
+                 alt="" loading="lazy" decoding="async">
+            <span class="cat-num" aria-hidden="true">01</span>
+            <h3>Câmeras &amp; Filmadoras</h3>
+            <p>Sony, Canon, Nikon e as marcas mais desejadas do mercado.</p>
+            <a class="btn btn-wa btn-sm" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20categoria%20C%C3%A2meras%20%26%20Filmadoras%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-cat-cameras)" data-origem="lp-cat-cameras" target="_blank" rel="noopener">
+              <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre Câmeras &amp; Filmadoras (abre em nova aba)</span>
+            </a>
+          </li>
+          <li class="cat">
+            <!-- TROCAR: foto real de lentes profissionais -->
+            <img src="https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?auto=format&amp;fit=crop&amp;w=720&amp;q=70"
+                 srcset="https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?auto=format&amp;fit=crop&amp;w=480&amp;q=70 480w,
+                         https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?auto=format&amp;fit=crop&amp;w=720&amp;q=70 720w,
+                         https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?auto=format&amp;fit=crop&amp;w=960&amp;q=70 960w"
+                 sizes="(min-width: 1200px) 280px, (min-width: 760px) 46vw, 92vw" width="960" height="640"
+                 alt="" loading="lazy" decoding="async">
+            <span class="cat-num" aria-hidden="true">02</span>
+            <h3>Lentes Profissionais</h3>
+            <p>A nitidez que seu trabalho exige: fixas, zooms e anamórficas.</p>
+            <a class="btn btn-wa btn-sm" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20categoria%20Lentes%20Profissionais%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-cat-lentes)" data-origem="lp-cat-lentes" target="_blank" rel="noopener">
+              <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre Lentes Profissionais (abre em nova aba)</span>
+            </a>
+          </li>
+          <li class="cat">
+            <!-- TROCAR: foto real de drones e estabilizadores DJI -->
+            <img src="https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?auto=format&amp;fit=crop&amp;w=720&amp;q=70"
+                 srcset="https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?auto=format&amp;fit=crop&amp;w=480&amp;q=70 480w,
+                         https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?auto=format&amp;fit=crop&amp;w=720&amp;q=70 720w,
+                         https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?auto=format&amp;fit=crop&amp;w=960&amp;q=70 960w"
+                 sizes="(min-width: 1200px) 280px, (min-width: 760px) 46vw, 92vw" width="960" height="640"
+                 alt="" loading="lazy" decoding="async">
+            <span class="cat-num" aria-hidden="true">03</span>
+            <h3>Drones &amp; Estabilizadores</h3>
+            <p>Linha completa DJI para capturas aéreas e movimentos perfeitos.</p>
+            <a class="btn btn-wa btn-sm" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20categoria%20Drones%20%26%20Estabilizadores%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-cat-drones)" data-origem="lp-cat-drones" target="_blank" rel="noopener">
+              <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre Drones &amp; Estabilizadores (abre em nova aba)</span>
+            </a>
+          </li>
+          <li class="cat">
+            <!-- TROCAR: foto real de iluminação Nanlite e áudio Hollyland -->
+            <img src="https://images.unsplash.com/photo-1767130298927-2df12c33e5d6?auto=format&amp;fit=crop&amp;w=720&amp;q=70"
+                 srcset="https://images.unsplash.com/photo-1767130298927-2df12c33e5d6?auto=format&amp;fit=crop&amp;w=480&amp;q=70 480w,
+                         https://images.unsplash.com/photo-1767130298927-2df12c33e5d6?auto=format&amp;fit=crop&amp;w=720&amp;q=70 720w,
+                         https://images.unsplash.com/photo-1767130298927-2df12c33e5d6?auto=format&amp;fit=crop&amp;w=960&amp;q=70 960w"
+                 sizes="(min-width: 1200px) 280px, (min-width: 760px) 46vw, 92vw" width="960" height="640"
+                 alt="" loading="lazy" decoding="async">
+            <span class="cat-num" aria-hidden="true">04</span>
+            <h3>Iluminação &amp; Áudio</h3>
+            <p>Bastões de LED, painéis Nanlite e microfones Hollyland para áudio cristalino.</p>
+            <a class="btn btn-wa btn-sm" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20categoria%20Ilumina%C3%A7%C3%A3o%20%26%20%C3%81udio%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-cat-iluminacao-audio)" data-origem="lp-cat-iluminacao-audio" target="_blank" rel="noopener">
+              <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre Iluminação &amp; Áudio (abre em nova aba)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================================ DESTAQUES ================================ -->
+    <section class="section section-alt" id="produtos" aria-labelledby="titulo-produtos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="cena"><span class="cena-num">Cena 02</span>Destaques da Semana</p>
+            <h2 id="titulo-produtos">Os Mais Pedidos do Momento</h2>
+          </div>
+          <p class="section-sub">Preço sob consulta: como o mercado de importados oscila com o câmbio, a cotação é feita na hora, pelo WhatsApp.</p>
+        </div>
+
+        <ul class="prod-track" id="carrossel">
+          <li class="prod">
+            <div class="prod-media">
+              <!-- TROCAR: foto real da Sony Alpha A7 IV, só o corpo (o produto é vendido sem lente) -->
+              <img src="https://images.unsplash.com/photo-1647920564028-5756c7af4bd1?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1647920564028-5756c7af4bd1?auto=format&amp;fit=crop&amp;w=400&amp;h=300&amp;q=70 400w,
+                           https://images.unsplash.com/photo-1647920564028-5756c7af4bd1?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70 600w,
+                           https://images.unsplash.com/photo-1647920564028-5756c7af4bd1?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=70 800w"
+                   sizes="(min-width: 1200px) 560px, (min-width: 760px) 46vw, 84vw" width="800" height="600"
+                   alt="Câmera mirrorless Sony Alpha (imagem ilustrativa; produto vendido sem lente)" loading="lazy" decoding="async">
+              <span class="tag">Mais Vendido</span>
+            </div>
+            <div class="prod-body">
+              <h3>Câmera Mirrorless Sony Alpha A7 IV (Corpo)</h3>
+              <ul class="specs">
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Sensor 33MP</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Gravação 4K 60p</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Autofoco em tempo real</li>
+              </ul>
+              <div class="prod-cond">
+                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
+                <span class="preco">Preço sob consulta</span>
+              </div>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20Sony%20A7%20IV%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-a7iv)" data-origem="lp-destaque-a7iv" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Sony Alpha A7 IV (abre em nova aba)</span>
+              </a>
+            </div>
+          </li>
+
+          <li class="prod">
+            <div class="prod-media">
+              <!-- TROCAR: foto real do DJI Mini 4 Pro -->
+              <img src="https://images.unsplash.com/photo-1588434013438-e1dd134eda16?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1588434013438-e1dd134eda16?auto=format&amp;fit=crop&amp;w=400&amp;h=300&amp;q=70 400w,
+                           https://images.unsplash.com/photo-1588434013438-e1dd134eda16?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70 600w,
+                           https://images.unsplash.com/photo-1588434013438-e1dd134eda16?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=70 800w"
+                   sizes="(min-width: 1200px) 560px, (min-width: 760px) 46vw, 84vw" width="800" height="600"
+                   alt="Drone compacto DJI Mini visto de cima, sobre fundo preto (imagem ilustrativa)" loading="lazy" decoding="async">
+              <span class="tag">Favorito dos Criadores</span>
+            </div>
+            <div class="prod-body">
+              <h3>Drone DJI Mini 4 Pro</h3>
+              <ul class="specs">
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Menos de 249 g</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vídeo 4K/60fps HDR</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Detecção de obstáculos omnidirecional</li>
+              </ul>
+              <div class="prod-cond">
+                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
+                <span class="preco">Preço sob consulta</span>
+              </div>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20o%20DJI%20Mini%204%20Pro%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-mini4pro)" data-origem="lp-destaque-mini4pro" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> do DJI Mini 4 Pro (abre em nova aba)</span>
+              </a>
+            </div>
+          </li>
+
+          <li class="prod">
+            <div class="prod-media">
+              <!-- TROCAR: foto real da lente Sony FE 24-70mm f/2.8 GM II. Até lá, a foto provisória não mostra
+                   nenhuma gravação de modelo ou abertura (a anterior era de outra lente e contradizia o card). -->
+              <img src="https://images.unsplash.com/photo-1535540878298-a155c6d065ef?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1535540878298-a155c6d065ef?auto=format&amp;fit=crop&amp;w=400&amp;h=300&amp;q=70 400w,
+                           https://images.unsplash.com/photo-1535540878298-a155c6d065ef?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70 600w,
+                           https://images.unsplash.com/photo-1535540878298-a155c6d065ef?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=70 800w"
+                   sizes="(min-width: 1200px) 560px, (min-width: 760px) 46vw, 84vw" width="800" height="600"
+                   alt="Lente profissional montada em câmera de cinema, em close (imagem ilustrativa)" loading="lazy" decoding="async">
+              <span class="tag">Alta Performance</span>
+            </div>
+            <div class="prod-body">
+              <h3>Lente Sony <span class="nowrap">FE 24-70mm</span> f/2.8 GM II</h3>
+              <ul class="specs">
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Abertura f/2.8 constante</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Apenas 695 g</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>4 motores XD Linear</li>
+              </ul>
+              <div class="prod-cond">
+                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
+                <span class="preco">Preço sob consulta</span>
+              </div>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20lente%20Sony%20FE%2024-70mm%20f%2F2.8%20GM%20II%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-2470gm2)" data-origem="lp-destaque-2470gm2" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da lente Sony FE 24-70mm f/2.8 GM II (abre em nova aba)</span>
+              </a>
+            </div>
+          </li>
+
+          <li class="prod">
+            <div class="prod-media">
+              <!-- TROCAR: foto real do microfone sem fio Hollyland Lark M2 -->
+              <img src="https://images.unsplash.com/photo-1792044430390-0e77ea2599d4?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.5&amp;fp-y=.42&amp;fp-z=1.6&amp;w=600&amp;h=450&amp;q=70"
+                   srcset="https://images.unsplash.com/photo-1792044430390-0e77ea2599d4?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.5&amp;fp-y=.42&amp;fp-z=1.6&amp;w=400&amp;h=300&amp;q=70 400w,
+                           https://images.unsplash.com/photo-1792044430390-0e77ea2599d4?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.5&amp;fp-y=.42&amp;fp-z=1.6&amp;w=600&amp;h=450&amp;q=70 600w,
+                           https://images.unsplash.com/photo-1792044430390-0e77ea2599d4?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.5&amp;fp-y=.42&amp;fp-z=1.6&amp;w=800&amp;h=600&amp;q=70 800w"
+                   sizes="(min-width: 1200px) 560px, (min-width: 760px) 46vw, 84vw" width="800" height="600"
+                   alt="Transmissor de microfone de lapela sem fio com protetor de vento, na mão (imagem ilustrativa)" loading="lazy" decoding="async">
+              <span class="tag">Áudio Profissional</span>
+            </div>
+            <div class="prod-body">
+              <h3>Microfone sem fio Hollyland Lark M2</h3>
+              <ul class="specs">
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Transmissor de 9 g</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Alcance de até 300 m</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Até 40 h com o estojo</li>
+              </ul>
+              <div class="prod-cond">
+                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
+                <span class="preco">Preço sob consulta</span>
+              </div>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20o%20microfone%20Hollyland%20Lark%20M2%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-larkm2)" data-origem="lp-destaque-larkm2" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> do Hollyland Lark M2 (abre em nova aba)</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+        <div class="swipe" aria-hidden="true">
+          <span>Arraste para ver os 4 destaques →</span>
+          <span class="dots" id="dots"><span class="is-on"></span><span></span><span></span><span></span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ DIFERENCIAIS ================================ -->
+    <section class="section" id="diferenciais" aria-labelledby="titulo-diferenciais">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="cena"><span class="cena-num">Cena 03</span>Por que comprar na BeHe?</p>
+            <h2 id="titulo-diferenciais">Experiência de Compra Premium e Sem Riscos</h2>
+          </div>
+        </div>
+
+        <ul class="dif-grid">
+          <li class="dif dif-hero">
+            <div class="big-21 grad" aria-hidden="true">21x<small>no cartão</small></div>
+            <div>
+              <h3>Parcelamento Incomparável</h3>
+              <p>Divida suas compras em até <strong>21 vezes no cartão</strong>. O investimento que cabe no fluxo de caixa do seu negócio.</p>
+            </div>
+          </li>
+          <li class="dif">
+            <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-package"/></svg></span>
+            <div>
+              <h3>Envio Seguro para todo o Brasil</h3>
+              <p>Todos os produtos são embalados com proteção máxima e enviados com seguro total contra extravios.</p>
+            </div>
+          </li>
+          <li class="dif">
+            <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span>
+            <div>
+              <h3>Garantia &amp; Procedência</h3>
+              <p>Equipamentos 100% originais com garantia de fábrica e suporte pós-venda dedicado.</p>
+            </div>
+          </li>
+          <li class="dif">
+            <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-headset"/></svg></span>
+            <div>
+              <h3>Atendimento VIP via WhatsApp</h3>
+              <p>Atendimento humanizado e personalizado: você fala com um consultor, tira suas dúvidas e recebe a cotação do dia.</p>
+              <a class="dif-cta" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20consultor%20da%20BeHe%20Import.%20(origem%3A%20lp-diferenciais-vip)" data-origem="lp-diferenciais-vip" target="_blank" rel="noopener">
+                <svg class="ico ico-fill" aria-hidden="true"><use href="#i-wa"/></svg>Falar com um consultor<span class="sr-only"> no WhatsApp (abre em nova aba)</span>
+              </a>
+            </div>
+          </li>
+          <li class="dif">
+            <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-refresh"/></svg></span>
+            <div>
+              <h3>Conta Reserva de Segurança</h3>
+              <p>Siga também nosso perfil reserva <a class="inline-link" href="https://www.instagram.com/beheimport_reserva/" target="_blank" rel="noopener">@beheimport_reserva<span class="sr-only"> (abre o Instagram em nova aba)</span></a> para conferir novidades e manter contato direto sempre.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================================ PROVA SOCIAL + GARANTIA ================================ -->
+    <section class="section section-alt" id="prova-social" aria-labelledby="titulo-prova">
+      <div class="container prova-grid">
+        <div>
+          <p class="cena"><span class="cena-num">Cena 04</span>Prova Social &amp; Confiança</p>
+          <h2 id="titulo-prova">Quem Compra, Recomenda</h2>
+          <p class="section-sub">Já são mais de 3.600 profissionais do audiovisual acompanhando nosso trabalho diariamente no perfil oficial <a class="inline-link" href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener">@behe_ofc<span class="sr-only"> (abre o Instagram em nova aba)</span></a>.</p>
+
+          <div class="stats">
+            <div class="stat"><b class="grad">+2.300</b><span>clientes atendidos no Brasil</span></div>
+            <div class="stat"><b>+3.600</b><span>profissionais seguem o @behe_ofc</span></div>
+          </div>
+
+          <!--
+            MURAL DE STORIES — espaços reservados (sem foto) para os prints REAIS dos clientes.
+            Enquanto os prints não chegam, cada quadro é um link para o @behe_ofc (o cliente vê "Veja no Instagram",
+            nunca um aviso de bastidor). Como trocar (publique só prints com autorização do cliente):
+            1. Salve cada print (vertical, 9:16, ex.: 1080×1920) em assets/stories/ como .webp.
+            2. Em cada <li class="story">, troque o bloco <a class="story-ph" ...>…</a> inteiro por:
+               <img src="assets/stories/cliente-1.webp" width="1080" height="1920" loading="lazy" decoding="async"
+                    alt="Story de cliente mostrando o unboxing do equipamento e marcando @behe_ofc">
+               e acrescente ao CSS:  .story img { width: 100%; height: 100%; object-fit: cover; }
+            3. A moldura 9:16, os cantos e a barra de progresso continuam vindo do CSS (classe .story).
+            4. Para mais prints, copie um <li class="story"> inteiro. A barra do topo usa --p (0% a 100%).
+          -->
+          <section class="stories-wrap" aria-label="Mural de Stories de clientes (role para os lados)" tabindex="0">
+            <ul class="stories">
+              <li class="story">
+                <!-- TROCAR: print real de cliente (unboxing) -->
+                <a class="story-ph" href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener" aria-label="Unboxing: veja os Stories de clientes no Instagram @behe_ofc (abre em nova aba)">
+                  <span class="story-topo"><span class="story-av"></span>cliente</span>
+                  <svg class="ico" aria-hidden="true"><use href="#i-package"/></svg>
+                  <b>Unboxing</b>
+                  <small>Veja no Instagram</small>
+                  <span class="story-mencao">@behe_ofc</span>
+                </a>
+              </li>
+              <li class="story">
+                <!-- TROCAR: print real de cliente (caixa aberta) -->
+                <a class="story-ph" href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener" aria-label="Caixa aberta: veja os Stories de clientes no Instagram @behe_ofc (abre em nova aba)">
+                  <span class="story-topo"><span class="story-av"></span>cliente</span>
+                  <svg class="ico" aria-hidden="true"><use href="#i-box-open"/></svg>
+                  <b>Caixa aberta</b>
+                  <small>Veja no Instagram</small>
+                  <span class="story-mencao">@behe_ofc</span>
+                </a>
+              </li>
+              <li class="story">
+                <!-- TROCAR: print real de cliente (setup montado) -->
+                <a class="story-ph" href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener" aria-label="Setup montado: veja os Stories de clientes no Instagram @behe_ofc (abre em nova aba)">
+                  <span class="story-topo"><span class="story-av"></span>cliente</span>
+                  <svg class="ico" aria-hidden="true"><use href="#i-camera"/></svg>
+                  <b>Setup montado</b>
+                  <small>Veja no Instagram</small>
+                  <span class="story-mencao">@behe_ofc</span>
+                </a>
+              </li>
+              <li class="story">
+                <!-- TROCAR: print real de cliente (agradecimento marcando a loja) -->
+                <a class="story-ph" href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener" aria-label="Agradecimento: veja os Stories de clientes no Instagram @behe_ofc (abre em nova aba)">
+                  <span class="story-topo"><span class="story-av"></span>cliente</span>
+                  <svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg>
+                  <b>Agradecimento</b>
+                  <small>Veja no Instagram</small>
+                  <span class="story-mencao">@behe_ofc</span>
+                </a>
+              </li>
+              <li class="story story-ig">
+                <a href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener">
+                  <svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>
+                  <strong>Ver mais no Instagram</strong>
+                  <span>@behe_ofc</span><span class="sr-only"> (abre em nova aba)</span>
+                </a>
+              </li>
+            </ul>
+          </section>
+
+          <div class="ig-row">
+            <a class="btn btn-ghost" href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener">
+              <svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Ver o perfil @behe_ofc<span class="sr-only"> (abre o Instagram em nova aba)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Garantia e pós-venda: só fatos do documento oficial (sem prazos ou cláusulas inventadas) -->
+        <div class="garantia" id="garantia">
+          <div class="garantia-top">
+            <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span>
+            <h3 id="titulo-garantia">Garantia e pós-venda</h3>
+          </div>
+          <ul>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Equipamentos 100% originais, com garantia de fábrica.</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Garantia integral contra defeitos de fabricação em todos os eletrônicos e ópticos.</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Envio com seguro total contra extravios.</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Suporte pós-venda dedicado.</li>
+          </ul>
+          <a class="btn btn-wa btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20garantia%20dos%20equipamentos.%20(origem%3A%20lp-garantia)" data-origem="lp-garantia" target="_blank" rel="noopener">
+            <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Tirar dúvida sobre garantia<span class="sr-only"> no WhatsApp (abre em nova aba)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ PERGUNTAS FREQUENTES ================================ -->
+    <section class="section" id="faq" aria-labelledby="titulo-faq">
+      <div class="container faq-wrap">
+        <div class="faq-head">
+          <p class="cena"><span class="cena-num">Cena 05</span>Dúvidas</p>
+          <h2 id="titulo-faq">Perguntas Frequentes</h2>
+          <p class="section-sub">As principais dúvidas antes de chamar no WhatsApp.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq" id="faq-envio" name="faq" open>
+            <summary>Como funciona o envio?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
+            <div class="faq-a"><p>Enviamos para todo o território nacional via transportadoras privadas ou Correios, sempre com seguro total incluso no valor do frete.</p></div>
+          </details>
+          <details class="faq" name="faq">
+            <summary>Posso parcelar em mais de um cartão?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
+            <div class="faq-a"><p>Sim! Facilitamos o pagamento para que você monte seu setup. É possível dividir o valor em até dois cartões diferentes ou dar uma entrada via Pix e parcelar o restante.</p></div>
+          </details>
+          <details class="faq" name="faq">
+            <summary>Como faço para consultar os preços atuais?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
+            <div class="faq-a"><p>Como o mercado de importados oscila de acordo com o câmbio, garantimos sempre a melhor cotação do dia diretamente pelo nosso atendimento personalizado no WhatsApp.</p></div>
+          </details>
+          <details class="faq" name="faq">
+            <summary>Os equipamentos têm garantia?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
+            <div class="faq-a"><p>Todos os nossos equipamentos eletrônicos e ópticos contam com garantia integral contra defeitos de fabricação.</p></div>
+          </details>
+          <details class="faq" id="faq-estoque" name="faq">
+            <summary>Como sei se o produto está em estoque?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
+            <div class="faq-a">
+              <p>A disponibilidade de cada equipamento é confirmada na hora pelo WhatsApp, junto com a cotação do dia. É só chamar um consultor.</p>
+              <a class="btn btn-wa-outline btn-sm" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20a%20disponibilidade%20de%20um%20equipamento%20em%20estoque.%20(origem%3A%20lp-faq-estoque)" data-origem="lp-faq-estoque" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar disponibilidade<span class="sr-only"> no WhatsApp (abre em nova aba)</span>
+              </a>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-cta">
+          <a class="btn btn-wa-outline" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20que%20n%C3%A3o%20encontrei%20nas%20perguntas%20frequentes.%20(origem%3A%20lp-faq)" data-origem="lp-faq" target="_blank" rel="noopener">
+            <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> com outra dúvida (abre em nova aba)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ CHAMADA FINAL ================================ -->
+    <section class="section section-cta" aria-labelledby="titulo-cta">
+      <div class="container">
+        <div class="cta-final" id="cta-final">
+          <!-- TROCAR: foto real do estúdio ou da loja (fica escurecida de propósito pelo degradê por cima) -->
+          <img class="cta-bg" src="https://images.unsplash.com/photo-1727451139462-cd34008cd50b?auto=format&amp;fit=crop&amp;w=800&amp;q=45"
+               srcset="https://images.unsplash.com/photo-1727451139462-cd34008cd50b?auto=format&amp;fit=crop&amp;w=640&amp;q=45 640w,
+                       https://images.unsplash.com/photo-1727451139462-cd34008cd50b?auto=format&amp;fit=crop&amp;w=800&amp;q=45 800w,
+                       https://images.unsplash.com/photo-1727451139462-cd34008cd50b?auto=format&amp;fit=crop&amp;w=1600&amp;q=50 1600w"
+               sizes="(min-width: 1200px) 1144px, (min-width: 760px) 100vw, 60vw" width="1600" height="1280"
+               alt="" loading="lazy" decoding="async">
+          <p class="cena"><span class="cena-num">Corta!</span>Sua próxima cena</p>
+          <h2 id="titulo-cta">Monte seu setup hoje e parcele em até <span class="grad">21x no cartão.</span></h2>
+          <p>Fale com um consultor da BeHe Import e receba a cotação do dia, com envio seguro para todo o Brasil.</p>
+          <a class="btn btn-wa btn-lg" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Quero%20montar%20meu%20setup%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-cta-final)" data-origem="lp-cta-final" target="_blank" rel="noopener">
+            <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero Renovar Meu Setup<span class="sr-only"> (abre o WhatsApp em nova aba)</span>
+          </a>
+          <p class="cta-fone">WhatsApp de vendas: <strong class="nowrap">+55 45 99838-2728</strong></p>
+          <ul class="cta-checks">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>100% originais</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Garantia de fábrica</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Seguro total no envio</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ BOTÃO FLUTUANTE ================================ -->
+    <a class="fab" id="fab" aria-label="Fazer um orçamento pelo WhatsApp (abre em nova aba)" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento.%20(origem%3A%20lp-flutuante)" data-origem="lp-flutuante" target="_blank" rel="noopener">
+      <svg class="ico ico-fill" aria-hidden="true"><use href="#i-wa"/></svg><span class="fab-txt" aria-hidden="true">Orçamento</span>
+    </a>
+  </main>
+
+  <!-- ================================ RODAPÉ ================================ -->
+  <footer class="footer" id="rodape">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a class="brand" href="#topo" aria-label="BeHe Import — voltar ao início">
+            <picture>
+              <source srcset="assets/logo-behe.webp" type="image/webp">
+              <img src="assets/logo-behe.png" width="181" height="96" alt="BeHe Import" loading="lazy">
+            </picture>
+          </a>
+          <p>BeHe Import - As melhores marcas do mundo audiovisual ao seu alcance.</p>
+        </div>
+
+        <nav aria-labelledby="titulo-links">
+          <h2 id="titulo-links">Links Rápidos</h2>
+          <ul>
+            <li><a class="flink" href="#termos" data-abrir-termos aria-haspopup="dialog"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg>Termos de Uso</a></li>
+            <li><a class="flink" href="#faq-envio" data-abrir-faq="faq-envio"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg>Políticas de Envio</a></li>
+            <li><a class="flink" href="#garantia"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>Garantia</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2>Redes Sociais</h2>
+          <ul>
+            <li><a class="flink" href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram principal: @behe_ofc<span class="sr-only"> (abre em nova aba)</span></a></li>
+            <li><a class="flink" href="https://www.instagram.com/beheimport_reserva/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram reserva: @beheimport_reserva<span class="sr-only"> (abre em nova aba)</span></a></li>
+            <li><a class="flink" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vim%20pela%20landing%20page%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento.%20(origem%3A%20lp-rodape)" data-origem="lp-rodape" target="_blank" rel="noopener"><svg class="ico ico-fill" aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp de vendas: <span class="nowrap">+55 45 99838-2728</span></span><span class="sr-only"> (abre em nova aba)</span></a></li>
+            <li><a class="flink" href="https://chat.whatsapp.com/JmunLqSKqDAGxGLWo3k3Ql" data-origem="lp-rodape-grupo" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-group"/></svg>Grupo da loja no WhatsApp<span class="sr-only"> (abre em nova aba)</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="legal">
+        <p>Preços e disponibilidade sujeitos à variação do câmbio do dia, confirmados no atendimento pelo WhatsApp. Imagens meramente ilustrativas. As marcas citadas (Sony, Canon, Nikon, DJI, Nanlite e Hollyland) pertencem aos respectivos donos.</p>
+        <p class="copy">© <span data-ano>2026</span> BeHe Import. Todos os direitos reservados. Design focado em performance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================ TERMOS DE USO ================================
+       Montado só com informações desta página (sem cláusulas inventadas).
+       Com JavaScript abre como janela; sem JavaScript aparece pela âncora #termos. -->
+  <dialog class="termos" id="termos" aria-labelledby="titulo-termos">
+    <div class="termos-in">
+      <a class="termos-x" href="#rodape" data-fechar-termos aria-label="Fechar os termos de uso" autofocus><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></a>
+      <h2 id="titulo-termos">Termos de Uso</h2>
+      <p class="intro">Resumo das condições de compra na BeHe Import.</p>
+      <ol>
+        <li><strong>Preços:</strong> como o mercado de importados oscila de acordo com o câmbio, os preços são informados sob consulta, com a cotação do dia, no atendimento pelo WhatsApp.</li>
+        <li><strong>Pagamento:</strong> parcelamento em até 21x no cartão de crédito. É possível dividir o valor em até dois cartões diferentes ou dar uma entrada via Pix e parcelar o restante.</li>
+        <li><strong>Envio:</strong> para todo o território nacional via transportadoras privadas ou Correios, sempre com seguro total incluso no valor do frete.</li>
+        <li><strong>Garantia:</strong> equipamentos 100% originais, com garantia de fábrica e garantia integral contra defeitos de fabricação nos eletrônicos e ópticos.</li>
+        <li><strong>Disponibilidade:</strong> o estoque de cada equipamento é confirmado no atendimento pelo WhatsApp.</li>
+        <li><strong>Imagens e marcas:</strong> as imagens desta página são ilustrativas e as marcas citadas pertencem aos respectivos donos.</li>
+      </ol>
+      <div class="termos-actions">
+        <a class="btn btn-wa btn-sm" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Li%20os%20termos%20de%20uso%20na%20landing%20page%20e%20tenho%20uma%20d%C3%BAvida.%20(origem%3A%20lp-termos)" data-origem="lp-termos" target="_blank" rel="noopener">
+          <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Tirar dúvida no WhatsApp<span class="sr-only"> (abre em nova aba)</span>
+        </a>
+        <a class="btn btn-quiet btn-sm" href="#rodape" data-fechar-termos>Fechar</a>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    /* ==========================================================================================
+       JavaScript mínimo — a página funciona inteira sem ele. Aqui só entram melhorias:
+       1) medição de cliques no WhatsApp (Pixel do Meta, GA4 ou Google Tag Manager, se estiverem ativos);
+       2) menu do celular (foco no 1º link, Esc devolve o foco, fecha ao virar tela grande);
+       3) abrir a pergunta certa e os Termos pelos links do rodapé; 4) indicador do carrossel;
+       5) mural de Stories focável só quando rola; 6) botão flutuante (aparece, some e vira círculo);
+       7) contador do visor da câmera (só no computador); 8) ano do copyright.
+       ========================================================================================== */
+    (function () {
+      'use strict';
+      var doc = document;
+
+      function aoMudar(consulta, funcao) { // matchMedia em navegadores novos e antigos
+        if (consulta.addEventListener) consulta.addEventListener('change', funcao);
+        else if (consulta.addListener) consulta.addListener(funcao);
+      }
+      var telaGrande = window.matchMedia('(min-width: 1024px)');
+      var menosMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      // 1) Medição: todo link com data-origem é um clique de WhatsApp
+      function medir(origem, url) {
+        try {
+          if (typeof window.fbq === 'function') window.fbq('track', 'Contact', { content_name: origem });
+          if (typeof window.gtag === 'function') window.gtag('event', 'clique_whatsapp', { origem: origem, link_url: url });
+          else if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event: 'clique_whatsapp', origem: origem, link_url: url });
+        } catch (erro) { /* a medição nunca pode impedir a conversa */ }
+      }
+      doc.addEventListener('click', function (evento) {
+        var link = evento.target.closest && evento.target.closest('a[data-origem]');
+        if (link) medir(link.getAttribute('data-origem'), link.href);
+      });
+
+      // 2) Menu do celular. Com popover nativo, o navegador abre/fecha (inclusive Esc e toque fora);
+      //    sem suporte a popover, o script faz o mesmo papel com a classe .is-open.
+      var botaoMenu = doc.querySelector('.nav-toggle');
+      var menu = doc.getElementById('menu');
+      if (botaoMenu && menu) {
+        var temPopover = typeof menu.showPopover === 'function';
+        var menuAberto = function () {
+          if (!temPopover) return menu.classList.contains('is-open');
+          try { return menu.matches(':popover-open'); } catch (e) { return false; }
+        };
+        var sincronizar = function (aberto) {
+          botaoMenu.classList.toggle('is-aberto', aberto); // troca o ícone ☰/✕
+          // com popovertarget o navegador já informa "expandido"; aria-expanded só no modo sem popover
+          if (!temPopover) botaoMenu.setAttribute('aria-expanded', String(aberto));
+          botaoMenu.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+          if (aberto && !telaGrande.matches) { var primeiro = menu.querySelector('a'); if (primeiro) primeiro.focus(); }
+        };
+        var fecharMenu = function (devolverFoco) {
+          if (!menuAberto()) return;
+          if (temPopover) menu.hidePopover();
+          else { menu.classList.remove('is-open'); sincronizar(false); }
+          if (devolverFoco) botaoMenu.focus();
+        };
+        if (temPopover) {
+          menu.addEventListener('toggle', function (e) { sincronizar(e.newState === 'open'); });
+        } else {
+          botaoMenu.removeAttribute('popovertarget');
+          menu.removeAttribute('popover');
+          botaoMenu.setAttribute('aria-expanded', 'false');
+          botaoMenu.addEventListener('click', function () { sincronizar(menu.classList.toggle('is-open')); });
+          doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') fecharMenu(true); });
+          doc.addEventListener('click', function (e) { if (!e.target.closest('.header')) fecharMenu(false); });
+        }
+        // O "toque fora para fechar" do popover não engole o clique: sem isto, tocar fora em cima do botão do
+        // topo fechava o menu E abria o WhatsApp. Até 400 ms depois de fechar, o toque fora só fecha.
+        var fechouEm = 0;
+        menu.addEventListener('beforetoggle', function (e) { if (e.newState === 'closed') fechouEm = Date.now(); });
+        doc.addEventListener('click', function (e) {
+          if (Date.now() - fechouEm < 400 && !e.target.closest('#menu, .nav-toggle, .btn-loja')) {
+            e.preventDefault(); e.stopPropagation();
+          }
+        }, true);
+        menu.addEventListener('click', function (e) { if (e.target.closest('a')) fecharMenu(false); });
+        aoMudar(telaGrande, function () { if (telaGrande.matches) fecharMenu(false); });
+      }
+
+      // 3a) "Políticas de Envio" no rodapé (e qualquer link para dentro de uma pergunta) abre a pergunta
+      function abrirPergunta(id) {
+        var alvo = id && doc.getElementById(id);
+        var item = alvo && (alvo.tagName === 'DETAILS' ? alvo : alvo.closest('details'));
+        if (item) item.open = true;
+      }
+      doc.querySelectorAll('[data-abrir-faq]').forEach(function (link) {
+        link.addEventListener('click', function () { abrirPergunta(link.getAttribute('data-abrir-faq')); });
+      });
+      if (location.hash) { try { abrirPergunta(decodeURIComponent(location.hash.slice(1))); } catch (e) {} }
+
+      // 3b) Termos de Uso em <dialog> (o foco vai para o X do topo, que tem autofocus)
+      var termos = doc.getElementById('termos');
+      if (termos && typeof termos.showModal === 'function') {
+        doc.querySelectorAll('[data-abrir-termos]').forEach(function (link) {
+          link.addEventListener('click', function (e) { e.preventDefault(); termos.showModal(); });
+        });
+        termos.querySelectorAll('[data-fechar-termos]').forEach(function (b) {
+          b.addEventListener('click', function (e) { e.preventDefault(); termos.close(); });
+        });
+        termos.addEventListener('click', function (e) { if (e.target === termos) termos.close(); }); // clique fora fecha
+        if (location.hash === '#termos') { history.replaceState(null, '', location.pathname); termos.showModal(); }
+      }
+
+      // 4) Indicador do carrossel de destaques (só no celular)
+      var trilho = doc.getElementById('carrossel');
+      var pontos = doc.querySelectorAll('#dots span');
+      // Navegando por Tab, o card do botão focado entra inteiro na tela (só quando o trilho rola para os lados)
+      if (trilho) trilho.addEventListener('focusin', function (e) {
+        if (trilho.scrollWidth <= trilho.clientWidth + 1) return;
+        var c = e.target.closest('.prod');
+        if (c) c.scrollIntoView({ block: 'nearest', inline: 'start' });
+      });
+      // O carregamento preguiçoso nativo só olha a rolagem vertical: as fotos dos cards fora da tela, à direita
+      // do trilho, só começariam a baixar no deslize. Quando os destaques se aproximam, todas passam a carregar já.
+      if (trilho && 'IntersectionObserver' in window) {
+        var preCarga = new IntersectionObserver(function (entradas) {
+          if (!entradas[0].isIntersecting) return;
+          trilho.querySelectorAll('img[loading="lazy"]').forEach(function (img) { img.loading = 'eager'; });
+          preCarga.disconnect();
+        }, { rootMargin: '600px 0px' });
+        preCarga.observe(trilho);
+      }
+      if (trilho && pontos.length) {
+        var agendado = false;
+        trilho.addEventListener('scroll', function () {
+          if (agendado) return;
+          agendado = true;
+          requestAnimationFrame(function () {
+            agendado = false;
+            var card = trilho.querySelector('.prod');
+            if (!card) return;
+            var passo = card.getBoundingClientRect().width + 12;
+            var ativo = Math.min(pontos.length - 1, Math.round(trilho.scrollLeft / passo));
+            pontos.forEach(function (p, i) { p.classList.toggle('is-on', i === ativo); });
+          });
+        }, { passive: true });
+      }
+
+      // 5) Mural de Stories: só entra na ordem do Tab quando de fato rola para os lados
+      var mural = doc.querySelector('.stories-wrap');
+      function ajustarMural() {
+        if (!mural) return;
+        if (mural.scrollWidth > mural.clientWidth + 1) mural.setAttribute('tabindex', '0');
+        else mural.removeAttribute('tabindex');
+      }
+      ajustarMural();
+      window.addEventListener('resize', ajustarMural, { passive: true });
+
+      // 6) Botão flutuante: some quando o CTA do topo, as perguntas frequentes (que têm botão próprio e
+      //    setas que ele cobriria) ou a chamada final estão na tela. Mostra "Orçamento" por um instante e vira
+      //    círculo sozinho, mesmo depois de um pulo por âncora (que não gera mais rolagem); ao rolar para cima
+      //    mostra a palavra de novo e volta a ser círculo quando a rolagem para.
+      var fab = doc.getElementById('fab');
+      if (fab) {
+        var alvos = [doc.getElementById('cta-hero'), doc.getElementById('cta-final')].filter(Boolean);
+        var listaFaq = doc.querySelector('.faq-list'); // some assim que qualquer parte das perguntas aparece
+        var seguraAte = 0, ultimoY = window.scrollY, desceu = 0, subiu = 0, agendadoFab = false, timerCompacto = 0;
+        var compactarDepois = function (ms) {
+          clearTimeout(timerCompacto);
+          timerCompacto = setTimeout(function () { fab.classList.add('is-compacto'); }, ms);
+        };
+        var mostrar = function (sim) {
+          if (sim === fab.classList.contains('is-on')) return;
+          fab.classList.toggle('is-on', sim);
+          clearTimeout(timerCompacto);
+          if (sim) { fab.classList.remove('is-compacto'); seguraAte = Date.now() + 1800; desceu = 0; compactarDepois(1850); }
+        };
+        if (alvos.length && 'IntersectionObserver' in window) {
+          var visiveis = new Set();
+          var aoCruzar = function (entradas) {
+            entradas.forEach(function (en) { if (en.isIntersecting) visiveis.add(en.target); else visiveis.delete(en.target); });
+            mostrar(visiveis.size === 0);
+          };
+          var observador = new IntersectionObserver(aoCruzar, { threshold: 0.35 });
+          alvos.forEach(function (alvo) { observador.observe(alvo); });
+          if (listaFaq) new IntersectionObserver(aoCruzar, { threshold: 0 }).observe(listaFaq);
+        } else {
+          mostrar(true); // navegador antigo: botão sempre visível
+        }
+        window.addEventListener('scroll', function () {
+          if (agendadoFab) return;
+          agendadoFab = true;
+          requestAnimationFrame(function () {
+            agendadoFab = false;
+            var y = window.scrollY, dy = y - ultimoY;
+            ultimoY = y;
+            if (dy > 0) { desceu += dy; subiu = 0; } else if (dy < 0) { subiu -= dy; desceu = 0; }
+            if (desceu > 48 && Date.now() > seguraAte) fab.classList.add('is-compacto');
+            if (subiu > 48) { fab.classList.remove('is-compacto'); compactarDepois(1800); }
+          });
+        }, { passive: true });
+      }
+
+      // 7) Contador de tempo do visor (24 quadros por segundo), só no computador, só com o topo na tela
+      //    e nunca com "reduzir movimento". Usa requestAnimationFrame, que pausa sozinho em aba escondida.
+      var contador = doc.querySelector('[data-timecode]');
+      var hero = doc.querySelector('.hero');
+      if (contador && hero && 'IntersectionObserver' in window) {
+        var rodando = false, inicio = 0, ultimoQuadro = -1, idQuadro = 0, heroNaTela = false;
+        var doisDigitos = function (n) { return n < 10 ? '0' + n : String(n); };
+        var quadro = function (agora) {
+          if (!rodando) return;
+          if (!inicio) inicio = agora;
+          var q = Math.floor((agora - inicio) / (1000 / 24));
+          if (q !== ultimoQuadro) {
+            ultimoQuadro = q;
+            var s = Math.floor(q / 24);
+            contador.textContent = '00:' + doisDigitos(Math.floor(s / 60) % 60) + ':' + doisDigitos(s % 60) + ':' + doisDigitos(q % 24);
+          }
+          idQuadro = requestAnimationFrame(quadro);
+        };
+        var avaliar = function () {
+          var deve = heroNaTela && telaGrande.matches && !menosMovimento.matches;
+          if (deve && !rodando) { rodando = true; idQuadro = requestAnimationFrame(quadro); }
+          else if (!deve && rodando) { rodando = false; cancelAnimationFrame(idQuadro); }
+        };
+        new IntersectionObserver(function (entradas) { heroNaTela = entradas[0].isIntersecting; avaliar(); }).observe(hero);
+        aoMudar(telaGrande, avaliar);
+        aoMudar(menosMovimento, avaliar);
+      }
+
+      // 8) Ano do copyright (mantém 2026 e avança sozinho nos próximos anos)
+      var ano = new Date().getFullYear();
+      doc.querySelectorAll('[data-ano]').forEach(function (el) { if (ano > 2026) el.textContent = String(ano); });
+    })();
+  </script>
+</body>
+</html>
