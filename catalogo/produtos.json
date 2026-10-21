@@ -1,0 +1,84 @@
+{
+  "_sobre": "Catálogo da BeHe Import usado no site (seção 'Os Mais Pedidos do Momento'). Fotos reais mandadas pela loja no grupo Loja BEHE em 21/10/2026. Sem preço de propósito: a loja avisa que o preço vale só no dia (dólar); o site manda para o WhatsApp.",
+  "atualizado_em": "2026-10-21",
+  "produtos": [
+    {
+      "id": "sony-fx30",
+      "categoria": "câmera",
+      "marca": "Sony",
+      "modelo": "FX30 (Cinema Line)",
+      "condicao_informada": "Ferramenta profissional, pronta pra uso",
+      "foto_original": "catalogo/originais/sony-fx30.jpg",
+      "foto_site": [
+        "assets/produtos/sony-fx30-800.webp",
+        "assets/produtos/sony-fx30-480.webp"
+      ],
+      "origem_whatsapp": "lp-destaque-fx30"
+    },
+    {
+      "id": "sony-a6700",
+      "categoria": "câmera",
+      "marca": "Sony",
+      "modelo": "α6700",
+      "condicao_informada": "Zero",
+      "foto_original": "catalogo/originais/sony-a6700.jpg",
+      "foto_site": [
+        "assets/produtos/sony-a6700-800.webp",
+        "assets/produtos/sony-a6700-480.webp"
+      ],
+      "origem_whatsapp": "lp-destaque-a6700"
+    },
+    {
+      "id": "canon-eos-rp",
+      "categoria": "câmera",
+      "marca": "Canon",
+      "modelo": "EOS RP",
+      "condicao_informada": "Ferramenta profissional, pronta pra uso",
+      "foto_original": "catalogo/originais/canon-eos-rp.jpg",
+      "foto_site": [
+        "assets/produtos/canon-eos-rp-800.webp",
+        "assets/produtos/canon-eos-rp-480.webp"
+      ],
+      "origem_whatsapp": "lp-destaque-eosrp"
+    },
+    {
+      "id": "sigma-24-70-f2-8-dg-dn-art-ii",
+      "categoria": "lente",
+      "marca": "Sigma",
+      "modelo": "24-70mm F2.8 DG DN II Art",
+      "condicao_informada": "Zero",
+      "foto_original": "catalogo/originais/sigma-24-70-f2-8-dg-dn-art-ii.jpg",
+      "foto_site": [
+        "assets/produtos/sigma-24-70-f2-8-dg-dn-art-ii-800.webp",
+        "assets/produtos/sigma-24-70-f2-8-dg-dn-art-ii-480.webp"
+      ],
+      "origem_whatsapp": "lp-destaque-sigma2470ii"
+    },
+    {
+      "id": "tamron-28-75-f2-8-g2",
+      "categoria": "lente",
+      "marca": "Tamron",
+      "modelo": "28-75mm F/2.8 Di III VXD G2",
+      "condicao_informada": "Zero",
+      "foto_original": "catalogo/originais/tamron-28-75-f2-8-g2.jpg",
+      "foto_site": [
+        "assets/produtos/tamron-28-75-f2-8-g2-800.webp",
+        "assets/produtos/tamron-28-75-f2-8-g2-480.webp"
+      ],
+      "origem_whatsapp": "lp-destaque-tamron2875g2"
+    },
+    {
+      "id": "tamron-17-70-f2-8",
+      "categoria": "lente",
+      "marca": "Tamron",
+      "modelo": "17-70mm F/2.8 Di III-A VC RXD",
+      "condicao_informada": "Ferramenta profissional, pronta pra uso",
+      "foto_original": "catalogo/originais/tamron-17-70-f2-8.jpg",
+      "foto_site": [
+        "assets/produtos/tamron-17-70-f2-8-800.webp",
+        "assets/produtos/tamron-17-70-f2-8-480.webp"
+      ],
+      "origem_whatsapp": "lp-destaque-tamron1770"
+    }
+  ]
+}

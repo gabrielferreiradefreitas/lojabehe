@@ -26,7 +26,7 @@ Tudo fica no `index.html`. Procure pelos marcadores:
 
 - **Fotos:** cada imagem provisória (Unsplash) tem um comentário `<!-- TROCAR: ... -->` logo acima. Coloque a foto real em
   `assets/` (de preferência `.webp`, até ~200 KB) e troque o `src`/`srcset` pelo caminho relativo, por exemplo
-  `assets/sony-a7iv.webp`. Mantenha `width` e `height` com as proporções da foto nova.
+  `assets/produtos/sony-fx30-800.webp`. Mantenha `width` e `height` com as proporções da foto nova.
 - **Prints de clientes (mural de Stories):** mesma coisa — os quadros 9:16 da seção "Quem Compra, Recomenda" estão
   marcados para receber os prints reais.
 - **WhatsApp:** todos os botões usam `https://wa.me/5545998382728?text=...`. Para trocar o número, substitua
@@ -36,8 +36,9 @@ Tudo fica no `index.html`. Procure pelos marcadores:
 - **Pixel do Meta e Google Analytics:** os blocos estão prontos e comentados no `<head>`. Coloque o ID real no lugar de
   `SEU_PIXEL_ID` / `G-XXXXXXX` e apague só as duas linhas marcadas com ✂ de cada bloco. Os cliques no WhatsApp já disparam `Contact` (Meta) e
   `clique_whatsapp` (Google) quando esses scripts estiverem ativos.
-- **Produtos em destaque:** os quatro cards da seção "Os Mais Pedidos do Momento" — nome, tag, especificações e a
-  mensagem do WhatsApp de cada um.
+- **Produtos em destaque:** os seis cards da seção "Os Mais Pedidos do Momento" usam as fotos reais que a loja mandou
+  (`assets/produtos/<produto>-800.webp` e `-480.webp`, recorte 4:5). Cada card tem nome, tag, 3 especificações e a mensagem
+  do WhatsApp com a origem (`lp-destaque-…`). Sem preço na página: o preço muda com o dólar e é passado no WhatsApp.
 
 ## SEO (Google)
 

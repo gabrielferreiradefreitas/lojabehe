@@ -690,7 +690,7 @@
       scroll-snap-align: start; display: flex; flex-direction: column; overflow: hidden;
       background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
     }
-    .prod-media { position: relative; aspect-ratio: 4 / 3; background: #0F172A; overflow: hidden; }
+    .prod-media { position: relative; aspect-ratio: 4 / 5; background: #0F172A; overflow: hidden; }
     .prod-media img { width: 100%; height: 100%; object-fit: cover; }
     .tag {
       position: absolute; top: 12px; left: 12px; padding: 6px 11px; border-radius: 999px;
@@ -718,7 +718,8 @@
     }
     @media (min-width: 1200px) {
       .prod { flex-direction: column; }
-      .prod-media { width: auto; aspect-ratio: 4 / 3; }
+      .prod-track { grid-template-columns: repeat(3, 1fr); }
+      .prod-media { width: auto; aspect-ratio: 4 / 5; }
       .prod-body { padding: 22px; }
       .prod h3 { font-size: 1.125rem; }
     }
@@ -1213,120 +1214,157 @@
         <ul class="prod-track" id="carrossel">
           <li class="prod">
             <div class="prod-media">
-              <!-- TROCAR: foto real da Sony Alpha A7 IV, só o corpo (o produto é vendido sem lente) -->
-              <img src="https://images.unsplash.com/photo-1647920564028-5756c7af4bd1?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70"
-                   srcset="https://images.unsplash.com/photo-1647920564028-5756c7af4bd1?auto=format&amp;fit=crop&amp;w=400&amp;h=300&amp;q=70 400w,
-                           https://images.unsplash.com/photo-1647920564028-5756c7af4bd1?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70 600w,
-                           https://images.unsplash.com/photo-1647920564028-5756c7af4bd1?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=70 800w"
-                   sizes="(min-width: 1200px) 560px, (min-width: 760px) 46vw, 84vw" width="800" height="600"
-                   alt="Câmera mirrorless Sony Alpha (imagem ilustrativa; produto vendido sem lente)" loading="lazy" decoding="async">
-              <span class="tag">Mais Vendido</span>
+              <!-- Foto real da loja (grupo Loja BEHE, 21/10/2026). Para trocar: assets/produtos/sony-fx30-800.webp e assets/produtos/sony-fx30-480.webp, proporção 4:5 -->
+              <img src="assets/produtos/sony-fx30-800.webp" srcset="assets/produtos/sony-fx30-480.webp 480w, assets/produtos/sony-fx30-800.webp 800w"
+                   sizes="(min-width: 1200px) 360px, (min-width: 760px) 46vw, 84vw" width="800" height="1000"
+                   alt="Quatro caixas lacradas da câmera Sony FX30 empilhadas numa mesa de madeira, com o letreiro neon da BeHe ao fundo" loading="lazy" decoding="async">
+              <span class="tag">Pronta para uso</span>
             </div>
             <div class="prod-body">
-              <h3>Câmera Mirrorless Sony Alpha A7 IV (Corpo)</h3>
+              <h3>Câmera Sony FX30 <span class="nowrap">(Cinema Line)</span></h3>
               <ul class="specs">
-                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Sensor 33MP</li>
-                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Gravação 4K 60p</li>
-                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Autofoco em tempo real</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Sensor Super 35 de 26 MP</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Gravação 4K até 120p</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>ISO base dupla (800 e 2500)</li>
               </ul>
               <div class="prod-cond">
                 <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
-                <span class="preco">Preço sob consulta</span>
+                <span class="preco">Preço do dia pelo WhatsApp</span>
               </div>
-              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20Sony%20A7%20IV%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-a7iv)" data-origem="lp-destaque-a7iv" target="_blank" rel="noopener">
-                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Sony Alpha A7 IV (abre em nova aba)</span>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20c%C3%A2mera%20Sony%20FX30%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-fx30)" data-origem="lp-destaque-fx30" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Sony FX30 (abre em nova aba)</span>
               </a>
             </div>
           </li>
 
           <li class="prod">
             <div class="prod-media">
-              <!-- TROCAR: foto real do DJI Mini 4 Pro -->
-              <img src="https://images.unsplash.com/photo-1588434013438-e1dd134eda16?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70"
-                   srcset="https://images.unsplash.com/photo-1588434013438-e1dd134eda16?auto=format&amp;fit=crop&amp;w=400&amp;h=300&amp;q=70 400w,
-                           https://images.unsplash.com/photo-1588434013438-e1dd134eda16?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70 600w,
-                           https://images.unsplash.com/photo-1588434013438-e1dd134eda16?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=70 800w"
-                   sizes="(min-width: 1200px) 560px, (min-width: 760px) 46vw, 84vw" width="800" height="600"
-                   alt="Drone compacto DJI Mini visto de cima, sobre fundo preto (imagem ilustrativa)" loading="lazy" decoding="async">
-              <span class="tag">Favorito dos Criadores</span>
+              <!-- Foto real da loja (grupo Loja BEHE, 21/10/2026). Para trocar: assets/produtos/sony-a6700-800.webp e assets/produtos/sony-a6700-480.webp, proporção 4:5 -->
+              <img src="assets/produtos/sony-a6700-800.webp" srcset="assets/produtos/sony-a6700-480.webp 480w, assets/produtos/sony-a6700-800.webp 800w"
+                   sizes="(min-width: 1200px) 360px, (min-width: 760px) 46vw, 84vw" width="800" height="1000"
+                   alt="Caixa laranja da câmera Sony α6700 segurada na mão, em frente ao letreiro neon da BeHe" loading="lazy" decoding="async">
+              <span class="tag">Zero</span>
             </div>
             <div class="prod-body">
-              <h3>Drone DJI Mini 4 Pro</h3>
+              <h3>Câmera Sony α6700</h3>
               <ul class="specs">
-                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Menos de 249 g</li>
-                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vídeo 4K/60fps HDR</li>
-                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Detecção de obstáculos omnidirecional</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Sensor APS-C de 26 MP</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Estabilização no corpo de 5 eixos</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Autofoco com reconhecimento por IA</li>
               </ul>
               <div class="prod-cond">
                 <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
-                <span class="preco">Preço sob consulta</span>
+                <span class="preco">Preço do dia pelo WhatsApp</span>
               </div>
-              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20o%20DJI%20Mini%204%20Pro%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-mini4pro)" data-origem="lp-destaque-mini4pro" target="_blank" rel="noopener">
-                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> do DJI Mini 4 Pro (abre em nova aba)</span>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20c%C3%A2mera%20Sony%20A6700%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-a6700)" data-origem="lp-destaque-a6700" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Sony α6700 (abre em nova aba)</span>
               </a>
             </div>
           </li>
 
           <li class="prod">
             <div class="prod-media">
-              <!-- TROCAR: foto real da lente Sony FE 24-70mm f/2.8 GM II. Até lá, a foto provisória não mostra
-                   nenhuma gravação de modelo ou abertura (a anterior era de outra lente e contradizia o card). -->
-              <img src="https://images.unsplash.com/photo-1535540878298-a155c6d065ef?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70"
-                   srcset="https://images.unsplash.com/photo-1535540878298-a155c6d065ef?auto=format&amp;fit=crop&amp;w=400&amp;h=300&amp;q=70 400w,
-                           https://images.unsplash.com/photo-1535540878298-a155c6d065ef?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=70 600w,
-                           https://images.unsplash.com/photo-1535540878298-a155c6d065ef?auto=format&amp;fit=crop&amp;w=800&amp;h=600&amp;q=70 800w"
-                   sizes="(min-width: 1200px) 560px, (min-width: 760px) 46vw, 84vw" width="800" height="600"
-                   alt="Lente profissional montada em câmera de cinema, em close (imagem ilustrativa)" loading="lazy" decoding="async">
-              <span class="tag">Alta Performance</span>
+              <!-- Foto real da loja (grupo Loja BEHE, 21/10/2026). Para trocar: assets/produtos/canon-eos-rp-800.webp e assets/produtos/canon-eos-rp-480.webp, proporção 4:5 -->
+              <img src="assets/produtos/canon-eos-rp-800.webp" srcset="assets/produtos/canon-eos-rp-480.webp 480w, assets/produtos/canon-eos-rp-800.webp 800w"
+                   sizes="(min-width: 1200px) 360px, (min-width: 760px) 46vw, 84vw" width="800" height="1000"
+                   alt="Caixa preta da câmera Canon EOS RP segurada na mão" loading="lazy" decoding="async">
+              <span class="tag">Pronta para uso</span>
             </div>
             <div class="prod-body">
-              <h3>Lente Sony <span class="nowrap">FE 24-70mm</span> f/2.8 GM II</h3>
+              <h3>Câmera Canon EOS RP</h3>
               <ul class="specs">
-                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Abertura f/2.8 constante</li>
-                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Apenas 695 g</li>
-                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>4 motores XD Linear</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Sensor full frame de 26,2 MP</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Autofoco Dual Pixel CMOS AF</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Cerca de 485 g com bateria e cartão</li>
               </ul>
               <div class="prod-cond">
                 <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
-                <span class="preco">Preço sob consulta</span>
+                <span class="preco">Preço do dia pelo WhatsApp</span>
               </div>
-              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20lente%20Sony%20FE%2024-70mm%20f%2F2.8%20GM%20II%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-2470gm2)" data-origem="lp-destaque-2470gm2" target="_blank" rel="noopener">
-                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da lente Sony FE 24-70mm f/2.8 GM II (abre em nova aba)</span>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20c%C3%A2mera%20Canon%20EOS%20RP%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-eosrp)" data-origem="lp-destaque-eosrp" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Canon EOS RP (abre em nova aba)</span>
               </a>
             </div>
           </li>
 
           <li class="prod">
             <div class="prod-media">
-              <!-- TROCAR: foto real do microfone sem fio Hollyland Lark M2 -->
-              <img src="https://images.unsplash.com/photo-1792044430390-0e77ea2599d4?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.5&amp;fp-y=.42&amp;fp-z=1.6&amp;w=600&amp;h=450&amp;q=70"
-                   srcset="https://images.unsplash.com/photo-1792044430390-0e77ea2599d4?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.5&amp;fp-y=.42&amp;fp-z=1.6&amp;w=400&amp;h=300&amp;q=70 400w,
-                           https://images.unsplash.com/photo-1792044430390-0e77ea2599d4?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.5&amp;fp-y=.42&amp;fp-z=1.6&amp;w=600&amp;h=450&amp;q=70 600w,
-                           https://images.unsplash.com/photo-1792044430390-0e77ea2599d4?auto=format&amp;fit=crop&amp;crop=focalpoint&amp;fp-x=.5&amp;fp-y=.42&amp;fp-z=1.6&amp;w=800&amp;h=600&amp;q=70 800w"
-                   sizes="(min-width: 1200px) 560px, (min-width: 760px) 46vw, 84vw" width="800" height="600"
-                   alt="Transmissor de microfone de lapela sem fio com protetor de vento, na mão (imagem ilustrativa)" loading="lazy" decoding="async">
-              <span class="tag">Áudio Profissional</span>
+              <!-- Foto real da loja (grupo Loja BEHE, 21/10/2026). Para trocar: assets/produtos/sigma-24-70-f2-8-dg-dn-art-ii-800.webp e assets/produtos/sigma-24-70-f2-8-dg-dn-art-ii-480.webp, proporção 4:5 -->
+              <img src="assets/produtos/sigma-24-70-f2-8-dg-dn-art-ii-800.webp" srcset="assets/produtos/sigma-24-70-f2-8-dg-dn-art-ii-480.webp 480w, assets/produtos/sigma-24-70-f2-8-dg-dn-art-ii-800.webp 800w"
+                   sizes="(min-width: 1200px) 360px, (min-width: 760px) 46vw, 84vw" width="800" height="1000"
+                   alt="Caixa da lente Sigma 24-70mm F2.8 DG DN II Art segurada na mão, em frente ao letreiro neon da BeHe" loading="lazy" decoding="async">
+              <span class="tag">Zero</span>
             </div>
             <div class="prod-body">
-              <h3>Microfone sem fio Hollyland Lark M2</h3>
+              <h3>Lente Sigma <span class="nowrap">24-70mm F2.8</span> DG DN II Art</h3>
               <ul class="specs">
-                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Transmissor de 9 g</li>
-                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Alcance de até 300 m</li>
-                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Até 40 h com o estojo</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Zoom f/2.8 constante, full frame</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Motor de foco linear HLA</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Rosca de filtro de 82 mm</li>
               </ul>
               <div class="prod-cond">
                 <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
-                <span class="preco">Preço sob consulta</span>
+                <span class="preco">Preço do dia pelo WhatsApp</span>
               </div>
-              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20o%20microfone%20Hollyland%20Lark%20M2%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-larkm2)" data-origem="lp-destaque-larkm2" target="_blank" rel="noopener">
-                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> do Hollyland Lark M2 (abre em nova aba)</span>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20lente%20Sigma%2024-70mm%20F2.8%20DG%20DN%20II%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-sigma2470ii)" data-origem="lp-destaque-sigma2470ii" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Sigma 24-70mm F2.8 DG DN II Art (abre em nova aba)</span>
+              </a>
+            </div>
+          </li>
+
+          <li class="prod">
+            <div class="prod-media">
+              <!-- Foto real da loja (grupo Loja BEHE, 21/10/2026). Para trocar: assets/produtos/tamron-28-75-f2-8-g2-800.webp e assets/produtos/tamron-28-75-f2-8-g2-480.webp, proporção 4:5 -->
+              <img src="assets/produtos/tamron-28-75-f2-8-g2-800.webp" srcset="assets/produtos/tamron-28-75-f2-8-g2-480.webp 480w, assets/produtos/tamron-28-75-f2-8-g2-800.webp 800w"
+                   sizes="(min-width: 1200px) 360px, (min-width: 760px) 46vw, 84vw" width="800" height="1000"
+                   alt="Caixa da lente Tamron 28-75mm F/2.8 Di III VXD G2 segurada na mão, em frente ao letreiro neon da BeHe" loading="lazy" decoding="async">
+              <span class="tag">Zero</span>
+            </div>
+            <div class="prod-body">
+              <h3>Lente Tamron <span class="nowrap">28-75mm F/2.8</span> Di III VXD G2</h3>
+              <ul class="specs">
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Zoom f/2.8 constante, full frame</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Motor de foco linear VXD</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Apenas 540 g</li>
+              </ul>
+              <div class="prod-cond">
+                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
+                <span class="preco">Preço do dia pelo WhatsApp</span>
+              </div>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20lente%20Tamron%2028-75mm%20F%2F2.8%20G2%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-tamron2875g2)" data-origem="lp-destaque-tamron2875g2" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Tamron 28-75mm F/2.8 G2 (abre em nova aba)</span>
+              </a>
+            </div>
+          </li>
+
+          <li class="prod">
+            <div class="prod-media">
+              <!-- Foto real da loja (grupo Loja BEHE, 21/10/2026). Para trocar: assets/produtos/tamron-17-70-f2-8-800.webp e assets/produtos/tamron-17-70-f2-8-480.webp, proporção 4:5 -->
+              <img src="assets/produtos/tamron-17-70-f2-8-800.webp" srcset="assets/produtos/tamron-17-70-f2-8-480.webp 480w, assets/produtos/tamron-17-70-f2-8-800.webp 800w"
+                   sizes="(min-width: 1200px) 360px, (min-width: 760px) 46vw, 84vw" width="800" height="1000"
+                   alt="Caixa da lente Tamron 17-70mm F/2.8 Di III-A VC RXD segurada na mão, em frente ao letreiro neon da BeHe" loading="lazy" decoding="async">
+              <span class="tag">Pronta para uso</span>
+            </div>
+            <div class="prod-body">
+              <h3>Lente Tamron <span class="nowrap">17-70mm F/2.8</span> Di III-A VC RXD</h3>
+              <ul class="specs">
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Zoom f/2.8 constante para APS-C</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Estabilização óptica VC</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Equivale a cerca de 26–105 mm</li>
+              </ul>
+              <div class="prod-cond">
+                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
+                <span class="preco">Preço do dia pelo WhatsApp</span>
+              </div>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20lente%20Tamron%2017-70mm%20F%2F2.8%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-tamron1770)" data-origem="lp-destaque-tamron1770" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Tamron 17-70mm F/2.8 (abre em nova aba)</span>
               </a>
             </div>
           </li>
         </ul>
         <div class="swipe" aria-hidden="true">
-          <span>Arraste para ver os 4 destaques →</span>
-          <span class="dots" id="dots"><span class="is-on"></span><span></span><span></span><span></span></span>
+          <span>Arraste para ver os 6 destaques →</span>
+          <span class="dots" id="dots"><span class="is-on"></span><span></span><span></span><span></span><span></span><span></span></span>
         </div>
       </div>
     </section>
