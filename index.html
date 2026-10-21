@@ -30,10 +30,15 @@
     O menu do celular usa o popover nativo do navegador (abre e fecha mesmo se o script falhar).
     O JavaScript no fim só melhora: medição de cliques, foco do menu, carrossel, botão flutuante e o
     contador do visor da câmera (só no computador).
+
+    SEO: título (até 60 caracteres), descrição (até 155) e cartão de compartilhamento logo abaixo; dados
+    estruturados (JSON-LD) no fim do <head>; robots.txt, sitemap.xml e 404.html na raiz do repositório.
+    Números e depoimentos só reais: nada de nota ou avaliação inventada (o Google não mostra estrelas de
+    avaliações publicadas pela própria loja e pode punir o site por dado falso nos dados estruturados).
     ============================================================================================
   -->
-  <title>BeHe Import | Câmeras, Lentes, Drones e Áudio em até 21x</title>
-  <meta name="description" content="Câmeras Sony e Nikon, lentes, drones DJI, luz Nanlite, áudio Hollyland e informática de alta performance. Até 21x no cartão e envio seguro para todo o Brasil.">
+  <title>BeHe Import | Equipamento Audiovisual e Câmeras em até 21x</title>
+  <meta name="description" content="Câmeras Sony, lentes, drones DJI, luz e áudio profissional 100% originais com garantia. Até 21x no cartão, envio com seguro e +2.300 clientes no Brasil.">
   <link rel="canonical" href="https://lojabehe.com/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#0B0F19">
@@ -45,21 +50,24 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="BeHe Import">
   <meta property="og:title" content="BeHe Import | Equipamento audiovisual em até 21x no cartão">
-  <meta property="og:description" content="Câmeras, lentes, drones, iluminação e áudio profissional. 100% originais com garantia, envio seguro para todo o Brasil e atendimento humanizado no WhatsApp.">
+  <meta property="og:description" content="+2.300 clientes no Brasil. Câmeras, lentes, drones, luz e áudio 100% originais com garantia, envio com seguro e atendimento humanizado no WhatsApp.">
   <meta property="og:url" content="https://lojabehe.com/">
-  <meta property="og:image" content="https://lojabehe.com/assets/og-behe.jpg">
+  <!-- Imagem do cartão: arquivo novo a cada troca (o WhatsApp guarda a prévia antiga pelo endereço da imagem) -->
+  <meta property="og:image" content="https://lojabehe.com/assets/og-lojabehe.jpg">
+  <meta property="og:image:secure_url" content="https://lojabehe.com/assets/og-lojabehe.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Logo da BeHe Import sobre fundo escuro">
+  <meta property="og:image:alt" content="BeHe Import: equipamento audiovisual em até 21x no cartão, 100% original com garantia e envio com seguro para todo o Brasil">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="BeHe Import | Equipamento audiovisual em até 21x no cartão">
-  <meta name="twitter:description" content="Câmeras, lentes, drones, iluminação e áudio profissional com envio seguro para todo o Brasil.">
-  <meta name="twitter:image" content="https://lojabehe.com/assets/og-behe.jpg">
-  <meta name="twitter:image:alt" content="Logo da BeHe Import sobre fundo escuro">
+  <meta name="twitter:description" content="+2.300 clientes no Brasil. Câmeras, lentes, drones, luz e áudio com garantia e envio com seguro.">
+  <meta name="twitter:image" content="https://lojabehe.com/assets/og-lojabehe.jpg">
+  <meta name="twitter:image:alt" content="BeHe Import: equipamento audiovisual em até 21x no cartão, 100% original com garantia e envio com seguro para todo o Brasil">
 
-  <!-- Ícones -->
-  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
+  <!-- Ícones: favicon.ico na raiz (o navegador e o Google procuram nele), PNG grande para Android e busca -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 
   <!-- Fontes e imagens: conexões antecipadas para ganhar tempo no 4G -->
@@ -117,7 +125,11 @@
   </script>
   ✂ apague esta linha para ativar o Google Analytics -->
 
-  <!-- Dados estruturados: só informações reais da loja (nome, site, logo, Instagram, WhatsApp de vendas) -->
+  <!-- Dados estruturados: só informações reais da loja (nome, site, logo, Instagram, WhatsApp de vendas).
+       Loja online (OnlineStore), não LocalBusiness: a BeHe não tem endereço de atendimento publicado.
+       Sem "aggregateRating"/"Review": avaliação publicada pela própria loja não vira estrela no Google
+       e nota inventada é motivo de punição manual.
+       O bloco FAQPage repete as perguntas frequentes da página: mudou uma resposta lá embaixo, mude aqui também. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -126,11 +138,36 @@
         "@type": "OnlineStore",
         "@id": "https://lojabehe.com/#loja",
         "name": "BeHe Import",
+        "alternateName": ["BeHe", "Behe Imports"],
         "url": "https://lojabehe.com/",
-        "logo": "https://lojabehe.com/assets/apple-touch-icon.png",
-        "image": "https://lojabehe.com/assets/og-behe.jpg",
-        "description": "Equipamentos audiovisuais premium: câmeras, lentes, drones, iluminação e áudio profissional, com parcelamento em até 21x e envio seguro para todo o Brasil.",
-        "areaServed": "BR",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://lojabehe.com/assets/apple-touch-icon.png",
+          "width": 180,
+          "height": 180
+        },
+        "image": "https://lojabehe.com/assets/og-lojabehe.jpg",
+        "description": "Equipamentos audiovisuais premium: câmeras, lentes, drones, iluminação e áudio profissional, 100% originais com garantia, parcelamento em até 21x e envio com seguro para todo o Brasil.",
+        "slogan": "As melhores marcas do mundo audiovisual ao seu alcance.",
+        "areaServed": { "@type": "Country", "name": "Brasil" },
+        "knowsAbout": [
+          "Equipamento audiovisual",
+          "Câmeras profissionais",
+          "Lentes profissionais",
+          "Drones DJI",
+          "Iluminação Nanlite",
+          "Áudio Hollyland"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Equipamentos audiovisuais",
+          "itemListElement": [
+            { "@type": "OfferCatalog", "name": "Câmeras profissionais e filmadoras" },
+            { "@type": "OfferCatalog", "name": "Lentes profissionais" },
+            { "@type": "OfferCatalog", "name": "Drones e estabilizadores DJI" },
+            { "@type": "OfferCatalog", "name": "Iluminação Nanlite e áudio Hollyland" }
+          ]
+        },
         "sameAs": [
           "https://www.instagram.com/behe_ofc/",
           "https://www.instagram.com/beheimport_reserva/",
@@ -139,6 +176,7 @@
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+55-45-99838-2728",
+          "url": "https://wa.me/5545998382728",
           "contactType": "sales",
           "areaServed": "BR",
           "availableLanguage": "Portuguese"
@@ -151,6 +189,59 @@
         "name": "BeHe Import",
         "inLanguage": "pt-BR",
         "publisher": { "@id": "https://lojabehe.com/#loja" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://lojabehe.com/#pagina",
+        "url": "https://lojabehe.com/",
+        "name": "BeHe Import | Equipamento Audiovisual e Câmeras em até 21x",
+        "description": "Câmeras Sony, lentes, drones DJI, luz e áudio profissional 100% originais com garantia. Até 21x no cartão, envio com seguro e +2.300 clientes no Brasil.",
+        "inLanguage": "pt-BR",
+        "isPartOf": { "@id": "https://lojabehe.com/#site" },
+        "about": { "@id": "https://lojabehe.com/#loja" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://lojabehe.com/assets/og-lojabehe.jpg",
+          "width": 1200,
+          "height": 630
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://lojabehe.com/#perguntas",
+        "isPartOf": { "@id": "https://lojabehe.com/#pagina" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Como funciona o envio?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Enviamos para todo o território nacional via transportadoras privadas ou Correios, sempre com seguro total incluso no valor do frete." }
+          },
+          {
+            "@type": "Question",
+            "name": "A BeHe Import é confiável?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim. São mais de 2.300 clientes atendidos no Brasil, equipamentos 100% originais com garantia de fábrica, envio com seguro total contra extravios e atendimento direto com um consultor no WhatsApp. No perfil oficial @behe_ofc, mais de 3.600 profissionais do audiovisual acompanham o trabalho da loja." }
+          },
+          {
+            "@type": "Question",
+            "name": "Posso parcelar em mais de um cartão?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim! Facilitamos o pagamento para que você monte seu setup. É possível dividir o valor em até dois cartões diferentes ou dar uma entrada via Pix e parcelar o restante." }
+          },
+          {
+            "@type": "Question",
+            "name": "Como faço para consultar os preços atuais?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Como o mercado de importados oscila de acordo com o câmbio, garantimos sempre a melhor cotação do dia diretamente pelo nosso atendimento personalizado no WhatsApp." }
+          },
+          {
+            "@type": "Question",
+            "name": "Os equipamentos têm garantia?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Todos os nossos equipamentos eletrônicos e ópticos contam com garantia integral contra defeitos de fabricação." }
+          },
+          {
+            "@type": "Question",
+            "name": "Como sei se o produto está em estoque?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A disponibilidade de cada equipamento é confirmada na hora pelo WhatsApp, junto com a cotação do dia. É só chamar um consultor." }
+          }
+        ]
       }
     ]
   }
@@ -737,14 +828,27 @@
     .garantia ul { display: grid; gap: 10px; margin: 18px 0 18px; }
     .garantia li { display: flex; gap: 10px; align-items: flex-start; color: var(--soft); font-size: .9375rem; line-height: 1.45; }
     .garantia li .ico { width: 20px; height: 20px; color: var(--green-hi); margin-top: 1px; stroke-width: 2.6; }
-    @media (min-width: 760px) { .stats { grid-template-columns: repeat(2, minmax(0, 220px)); } }
+    .prova-h3 { margin: 4px 0 12px; font-size: 1.0625rem; font-weight: 700; line-height: 1.3; }
+    @media (min-width: 760px) { .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
     @media (min-width: 1024px) {
       .prova-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
       .stories-wrap { margin-inline: 0; overflow: visible; }
       .stories { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); width: auto; padding: 0; gap: 12px; }
       .story-ig { display: none; } /* no computador o botão "Ver o perfil" logo abaixo cumpre esse papel */
       .garantia { margin-top: 0; padding: 30px; position: sticky; top: calc(var(--header-h) + 24px); }
+      .stat { padding: 14px; }
+      .stat b { font-size: 1.6rem; }
     }
+
+    /* =========================================================================================
+       10b. ENVIO SEGURO — as 4 etapas do pedido à entrega (mesmo cartão dos diferenciais)
+       ========================================================================================= */
+    .etapas { margin: 0; padding: 0; list-style: none; }
+    .etapa { position: relative; }
+    .etapa-num { position: absolute; top: 14px; right: 16px; font-size: .75rem; font-weight: 800; letter-spacing: .14em; color: var(--muted); }
+    .etapa h3 { padding-right: 28px; }
+    .envio-cta { margin-top: 18px; }
+    @media (min-width: 1024px) { .etapas { grid-template-columns: repeat(4, 1fr); } .envio-cta { margin-top: 28px; } }
 
     /* =========================================================================================
        11. PERGUNTAS FREQUENTES (<details>, funciona sem JavaScript)
@@ -1028,7 +1132,8 @@
           </div>
         </div>
 
-        <!-- As fotos dos cards são fundo decorativo (alt vazio): o nome da categoria já está no título -->
+        <!-- Cada foto tem texto alternativo descrevendo a imagem (ajuda a busca de imagens do Google);
+             ao TROCAR a foto, descreva a nova imagem real -->
         <ul class="cat-grid">
           <li class="cat">
             <!-- TROCAR: foto real de câmeras e filmadoras da loja -->
@@ -1037,12 +1142,12 @@
                          https://images.unsplash.com/photo-1601506521793-dc748fc80b67?auto=format&amp;fit=crop&amp;w=720&amp;q=70 720w,
                          https://images.unsplash.com/photo-1601506521793-dc748fc80b67?auto=format&amp;fit=crop&amp;w=960&amp;q=70 960w"
                  sizes="(min-width: 1200px) 280px, (min-width: 760px) 46vw, 92vw" width="960" height="640"
-                 alt="" loading="lazy" decoding="async">
+                 alt="Cinegrafista operando câmera de cinema com monitor acoplado, em estúdio com luz azul" loading="lazy" decoding="async">
             <span class="cat-num" aria-hidden="true">01</span>
-            <h3>Câmeras &amp; Filmadoras</h3>
+            <h3>Câmeras Profissionais e Filmadoras</h3>
             <p>Sony, Canon, Nikon e as marcas mais desejadas do mercado.</p>
             <a class="btn btn-wa btn-sm" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20categoria%20C%C3%A2meras%20%26%20Filmadoras%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-cat-cameras)" data-origem="lp-cat-cameras" target="_blank" rel="noopener">
-              <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre Câmeras &amp; Filmadoras (abre em nova aba)</span>
+              <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre Câmeras Profissionais e Filmadoras (abre em nova aba)</span>
             </a>
           </li>
           <li class="cat">
@@ -1052,7 +1157,7 @@
                          https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?auto=format&amp;fit=crop&amp;w=720&amp;q=70 720w,
                          https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?auto=format&amp;fit=crop&amp;w=960&amp;q=70 960w"
                  sizes="(min-width: 1200px) 280px, (min-width: 760px) 46vw, 92vw" width="960" height="640"
-                 alt="" loading="lazy" decoding="async">
+                 alt="Lente de cinema de 85 mm em close, montada em câmera profissional" loading="lazy" decoding="async">
             <span class="cat-num" aria-hidden="true">02</span>
             <h3>Lentes Profissionais</h3>
             <p>A nitidez que seu trabalho exige: fixas, zooms e anamórficas.</p>
@@ -1067,12 +1172,12 @@
                          https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?auto=format&amp;fit=crop&amp;w=720&amp;q=70 720w,
                          https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?auto=format&amp;fit=crop&amp;w=960&amp;q=70 960w"
                  sizes="(min-width: 1200px) 280px, (min-width: 760px) 46vw, 92vw" width="960" height="640"
-                 alt="" loading="lazy" decoding="async">
+                 alt="Drone compacto dobrável em voo sobre um rio" loading="lazy" decoding="async">
             <span class="cat-num" aria-hidden="true">03</span>
-            <h3>Drones &amp; Estabilizadores</h3>
+            <h3>Drones e Estabilizadores DJI</h3>
             <p>Linha completa DJI para capturas aéreas e movimentos perfeitos.</p>
             <a class="btn btn-wa btn-sm" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20categoria%20Drones%20%26%20Estabilizadores%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-cat-drones)" data-origem="lp-cat-drones" target="_blank" rel="noopener">
-              <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre Drones &amp; Estabilizadores (abre em nova aba)</span>
+              <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre Drones e Estabilizadores DJI (abre em nova aba)</span>
             </a>
           </li>
           <li class="cat">
@@ -1082,12 +1187,12 @@
                          https://images.unsplash.com/photo-1767130298927-2df12c33e5d6?auto=format&amp;fit=crop&amp;w=720&amp;q=70 720w,
                          https://images.unsplash.com/photo-1767130298927-2df12c33e5d6?auto=format&amp;fit=crop&amp;w=960&amp;q=70 960w"
                  sizes="(min-width: 1200px) 280px, (min-width: 760px) 46vw, 92vw" width="960" height="640"
-                 alt="" loading="lazy" decoding="async">
+                 alt="Estúdio montado com bastões de LED, tripés de iluminação e rebatedor" loading="lazy" decoding="async">
             <span class="cat-num" aria-hidden="true">04</span>
-            <h3>Iluminação &amp; Áudio</h3>
+            <h3>Iluminação Nanlite e Áudio Hollyland</h3>
             <p>Bastões de LED, painéis Nanlite e microfones Hollyland para áudio cristalino.</p>
             <a class="btn btn-wa btn-sm" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20categoria%20Ilumina%C3%A7%C3%A3o%20%26%20%C3%81udio%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-cat-iluminacao-audio)" data-origem="lp-cat-iluminacao-audio" target="_blank" rel="noopener">
-              <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre Iluminação &amp; Áudio (abre em nova aba)</span>
+              <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre Iluminação Nanlite e Áudio Hollyland (abre em nova aba)</span>
             </a>
           </li>
         </ul>
@@ -1232,7 +1337,7 @@
         <div class="section-head">
           <div>
             <p class="cena"><span class="cena-num">Cena 03</span>Por que comprar na BeHe?</p>
-            <h2 id="titulo-diferenciais">Experiência de Compra Premium e Sem Riscos</h2>
+            <h2 id="titulo-diferenciais">Compre Equipamento Audiovisual com Segurança</h2>
           </div>
         </div>
 
@@ -1254,7 +1359,7 @@
           <li class="dif">
             <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span>
             <div>
-              <h3>Garantia &amp; Procedência</h3>
+              <h3>Produtos Originais com Garantia</h3>
               <p>Equipamentos 100% originais com garantia de fábrica e suporte pós-venda dedicado.</p>
             </div>
           </li>
@@ -1279,18 +1384,24 @@
       </div>
     </section>
 
-    <!-- ================================ PROVA SOCIAL + GARANTIA ================================ -->
+    <!-- ================================ SATISFAÇÃO DOS CLIENTES + GARANTIA ================================
+         Só números reais: "+2.300 clientes" vem da bio do Instagram da própria loja; "+3.600" é o número de
+         seguidores do @behe_ofc. Atualize os dois quando mudarem (e o chip do topo, a descrição e o JSON-LD). -->
     <section class="section section-alt" id="prova-social" aria-labelledby="titulo-prova">
       <div class="container prova-grid">
         <div>
-          <p class="cena"><span class="cena-num">Cena 04</span>Prova Social &amp; Confiança</p>
-          <h2 id="titulo-prova">Quem Compra, Recomenda</h2>
+          <p class="cena"><span class="cena-num">Cena 04</span>Satisfação dos Clientes</p>
+          <h2 id="titulo-prova">Quem Compra na BeHe, Recomenda</h2>
           <p class="section-sub">Já são mais de 3.600 profissionais do audiovisual acompanhando nosso trabalho diariamente no perfil oficial <a class="inline-link" href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener">@behe_ofc<span class="sr-only"> (abre o Instagram em nova aba)</span></a>.</p>
 
-          <div class="stats">
-            <div class="stat"><b class="grad">+2.300</b><span>clientes atendidos no Brasil</span></div>
-            <div class="stat"><b>+3.600</b><span>profissionais seguem o @behe_ofc</span></div>
-          </div>
+          <ul class="stats" aria-label="A BeHe Import em números">
+            <li class="stat"><b class="grad">+2.300</b><span>clientes atendidos no Brasil</span></li>
+            <li class="stat"><b>+3.600</b><span>profissionais seguem o @behe_ofc</span></li>
+            <li class="stat"><b>100%</b><span>originais, com garantia de fábrica</span></li>
+            <li class="stat"><b>Seguro</b><span>total em todo envio, contra extravios</span></li>
+          </ul>
+
+          <h3 class="prova-h3">Depoimentos de clientes no Instagram</h3>
 
           <!--
             MURAL DE STORIES — espaços reservados (sem foto) para os prints REAIS dos clientes.
@@ -1303,8 +1414,10 @@
                e acrescente ao CSS:  .story img { width: 100%; height: 100%; object-fit: cover; }
             3. A moldura 9:16, os cantos e a barra de progresso continuam vindo do CSS (classe .story).
             4. Para mais prints, copie um <li class="story"> inteiro. A barra do topo usa --p (0% a 100%).
+            Prints de conversa no WhatsApp ou no Direct (elogio à rapidez do envio, à embalagem, ao pós-venda)
+            entram do mesmo jeito; o alt descreve o que o cliente disse, sem expor nome ou número dele.
           -->
-          <section class="stories-wrap" aria-label="Mural de Stories de clientes (role para os lados)" tabindex="0">
+          <section class="stories-wrap" aria-label="Mural de prints de clientes satisfeitos (role para os lados)" tabindex="0">
             <ul class="stories">
               <li class="story">
                 <!-- TROCAR: print real de cliente (unboxing) -->
@@ -1382,11 +1495,67 @@
       </div>
     </section>
 
+    <!-- ================================ ENVIO SEGURO ================================
+         Responde a maior objeção de quem compra equipamento caro pela internet. Só fatos do documento oficial
+         (proteção máxima na embalagem, seguro total contra extravios, transportadora ou Correios). -->
+    <section class="section" id="envio-seguro" aria-labelledby="titulo-envio">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="cena"><span class="cena-num">Cena 05</span>Entrega Garantida</p>
+            <h2 id="titulo-envio">Envio com Seguro Total, do Pedido à Entrega</h2>
+          </div>
+          <p class="section-sub">Comprar equipamento de alto valor pela internet exige confiança. Por isso todo pedido segue o mesmo cuidado, da cotação até chegar na sua mão.</p>
+        </div>
+
+        <ol class="dif-grid etapas">
+          <li class="dif etapa">
+            <span class="etapa-num" aria-hidden="true">01</span>
+            <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-headset"/></svg></span>
+            <div>
+              <h3>Cotação e pedido no WhatsApp</h3>
+              <p>Você fala com um consultor, confirma o estoque e recebe a cotação do dia antes de fechar.</p>
+            </div>
+          </li>
+          <li class="dif etapa">
+            <span class="etapa-num" aria-hidden="true">02</span>
+            <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-package"/></svg></span>
+            <div>
+              <h3>Embalagem com proteção máxima</h3>
+              <p>Lentes, corpos de câmera e drones são embalados com proteção máxima para a viagem.</p>
+            </div>
+          </li>
+          <li class="dif etapa">
+            <span class="etapa-num" aria-hidden="true">03</span>
+            <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg></span>
+            <div>
+              <h3>Envio com seguro total</h3>
+              <p>Por transportadora privada ou Correios, para todo o Brasil, com seguro total contra extravios.</p>
+            </div>
+          </li>
+          <li class="dif etapa">
+            <span class="etapa-num" aria-hidden="true">04</span>
+            <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span>
+            <div>
+              <h3>Pós-venda com garantia de fábrica</h3>
+              <p>Produto 100% original, com garantia de fábrica e suporte pós-venda dedicado depois da entrega.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="envio-cta">
+          <a class="btn btn-wa-outline" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20envio%20com%20seguro.%20(origem%3A%20lp-envio-seguro)" data-origem="lp-envio-seguro" target="_blank" rel="noopener">
+            <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Tirar dúvida sobre o envio<span class="sr-only"> no WhatsApp (abre em nova aba)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ================================ PERGUNTAS FREQUENTES ================================ -->
-    <section class="section" id="faq" aria-labelledby="titulo-faq">
+    <section class="section section-alt" id="faq" aria-labelledby="titulo-faq">
       <div class="container faq-wrap">
         <div class="faq-head">
-          <p class="cena"><span class="cena-num">Cena 05</span>Dúvidas</p>
+          <p class="cena"><span class="cena-num">Cena 06</span>Dúvidas</p>
           <h2 id="titulo-faq">Perguntas Frequentes</h2>
           <p class="section-sub">As principais dúvidas antes de chamar no WhatsApp.</p>
         </div>
@@ -1395,6 +1564,10 @@
           <details class="faq" id="faq-envio" name="faq" open>
             <summary>Como funciona o envio?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
             <div class="faq-a"><p>Enviamos para todo o território nacional via transportadoras privadas ou Correios, sempre com seguro total incluso no valor do frete.</p></div>
+          </details>
+          <details class="faq" id="faq-confiavel" name="faq">
+            <summary>A BeHe Import é confiável?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
+            <div class="faq-a"><p>Sim. São mais de 2.300 clientes atendidos no Brasil, equipamentos 100% originais com garantia de fábrica, envio com seguro total contra extravios e atendimento direto com um consultor no WhatsApp. No perfil oficial @behe_ofc, mais de 3.600 profissionais do audiovisual acompanham o trabalho da loja.</p></div>
           </details>
           <details class="faq" name="faq">
             <summary>Posso parcelar em mais de um cartão?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
@@ -1478,7 +1651,7 @@
           <h2 id="titulo-links">Links Rápidos</h2>
           <ul>
             <li><a class="flink" href="#termos" data-abrir-termos aria-haspopup="dialog"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg>Termos de Uso</a></li>
-            <li><a class="flink" href="#faq-envio" data-abrir-faq="faq-envio"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg>Políticas de Envio</a></li>
+            <li><a class="flink" href="#envio-seguro"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg>Políticas de Envio</a></li>
             <li><a class="flink" href="#garantia"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>Garantia</a></li>
           </ul>
         </nav>
@@ -1531,7 +1704,7 @@
        JavaScript mínimo — a página funciona inteira sem ele. Aqui só entram melhorias:
        1) medição de cliques no WhatsApp (Pixel do Meta, GA4 ou Google Tag Manager, se estiverem ativos);
        2) menu do celular (foco no 1º link, Esc devolve o foco, fecha ao virar tela grande);
-       3) abrir a pergunta certa e os Termos pelos links do rodapé; 4) indicador do carrossel;
+       3) abrir a pergunta pela âncora do endereço e os Termos pelo link do rodapé; 4) indicador do carrossel;
        5) mural de Stories focável só quando rola; 6) botão flutuante (aparece, some e vira círculo);
        7) contador do visor da câmera (só no computador); 8) ano do copyright.
        ========================================================================================== */
@@ -1605,15 +1778,12 @@
         aoMudar(telaGrande, function () { if (telaGrande.matches) fecharMenu(false); });
       }
 
-      // 3a) "Políticas de Envio" no rodapé (e qualquer link para dentro de uma pergunta) abre a pergunta
+      // 3a) Endereço com âncora de uma pergunta (ex.: lojabehe.com/#faq-estoque) já abre a pergunta
       function abrirPergunta(id) {
         var alvo = id && doc.getElementById(id);
         var item = alvo && (alvo.tagName === 'DETAILS' ? alvo : alvo.closest('details'));
         if (item) item.open = true;
       }
-      doc.querySelectorAll('[data-abrir-faq]').forEach(function (link) {
-        link.addEventListener('click', function () { abrirPergunta(link.getAttribute('data-abrir-faq')); });
-      });
       if (location.hash) { try { abrirPergunta(decodeURIComponent(location.hash.slice(1))); } catch (e) {} }
 
       // 3b) Termos de Uso em <dialog> (o foco vai para o X do topo, que tem autofocus)

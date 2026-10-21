@@ -1,0 +1,5 @@
+# lojabehe.com — tudo liberado para os buscadores
+User-agent: *
+Allow: /
+
+Sitemap: https://lojabehe.com/sitemap.xml
