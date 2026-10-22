@@ -214,7 +214,7 @@
           {
             "@type": "Question",
             "name": "Como funciona o envio?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Enviamos para todo o território nacional via transportadoras privadas ou Correios, sempre com seguro total incluso no valor do frete." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Enviamos para todo o Brasil por transportadora privada ou Correios, sempre com seguro total incluso. O frete é grátis para Sul, Sudeste e Centro-Oeste; para Norte e Nordeste, é R$ 45,90." }
           },
           {
             "@type": "Question",
@@ -228,8 +228,8 @@
           },
           {
             "@type": "Question",
-            "name": "Como faço para consultar os preços atuais?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Como o mercado de importados oscila de acordo com o câmbio, garantimos sempre a melhor cotação do dia diretamente pelo nosso atendimento personalizado no WhatsApp." }
+            "name": "Como faço para consultar os preços?",
+            "acceptedAnswer": { "@type": "Answer", "text": "O preço dos equipamentos em destaque já aparece no site: é o valor no Pix. No cartão, dá para parcelar em até 21x, com o acréscimo da taxa da operadora. Para o restante do catálogo, o consultor passa o valor na hora pelo WhatsApp." }
           },
           {
             "@type": "Question",
@@ -239,7 +239,7 @@
           {
             "@type": "Question",
             "name": "Como sei se o produto está em estoque?",
-            "acceptedAnswer": { "@type": "Answer", "text": "A disponibilidade de cada equipamento é confirmada na hora pelo WhatsApp, junto com a cotação do dia. É só chamar um consultor." }
+            "acceptedAnswer": { "@type": "Answer", "text": "A disponibilidade de cada equipamento é confirmada na hora pelo WhatsApp. É só chamar um consultor." }
           }
         ]
       }
@@ -705,7 +705,9 @@
     .prod-cond { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); display: grid; gap: 3px; }
     .parc { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: .9375rem; }
     .parc .ico { width: 18px; height: 18px; color: var(--teal-hi); }
-    .preco { font-size: .8125rem; color: var(--muted); padding-left: 26px; }
+    .preco { font-size: .9375rem; color: var(--soft); }
+    .preco b { font-size: 1.375rem; font-weight: 800; color: var(--text); letter-spacing: -.01em; }
+    .prod-cond .parc { font-weight: 600; font-size: .875rem; color: var(--soft); }
     .prod .btn { font-size: .9rem; padding-inline: 12px; gap: 8px; letter-spacing: -.005em; }
     .swipe { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 8px; color: var(--muted); font-size: .8125rem; }
     .dots { display: flex; gap: 6px; }
@@ -1208,7 +1210,7 @@
             <p class="cena"><span class="cena-num">Cena 02</span>Destaques da Semana</p>
             <h2 id="titulo-produtos">Os Mais Pedidos do Momento</h2>
           </div>
-          <p class="section-sub">Preço sob consulta: como o mercado de importados oscila com o câmbio, a cotação é feita na hora, pelo WhatsApp.</p>
+          <p class="section-sub">Preço no Pix em cada produto, ou em até 21x no cartão. Frete grátis para Sul, Sudeste e Centro-Oeste.</p>
         </div>
 
         <ul class="prod-track" id="carrossel">
@@ -1228,11 +1230,11 @@
                 <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>ISO base dupla (800 e 2500)</li>
               </ul>
               <div class="prod-cond">
-                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
-                <span class="preco">Preço do dia pelo WhatsApp</span>
+                <span class="preco"><b>R$ 9.320</b> no Pix</span>
+                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Ou em até 21x no cartão de crédito</span>
               </div>
-              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20c%C3%A2mera%20Sony%20FX30%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-fx30)" data-origem="lp-destaque-fx30" target="_blank" rel="noopener">
-                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Sony FX30 (abre em nova aba)</span>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20c%C3%A2mera%20Sony%20FX30%20no%20site%20(R%24%209.320%20no%20Pix)%20e%20tenho%20interesse.%20(origem%3A%20lp-destaque-fx30)" data-origem="lp-destaque-fx30" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre a Sony FX30 (abre em nova aba)</span>
               </a>
             </div>
           </li>
@@ -1253,11 +1255,11 @@
                 <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Autofoco com reconhecimento por IA</li>
               </ul>
               <div class="prod-cond">
-                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
-                <span class="preco">Preço do dia pelo WhatsApp</span>
+                <span class="preco"><b>R$ 8.348</b> no Pix</span>
+                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Ou em até 21x no cartão de crédito</span>
               </div>
-              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20c%C3%A2mera%20Sony%20A6700%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-a6700)" data-origem="lp-destaque-a6700" target="_blank" rel="noopener">
-                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Sony α6700 (abre em nova aba)</span>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20c%C3%A2mera%20Sony%20A6700%20no%20site%20(R%24%208.348%20no%20Pix)%20e%20tenho%20interesse.%20(origem%3A%20lp-destaque-a6700)" data-origem="lp-destaque-a6700" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre a Sony α6700 (abre em nova aba)</span>
               </a>
             </div>
           </li>
@@ -1278,11 +1280,11 @@
                 <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Cerca de 485 g com bateria e cartão</li>
               </ul>
               <div class="prod-cond">
-                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
-                <span class="preco">Preço do dia pelo WhatsApp</span>
+                <span class="preco"><b>R$ 5.899</b> no Pix</span>
+                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Ou em até 21x no cartão de crédito</span>
               </div>
-              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20c%C3%A2mera%20Canon%20EOS%20RP%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-eosrp)" data-origem="lp-destaque-eosrp" target="_blank" rel="noopener">
-                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Canon EOS RP (abre em nova aba)</span>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20c%C3%A2mera%20Canon%20EOS%20RP%20no%20site%20(R%24%205.899%20no%20Pix)%20e%20tenho%20interesse.%20(origem%3A%20lp-destaque-eosrp)" data-origem="lp-destaque-eosrp" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre a Canon EOS RP (abre em nova aba)</span>
               </a>
             </div>
           </li>
@@ -1303,11 +1305,11 @@
                 <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Rosca de filtro de 82 mm</li>
               </ul>
               <div class="prod-cond">
-                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
-                <span class="preco">Preço do dia pelo WhatsApp</span>
+                <span class="preco"><b>R$ 8.899</b> no Pix</span>
+                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Ou em até 21x no cartão de crédito</span>
               </div>
-              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20lente%20Sigma%2024-70mm%20F2.8%20DG%20DN%20II%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-sigma2470ii)" data-origem="lp-destaque-sigma2470ii" target="_blank" rel="noopener">
-                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Sigma 24-70mm F2.8 DG DN II Art (abre em nova aba)</span>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20lente%20Sigma%2024-70mm%20F2.8%20DG%20DN%20II%20no%20site%20(R%24%208.899%20no%20Pix)%20e%20tenho%20interesse.%20(origem%3A%20lp-destaque-sigma2470ii)" data-origem="lp-destaque-sigma2470ii" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre a Sigma 24-70mm F2.8 DG DN II Art (abre em nova aba)</span>
               </a>
             </div>
           </li>
@@ -1328,11 +1330,11 @@
                 <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Apenas 540 g</li>
               </ul>
               <div class="prod-cond">
-                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
-                <span class="preco">Preço do dia pelo WhatsApp</span>
+                <span class="preco"><b>R$ 5.890</b> no Pix</span>
+                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Ou em até 21x no cartão de crédito</span>
               </div>
-              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20lente%20Tamron%2028-75mm%20F%2F2.8%20G2%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-tamron2875g2)" data-origem="lp-destaque-tamron2875g2" target="_blank" rel="noopener">
-                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Tamron 28-75mm F/2.8 G2 (abre em nova aba)</span>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20lente%20Tamron%2028-75mm%20F%2F2.8%20G2%20no%20site%20(R%24%205.890%20no%20Pix)%20e%20tenho%20interesse.%20(origem%3A%20lp-destaque-tamron2875g2)" data-origem="lp-destaque-tamron2875g2" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre a Tamron 28-75mm F/2.8 G2 (abre em nova aba)</span>
               </a>
             </div>
           </li>
@@ -1353,11 +1355,11 @@
                 <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Equivale a cerca de 26–105 mm</li>
               </ul>
               <div class="prod-cond">
-                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Em até 21x no cartão de crédito</span>
-                <span class="preco">Preço do dia pelo WhatsApp</span>
+                <span class="preco"><b>R$ 4.320</b> no Pix</span>
+                <span class="parc"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Ou em até 21x no cartão de crédito</span>
               </div>
-              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20lente%20Tamron%2017-70mm%20F%2F2.8%20na%20landing%20page%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o.%20(origem%3A%20lp-destaque-tamron1770)" data-origem="lp-destaque-tamron1770" target="_blank" rel="noopener">
-                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar Preço no WhatsApp<span class="sr-only"> da Tamron 17-70mm F/2.8 (abre em nova aba)</span>
+              <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Vi%20a%20lente%20Tamron%2017-70mm%20F%2F2.8%20no%20site%20(R%24%204.320%20no%20Pix)%20e%20tenho%20interesse.%20(origem%3A%20lp-destaque-tamron1770)" data-origem="lp-destaque-tamron1770" target="_blank" rel="noopener">
+                <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp<span class="sr-only"> sobre a Tamron 17-70mm F/2.8 (abre em nova aba)</span>
               </a>
             </div>
           </li>
@@ -1391,7 +1393,7 @@
             <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-package"/></svg></span>
             <div>
               <h3>Envio Seguro para todo o Brasil</h3>
-              <p>Todos os produtos são embalados com proteção máxima e enviados com seguro total contra extravios.</p>
+              <p>Todos os produtos são embalados com proteção máxima e enviados com seguro total contra extravios. Frete grátis para Sul, Sudeste e Centro-Oeste.</p>
             </div>
           </li>
           <li class="dif">
@@ -1552,7 +1554,7 @@
             <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-headset"/></svg></span>
             <div>
               <h3>Cotação e pedido no WhatsApp</h3>
-              <p>Você fala com um consultor, confirma o estoque e recebe a cotação do dia antes de fechar.</p>
+              <p>Você fala com um consultor, confirma o estoque e o valor antes de fechar.</p>
             </div>
           </li>
           <li class="dif etapa">
@@ -1568,7 +1570,7 @@
             <span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg></span>
             <div>
               <h3>Envio com seguro total</h3>
-              <p>Por transportadora privada ou Correios, para todo o Brasil, com seguro total contra extravios.</p>
+              <p>Por transportadora privada ou Correios, com seguro total contra extravios. Frete grátis para Sul, Sudeste e Centro-Oeste; Norte e Nordeste, R$ 45,90.</p>
             </div>
           </li>
           <li class="dif etapa">
@@ -1601,7 +1603,7 @@
         <div class="faq-list">
           <details class="faq" id="faq-envio" name="faq" open>
             <summary>Como funciona o envio?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
-            <div class="faq-a"><p>Enviamos para todo o território nacional via transportadoras privadas ou Correios, sempre com seguro total incluso no valor do frete.</p></div>
+            <div class="faq-a"><p>Enviamos para todo o Brasil por transportadora privada ou Correios, sempre com seguro total incluso. O frete é grátis para Sul, Sudeste e Centro-Oeste; para Norte e Nordeste, é R$ 45,90.</p></div>
           </details>
           <details class="faq" id="faq-confiavel" name="faq">
             <summary>A BeHe Import é confiável?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
@@ -1612,8 +1614,8 @@
             <div class="faq-a"><p>Sim! Facilitamos o pagamento para que você monte seu setup. É possível dividir o valor em até dois cartões diferentes ou dar uma entrada via Pix e parcelar o restante.</p></div>
           </details>
           <details class="faq" name="faq">
-            <summary>Como faço para consultar os preços atuais?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
-            <div class="faq-a"><p>Como o mercado de importados oscila de acordo com o câmbio, garantimos sempre a melhor cotação do dia diretamente pelo nosso atendimento personalizado no WhatsApp.</p></div>
+            <summary>Como faço para consultar os preços?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
+            <div class="faq-a"><p>O preço dos equipamentos em destaque já aparece no site: é o valor no Pix. No cartão, dá para parcelar em até 21x, com o acréscimo da taxa da operadora. Para o restante do catálogo, o consultor passa o valor na hora pelo WhatsApp.</p></div>
           </details>
           <details class="faq" name="faq">
             <summary>Os equipamentos têm garantia?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
@@ -1622,7 +1624,7 @@
           <details class="faq" id="faq-estoque" name="faq">
             <summary>Como sei se o produto está em estoque?<span class="chev" aria-hidden="true"><svg class="ico"><use href="#i-chev"/></svg></span></summary>
             <div class="faq-a">
-              <p>A disponibilidade de cada equipamento é confirmada na hora pelo WhatsApp, junto com a cotação do dia. É só chamar um consultor.</p>
+              <p>A disponibilidade de cada equipamento é confirmada na hora pelo WhatsApp. É só chamar um consultor.</p>
               <a class="btn btn-wa-outline btn-sm" href="https://wa.me/5545998382728?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20a%20disponibilidade%20de%20um%20equipamento%20em%20estoque.%20(origem%3A%20lp-faq-estoque)" data-origem="lp-faq-estoque" target="_blank" rel="noopener">
                 <svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Consultar disponibilidade<span class="sr-only"> no WhatsApp (abre em nova aba)</span>
               </a>
@@ -1721,9 +1723,9 @@
       <h2 id="titulo-termos">Termos de Uso</h2>
       <p class="intro">Resumo das condições de compra na BeHe Import.</p>
       <ol>
-        <li><strong>Preços:</strong> como o mercado de importados oscila de acordo com o câmbio, os preços são informados sob consulta, com a cotação do dia, no atendimento pelo WhatsApp.</li>
+        <li><strong>Preços:</strong> o valor mostrado em cada equipamento em destaque é o do Pix; no cartão há o acréscimo da taxa da operadora. Os demais itens do catálogo têm o valor informado no atendimento pelo WhatsApp.</li>
         <li><strong>Pagamento:</strong> parcelamento em até 21x no cartão de crédito. É possível dividir o valor em até dois cartões diferentes ou dar uma entrada via Pix e parcelar o restante.</li>
-        <li><strong>Envio:</strong> para todo o território nacional via transportadoras privadas ou Correios, sempre com seguro total incluso no valor do frete.</li>
+        <li><strong>Envio:</strong> para todo o Brasil por transportadora privada ou Correios, sempre com seguro total incluso. Frete grátis para Sul, Sudeste e Centro-Oeste; para Norte e Nordeste, R$ 45,90.</li>
         <li><strong>Garantia:</strong> equipamentos 100% originais, com garantia de fábrica e garantia integral contra defeitos de fabricação nos eletrônicos e ópticos.</li>
         <li><strong>Disponibilidade:</strong> o estoque de cada equipamento é confirmado no atendimento pelo WhatsApp.</li>
         <li><strong>Imagens e marcas:</strong> as imagens desta página são ilustrativas e as marcas citadas pertencem aos respectivos donos.</li>

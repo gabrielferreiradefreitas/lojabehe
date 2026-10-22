@@ -1,6 +1,6 @@
 {
-  "_sobre": "Catálogo da BeHe Import usado no site (seção 'Os Mais Pedidos do Momento'). Fotos reais mandadas pela loja no grupo Loja BEHE em 21/10/2026. Sem preço de propósito: a loja avisa que o preço vale só no dia (dólar); o site manda para o WhatsApp.",
-  "atualizado_em": "2026-10-21",
+  "_sobre": "Catálogo da BeHe Import usado no site (seção 'Os Mais Pedidos do Momento'). Fotos reais mandadas pela loja no grupo Loja BEHE em 21/10/2026. Preço = valor no Pix da legenda de cada foto (21/10/2026); o Gabriel decidiu em 22/10/2026 mostrar o preço do Pix em cada produto, mantendo o valor fixo. Cartão em até 21x com o acréscimo da taxa da operadora. Frete grátis para Sul, Sudeste e Centro-Oeste; Norte e Nordeste R$ 45,90.",
+  "atualizado_em": "2026-10-22",
   "produtos": [
     {
       "id": "sony-fx30",
@@ -8,6 +8,8 @@
       "marca": "Sony",
       "modelo": "FX30 (Cinema Line)",
       "condicao_informada": "Ferramenta profissional, pronta pra uso",
+      "preco_pix_reais": 9320,
+      "preco_informado_em": "2026-10-21",
       "foto_original": "catalogo/originais/sony-fx30.jpg",
       "foto_site": [
         "assets/produtos/sony-fx30-800.webp",
@@ -21,6 +23,8 @@
       "marca": "Sony",
       "modelo": "α6700",
       "condicao_informada": "Zero",
+      "preco_pix_reais": 8348,
+      "preco_informado_em": "2026-10-21",
       "foto_original": "catalogo/originais/sony-a6700.jpg",
       "foto_site": [
         "assets/produtos/sony-a6700-800.webp",
@@ -34,6 +38,8 @@
       "marca": "Canon",
       "modelo": "EOS RP",
       "condicao_informada": "Ferramenta profissional, pronta pra uso",
+      "preco_pix_reais": 5899,
+      "preco_informado_em": "2026-10-21",
       "foto_original": "catalogo/originais/canon-eos-rp.jpg",
       "foto_site": [
         "assets/produtos/canon-eos-rp-800.webp",
@@ -47,6 +53,8 @@
       "marca": "Sigma",
       "modelo": "24-70mm F2.8 DG DN II Art",
       "condicao_informada": "Zero",
+      "preco_pix_reais": 8899,
+      "preco_informado_em": "2026-10-21",
       "foto_original": "catalogo/originais/sigma-24-70-f2-8-dg-dn-art-ii.jpg",
       "foto_site": [
         "assets/produtos/sigma-24-70-f2-8-dg-dn-art-ii-800.webp",
@@ -60,6 +68,8 @@
       "marca": "Tamron",
       "modelo": "28-75mm F/2.8 Di III VXD G2",
       "condicao_informada": "Zero",
+      "preco_pix_reais": 5890,
+      "preco_informado_em": "2026-10-21",
       "foto_original": "catalogo/originais/tamron-28-75-f2-8-g2.jpg",
       "foto_site": [
         "assets/produtos/tamron-28-75-f2-8-g2-800.webp",
@@ -73,6 +83,8 @@
       "marca": "Tamron",
       "modelo": "17-70mm F/2.8 Di III-A VC RXD",
       "condicao_informada": "Ferramenta profissional, pronta pra uso",
+      "preco_pix_reais": 4320,
+      "preco_informado_em": "2026-10-21",
       "foto_original": "catalogo/originais/tamron-17-70-f2-8.jpg",
       "foto_site": [
         "assets/produtos/tamron-17-70-f2-8-800.webp",
@@ -80,5 +92,13 @@
       ],
       "origem_whatsapp": "lp-destaque-tamron1770"
     }
-  ]
+  ],
+  "frete": {
+    "gratis": [
+      "Sul",
+      "Sudeste",
+      "Centro-Oeste"
+    ],
+    "norte_nordeste_reais": 45.9
+  }
 }
