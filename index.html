@@ -179,7 +179,13 @@
           "url": "https://wa.me/5545998382728",
           "contactType": "sales",
           "areaServed": "BR",
-          "availableLanguage": "Portuguese"
+          "availableLanguage": "Portuguese",
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
         }
       },
       {
@@ -523,6 +529,8 @@
     .lead { font-size: 1.0625rem; color: var(--soft); max-width: 36em; }
     .lead strong { color: var(--text); }
     .hero-ctas { display: grid; gap: 10px; margin-top: 20px; }
+    .hero-sla { display: flex; align-items: center; gap: 8px; margin: 12px 0 0; font-size: .875rem; line-height: 1.4; color: var(--soft); }
+    .hero-sla .dot-on { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(16, 185, 129, .2); }
 
     /* Faixa de prova compacta (ícone + texto, sem cartão): as 4 garantias cabem na primeira tela */
     .proof {
@@ -1135,6 +1143,8 @@
               Ver catálogo<svg class="ico" aria-hidden="true"><use href="#i-down"/></svg>
             </a>
           </div>
+          <!-- Prazo e horário do WhatsApp: votos do Gabriel no grupo Loja BEHE (23/10/2026). Mudou? Mude também o "hoursAvailable" lá em cima. -->
+          <p class="hero-sla"><span class="dot-on" aria-hidden="true"></span>Respondemos em até 15 minutos no WhatsApp, de segunda a sexta, das 9h às 18h.</p>
         </div>
 
         <!-- Faixa de prova: os 4 motivos para comprar, legíveis em 2 segundos -->
