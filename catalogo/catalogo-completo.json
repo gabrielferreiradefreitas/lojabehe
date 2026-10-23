@@ -1,5 +1,5 @@
 {
-  "_sobre": "Catálogo completo de câmeras (seção #catalogo do site). Lista e preços mandados pelo Gabriel no grupo Loja BEHE em 23/10/2026 12:07 UTC. Preço exibido como Pix (padrão do site, a confirmar com ele). Fotos ilustrativas geradas.",
+  "_sobre": "Catálogo completo de câmeras (seção #catalogo do site). Lista e preços mandados pelo Gabriel no grupo Loja BEHE em 23/10/2026 12:07 UTC. Preço exibido como Pix (padrão do site, a confirmar com ele). Fotos oficiais dos fabricantes (pedido do Gabriel, 23/10/2026 12:20 UTC); onde não houve foto oficial, ilustrativa gerada.",
   "atualizado_em": "2026-10-23",
   "produtos": [
     {
@@ -13,7 +13,7 @@
         "assets/produtos/catalogo/canon-r5-mark-ii-800.webp",
         "assets/produtos/catalogo/canon-r5-mark-ii-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-canon-r5-mark-ii"
     },
     {
@@ -27,7 +27,7 @@
         "assets/produtos/catalogo/canon-c50-800.webp",
         "assets/produtos/catalogo/canon-c50-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-canon-c50"
     },
     {
@@ -41,7 +41,7 @@
         "assets/produtos/catalogo/canon-r1-800.webp",
         "assets/produtos/catalogo/canon-r1-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-canon-r1"
     },
     {
@@ -55,7 +55,7 @@
         "assets/produtos/catalogo/canon-r6-mark-iii-24-105-800.webp",
         "assets/produtos/catalogo/canon-r6-mark-iii-24-105-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-canon-r6-mark-iii-24-105"
     },
     {
@@ -69,7 +69,7 @@
         "assets/produtos/catalogo/canon-r6-mark-ii-24-105-800.webp",
         "assets/produtos/catalogo/canon-r6-mark-ii-24-105-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-canon-r6-mark-ii-24-105"
     },
     {
@@ -83,7 +83,7 @@
         "assets/produtos/catalogo/canon-r5-24-105-800.webp",
         "assets/produtos/catalogo/canon-r5-24-105-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-canon-r5-24-105"
     },
     {
@@ -97,7 +97,7 @@
         "assets/produtos/catalogo/canon-r6-v-20-50-800.webp",
         "assets/produtos/catalogo/canon-r6-v-20-50-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-canon-r6-v-20-50"
     },
     {
@@ -111,7 +111,7 @@
         "assets/produtos/catalogo/canon-r5-mark-ii-24-105-800.webp",
         "assets/produtos/catalogo/canon-r5-mark-ii-24-105-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-canon-r5-mark-ii-24-105"
     },
     {
@@ -125,7 +125,7 @@
         "assets/produtos/catalogo/sony-a7s-iii-800.webp",
         "assets/produtos/catalogo/sony-a7s-iii-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-sony-a7s-iii"
     },
     {
@@ -139,7 +139,7 @@
         "assets/produtos/catalogo/sony-fx3a-800.webp",
         "assets/produtos/catalogo/sony-fx3a-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-sony-fx3a"
     },
     {
@@ -153,7 +153,7 @@
         "assets/produtos/catalogo/sony-a7r-vi-800.webp",
         "assets/produtos/catalogo/sony-a7r-vi-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-sony-a7r-vi"
     },
     {
@@ -167,7 +167,7 @@
         "assets/produtos/catalogo/sony-a9-iii-800.webp",
         "assets/produtos/catalogo/sony-a9-iii-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-sony-a9-iii"
     },
     {
@@ -195,7 +195,7 @@
         "assets/produtos/catalogo/sony-fx6v-800.webp",
         "assets/produtos/catalogo/sony-fx6v-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-sony-fx6v"
     },
     {
@@ -209,7 +209,7 @@
         "assets/produtos/catalogo/sony-a1-ii-800.webp",
         "assets/produtos/catalogo/sony-a1-ii-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-sony-a1-ii"
     },
     {
@@ -223,7 +223,7 @@
         "assets/produtos/catalogo/sony-rx10-v-800.webp",
         "assets/produtos/catalogo/sony-rx10-v-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-sony-rx10-v"
     },
     {
@@ -237,7 +237,7 @@
         "assets/produtos/catalogo/sony-rx1-mark-iii-800.webp",
         "assets/produtos/catalogo/sony-rx1-mark-iii-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-sony-rx1-mark-iii"
     },
     {
@@ -251,7 +251,7 @@
         "assets/produtos/catalogo/nikon-z8-800.webp",
         "assets/produtos/catalogo/nikon-z8-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-nikon-z8"
     },
     {
@@ -265,7 +265,7 @@
         "assets/produtos/catalogo/nikon-z9-800.webp",
         "assets/produtos/catalogo/nikon-z9-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-nikon-z9"
     },
     {
@@ -279,7 +279,7 @@
         "assets/produtos/catalogo/nikon-z7-ii-24-70-800.webp",
         "assets/produtos/catalogo/nikon-z7-ii-24-70-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-nikon-z7-ii-24-70"
     },
     {
@@ -293,7 +293,7 @@
         "assets/produtos/catalogo/nikon-z6-iii-24-120-800.webp",
         "assets/produtos/catalogo/nikon-z6-iii-24-120-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-nikon-z6-iii-24-120"
     },
     {
@@ -307,7 +307,7 @@
         "assets/produtos/catalogo/nikon-z8-24-120-800.webp",
         "assets/produtos/catalogo/nikon-z8-24-120-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-nikon-z8-24-120"
     },
     {
@@ -335,7 +335,7 @@
         "assets/produtos/catalogo/blackmagic-pyxis-6k-800.webp",
         "assets/produtos/catalogo/blackmagic-pyxis-6k-480.webp"
       ],
-      "foto": "ilustrativa gerada (Nano Banana)",
+      "foto": "oficial do fabricante (fundo branco)",
       "origem_whatsapp": "lp-catalogo-blackmagic-pyxis-6k"
     }
   ]
