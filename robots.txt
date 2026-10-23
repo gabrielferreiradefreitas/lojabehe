@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lojabehe.com/sitemap.xml
+Sitemap: https://ofertas.lojabehe.com/sitemap.xml
