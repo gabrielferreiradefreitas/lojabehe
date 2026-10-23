@@ -1,0 +1,342 @@
+{
+  "_sobre": "Catálogo completo de câmeras (seção #catalogo do site). Lista e preços mandados pelo Gabriel no grupo Loja BEHE em 23/10/2026 12:07 UTC. Preço exibido como Pix (padrão do site, a confirmar com ele). Fotos ilustrativas geradas.",
+  "atualizado_em": "2026-10-23",
+  "produtos": [
+    {
+      "id": "canon-r5-mark-ii",
+      "marca": "Canon",
+      "grupo": "Sem lente",
+      "nome": "Canon EOS R5 Mark II",
+      "preco_pix": "R$ 21.387,29",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/canon-r5-mark-ii-800.webp",
+        "assets/produtos/catalogo/canon-r5-mark-ii-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-canon-r5-mark-ii"
+    },
+    {
+      "id": "canon-c50",
+      "marca": "Canon",
+      "grupo": "Sem lente",
+      "nome": "Canon EOS C50",
+      "preco_pix": "R$ 22.249,14",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/canon-c50-800.webp",
+        "assets/produtos/catalogo/canon-c50-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-canon-c50"
+    },
+    {
+      "id": "canon-r1",
+      "marca": "Canon",
+      "grupo": "Sem lente",
+      "nome": "Canon EOS R1",
+      "preco_pix": "R$ 39.724,49",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/canon-r1-800.webp",
+        "assets/produtos/catalogo/canon-r1-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-canon-r1"
+    },
+    {
+      "id": "canon-r6-mark-iii-24-105",
+      "marca": "Canon",
+      "grupo": "Com lente",
+      "nome": "Canon EOS R6 Mark III + RF 24-105mm",
+      "preco_pix": "R$ 18.276,08",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/canon-r6-mark-iii-24-105-800.webp",
+        "assets/produtos/catalogo/canon-r6-mark-iii-24-105-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-canon-r6-mark-iii-24-105"
+    },
+    {
+      "id": "canon-r6-mark-ii-24-105",
+      "marca": "Canon",
+      "grupo": "Com lente",
+      "nome": "Canon EOS R6 Mark II + RF 24-105mm",
+      "preco_pix": "R$ 21.387,29",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/canon-r6-mark-ii-24-105-800.webp",
+        "assets/produtos/catalogo/canon-r6-mark-ii-24-105-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-canon-r6-mark-ii-24-105"
+    },
+    {
+      "id": "canon-r5-24-105",
+      "marca": "Canon",
+      "grupo": "Com lente",
+      "nome": "Canon EOS R5 + RF 24-105mm",
+      "preco_pix": "R$ 21.387,29",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/canon-r5-24-105-800.webp",
+        "assets/produtos/catalogo/canon-r5-24-105-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-canon-r5-24-105"
+    },
+    {
+      "id": "canon-r6-v-20-50",
+      "marca": "Canon",
+      "grupo": "Com lente",
+      "nome": "Canon EOS R6 V + RF 20-50mm PZ",
+      "preco_pix": "R$ 21.387,29",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/canon-r6-v-20-50-800.webp",
+        "assets/produtos/catalogo/canon-r6-v-20-50-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-canon-r6-v-20-50"
+    },
+    {
+      "id": "canon-r5-mark-ii-24-105",
+      "marca": "Canon",
+      "grupo": "Com lente",
+      "nome": "Canon EOS R5 Mark II + RF 24-105mm",
+      "preco_pix": "R$ 27.805,31",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/canon-r5-mark-ii-24-105-800.webp",
+        "assets/produtos/catalogo/canon-r5-mark-ii-24-105-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-canon-r5-mark-ii-24-105"
+    },
+    {
+      "id": "sony-a7s-iii",
+      "marca": "Sony",
+      "grupo": "Sem lente",
+      "nome": "Sony A7S III",
+      "preco_pix": "R$ 18.603,71",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/sony-a7s-iii-800.webp",
+        "assets/produtos/catalogo/sony-a7s-iii-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-sony-a7s-iii"
+    },
+    {
+      "id": "sony-fx3a",
+      "marca": "Sony",
+      "grupo": "Sem lente",
+      "nome": "Sony FX3A",
+      "preco_pix": "R$ 21.470,43",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/sony-fx3a-800.webp",
+        "assets/produtos/catalogo/sony-fx3a-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-sony-fx3a"
+    },
+    {
+      "id": "sony-a7r-vi",
+      "marca": "Sony",
+      "grupo": "Sem lente",
+      "nome": "Sony A7R VI",
+      "preco_pix": "R$ 29.217,27",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/sony-a7r-vi-800.webp",
+        "assets/produtos/catalogo/sony-a7r-vi-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-sony-a7r-vi"
+    },
+    {
+      "id": "sony-a9-iii",
+      "marca": "Sony",
+      "grupo": "Sem lente",
+      "nome": "Sony A9 III",
+      "preco_pix": "R$ 33.856,58",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/sony-a9-iii-800.webp",
+        "assets/produtos/catalogo/sony-a9-iii-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-sony-a9-iii"
+    },
+    {
+      "id": "sony-fx6t",
+      "marca": "Sony",
+      "grupo": "Sem lente",
+      "nome": "Sony FX6T",
+      "preco_pix": "R$ 35.445,81",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/sony-fx6t-800.webp",
+        "assets/produtos/catalogo/sony-fx6t-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-sony-fx6t"
+    },
+    {
+      "id": "sony-fx6v",
+      "marca": "Sony",
+      "grupo": "Sem lente",
+      "nome": "Sony FX6V",
+      "preco_pix": "R$ 35.751,43",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/sony-fx6v-800.webp",
+        "assets/produtos/catalogo/sony-fx6v-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-sony-fx6v"
+    },
+    {
+      "id": "sony-a1-ii",
+      "marca": "Sony",
+      "grupo": "Sem lente",
+      "nome": "Sony A1 II",
+      "preco_pix": "R$ 39.669,48",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/sony-a1-ii-800.webp",
+        "assets/produtos/catalogo/sony-a1-ii-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-sony-a1-ii"
+    },
+    {
+      "id": "sony-rx10-v",
+      "marca": "Sony",
+      "grupo": "Com lente fixa",
+      "nome": "Sony Cyber-shot RX10 V",
+      "preco_pix": "R$ 17.420,34",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/sony-rx10-v-800.webp",
+        "assets/produtos/catalogo/sony-rx10-v-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-sony-rx10-v"
+    },
+    {
+      "id": "sony-rx1-mark-iii",
+      "marca": "Sony",
+      "grupo": "Com lente fixa",
+      "nome": "Sony RX1 Mark III",
+      "preco_pix": "R$ 27.499,69",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/sony-rx1-mark-iii-800.webp",
+        "assets/produtos/catalogo/sony-rx1-mark-iii-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-sony-rx1-mark-iii"
+    },
+    {
+      "id": "nikon-z8",
+      "marca": "Nikon",
+      "grupo": "Sem lente",
+      "nome": "Nikon Z8",
+      "preco_pix": "R$ 19.804,18",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/nikon-z8-800.webp",
+        "assets/produtos/catalogo/nikon-z8-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-nikon-z8"
+    },
+    {
+      "id": "nikon-z9",
+      "marca": "Nikon",
+      "grupo": "Sem lente",
+      "nome": "Nikon Z9",
+      "preco_pix": "R$ 27.866,43",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/nikon-z9-800.webp",
+        "assets/produtos/catalogo/nikon-z9-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-nikon-z9"
+    },
+    {
+      "id": "nikon-z7-ii-24-70",
+      "marca": "Nikon",
+      "grupo": "Com lente",
+      "nome": "Nikon Z7 II + Z 24-70mm S",
+      "preco_pix": "R$ 17.249,19",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/nikon-z7-ii-24-70-800.webp",
+        "assets/produtos/catalogo/nikon-z7-ii-24-70-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-nikon-z7-ii-24-70"
+    },
+    {
+      "id": "nikon-z6-iii-24-120",
+      "marca": "Nikon",
+      "grupo": "Com lente",
+      "nome": "Nikon Z6 III + Z 24-120mm F/4 S",
+      "preco_pix": "R$ 18.337,20",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/nikon-z6-iii-24-120-800.webp",
+        "assets/produtos/catalogo/nikon-z6-iii-24-120-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-nikon-z6-iii-24-120"
+    },
+    {
+      "id": "nikon-z8-24-120",
+      "marca": "Nikon",
+      "grupo": "Com lente",
+      "nome": "Nikon Z8 + 24-120mm F/4",
+      "preco_pix": "R$ 27.805,31",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/nikon-z8-24-120-800.webp",
+        "assets/produtos/catalogo/nikon-z8-24-120-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-nikon-z8-24-120"
+    },
+    {
+      "id": "panasonic-s1-ii",
+      "marca": "Panasonic",
+      "grupo": "Sem lente",
+      "nome": "Panasonic Lumix S1 II",
+      "preco_pix": "R$ 17.805,42",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/panasonic-s1-ii-800.webp",
+        "assets/produtos/catalogo/panasonic-s1-ii-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-panasonic-s1-ii"
+    },
+    {
+      "id": "blackmagic-pyxis-6k",
+      "marca": "Blackmagic",
+      "grupo": "Sem lente",
+      "nome": "Blackmagic Pyxis 6K Leica",
+      "preco_pix": "R$ 20.140,36",
+      "preco_informado_em": "2026-10-23",
+      "foto_site": [
+        "assets/produtos/catalogo/blackmagic-pyxis-6k-800.webp",
+        "assets/produtos/catalogo/blackmagic-pyxis-6k-480.webp"
+      ],
+      "foto": "ilustrativa gerada (Nano Banana)",
+      "origem_whatsapp": "lp-catalogo-blackmagic-pyxis-6k"
+    }
+  ]
+}

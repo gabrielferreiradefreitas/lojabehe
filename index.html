@@ -727,6 +727,25 @@
     }
 
     /* =========================================================================================
+       8b. CATÁLOGO COMPLETO — grade de câmeras por marca (lista do Gabriel, 23/10/2026)
+       ========================================================================================= */
+    .cat-marca { margin-top: 28px; }
+    .cat-marca-t { font-size: 1.375rem; font-weight: 800; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+    .cat-grupo { margin: 16px 0 10px; color: var(--muted); font-size: .875rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+    .cat-lista { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .catp { display: flex; flex-direction: column; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+    .catp img { width: 100%; aspect-ratio: 4 / 5; height: auto; object-fit: cover; background: #0F172A; }
+    .catp-body { display: flex; flex-direction: column; gap: 6px; flex: 1; padding: 12px; }
+    .catp h4 { font-size: .9375rem; line-height: 1.3; font-weight: 700; }
+    .catp .preco { margin-top: auto; font-size: .8125rem; }
+    .catp .preco b { font-size: 1.0625rem; }
+    .catp-parc { font-size: .8125rem; color: var(--soft); }
+    .catp .btn { margin-top: 6px; font-size: .8125rem; padding-inline: 8px; gap: 6px; }
+    .catp .btn .ico-wa { width: 18px; height: 18px; }
+    @media (min-width: 760px) { .cat-lista { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+    @media (min-width: 1200px) { .cat-lista { grid-template-columns: repeat(4, 1fr); } .catp-body { padding: 16px; } }
+
+    /* =========================================================================================
        9. DIFERENCIAIS
        ========================================================================================= */
     .dif-grid { display: grid; gap: 12px; }
@@ -1039,6 +1058,7 @@
       <nav class="nav" id="menu" aria-label="Navegação principal" popover>
         <ul>
           <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#catalogo">Catálogo</a></li>
           <li><a href="#diferenciais">Diferenciais</a></li>
           <li><a href="#garantia">Garantia</a></li>
           <li><a href="#faq">Perguntas Frequentes</a></li>
@@ -1373,6 +1393,275 @@
         <div class="swipe" aria-hidden="true">
           <span>Arraste para ver os 6 destaques →</span>
           <span class="dots" id="dots"><span class="is-on"></span><span></span><span></span><span></span><span></span><span></span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ CATÁLOGO COMPLETO ================================ -->
+    <!-- Lista e preços mandados pelo Gabriel no grupo Loja BEHE (23/10/2026 12:07 UTC). Dados: catalogo/catalogo-completo.json. Fotos: assets/produtos/catalogo/<id>-480.webp e -800.webp, 4:5, ilustrativas -->
+    <section class="section" id="catalogo" aria-labelledby="titulo-catalogo">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="cena"><span class="cena-num">Catálogo</span>Câmeras</p>
+            <h2 id="titulo-catalogo">Catálogo Completo de Câmeras</h2>
+          </div>
+          <p class="section-sub">Preço no Pix, ou em até 12x no cartão. Fotos ilustrativas.</p>
+        </div>
+        <div class="cat-marca">
+          <h3 class="cat-marca-t">Canon</h3>
+          <p class="cat-grupo">Sem lente</p>
+          <ul class="cat-lista">
+            <li class="catp">
+              <img src="assets/produtos/catalogo/canon-r5-mark-ii-800.webp" srcset="assets/produtos/catalogo/canon-r5-mark-ii-480.webp 480w, assets/produtos/catalogo/canon-r5-mark-ii-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Canon EOS R5 Mark II" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Canon EOS R5 Mark II</h4>
+                <span class="preco"><b>R$ 21.387,29</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Canon%20EOS%20R5%20Mark%20II%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2021.387%2C29%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-canon-r5-mark-ii%29" data-origem="lp-catalogo-canon-r5-mark-ii" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Canon EOS R5 Mark II (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/canon-c50-800.webp" srcset="assets/produtos/catalogo/canon-c50-480.webp 480w, assets/produtos/catalogo/canon-c50-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Canon EOS C50" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Canon EOS C50</h4>
+                <span class="preco"><b>R$ 22.249,14</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Canon%20EOS%20C50%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2022.249%2C14%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-canon-c50%29" data-origem="lp-catalogo-canon-c50" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Canon EOS C50 (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/canon-r1-800.webp" srcset="assets/produtos/catalogo/canon-r1-480.webp 480w, assets/produtos/catalogo/canon-r1-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Canon EOS R1" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Canon EOS R1</h4>
+                <span class="preco"><b>R$ 39.724,49</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Canon%20EOS%20R1%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2039.724%2C49%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-canon-r1%29" data-origem="lp-catalogo-canon-r1" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Canon EOS R1 (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+          </ul>
+          <p class="cat-grupo">Com lente</p>
+          <ul class="cat-lista">
+            <li class="catp">
+              <img src="assets/produtos/catalogo/canon-r6-mark-iii-24-105-800.webp" srcset="assets/produtos/catalogo/canon-r6-mark-iii-24-105-480.webp 480w, assets/produtos/catalogo/canon-r6-mark-iii-24-105-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Canon EOS R6 Mark III + RF 24-105mm" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Canon EOS R6 Mark III + RF 24-105mm</h4>
+                <span class="preco"><b>R$ 18.276,08</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Canon%20EOS%20R6%20Mark%20III%20%2B%20RF%2024-105mm%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2018.276%2C08%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-canon-r6-mark-iii-24-105%29" data-origem="lp-catalogo-canon-r6-mark-iii-24-105" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Canon EOS R6 Mark III + RF 24-105mm (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/canon-r6-mark-ii-24-105-800.webp" srcset="assets/produtos/catalogo/canon-r6-mark-ii-24-105-480.webp 480w, assets/produtos/catalogo/canon-r6-mark-ii-24-105-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Canon EOS R6 Mark II + RF 24-105mm" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Canon EOS R6 Mark II + RF 24-105mm</h4>
+                <span class="preco"><b>R$ 21.387,29</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Canon%20EOS%20R6%20Mark%20II%20%2B%20RF%2024-105mm%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2021.387%2C29%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-canon-r6-mark-ii-24-105%29" data-origem="lp-catalogo-canon-r6-mark-ii-24-105" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Canon EOS R6 Mark II + RF 24-105mm (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/canon-r5-24-105-800.webp" srcset="assets/produtos/catalogo/canon-r5-24-105-480.webp 480w, assets/produtos/catalogo/canon-r5-24-105-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Canon EOS R5 + RF 24-105mm" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Canon EOS R5 + RF 24-105mm</h4>
+                <span class="preco"><b>R$ 21.387,29</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Canon%20EOS%20R5%20%2B%20RF%2024-105mm%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2021.387%2C29%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-canon-r5-24-105%29" data-origem="lp-catalogo-canon-r5-24-105" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Canon EOS R5 + RF 24-105mm (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/canon-r6-v-20-50-800.webp" srcset="assets/produtos/catalogo/canon-r6-v-20-50-480.webp 480w, assets/produtos/catalogo/canon-r6-v-20-50-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Canon EOS R6 V + RF 20-50mm PZ" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Canon EOS R6 V + RF 20-50mm PZ</h4>
+                <span class="preco"><b>R$ 21.387,29</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Canon%20EOS%20R6%20V%20%2B%20RF%2020-50mm%20PZ%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2021.387%2C29%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-canon-r6-v-20-50%29" data-origem="lp-catalogo-canon-r6-v-20-50" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Canon EOS R6 V + RF 20-50mm PZ (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/canon-r5-mark-ii-24-105-800.webp" srcset="assets/produtos/catalogo/canon-r5-mark-ii-24-105-480.webp 480w, assets/produtos/catalogo/canon-r5-mark-ii-24-105-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Canon EOS R5 Mark II + RF 24-105mm" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Canon EOS R5 Mark II + RF 24-105mm</h4>
+                <span class="preco"><b>R$ 27.805,31</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Canon%20EOS%20R5%20Mark%20II%20%2B%20RF%2024-105mm%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2027.805%2C31%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-canon-r5-mark-ii-24-105%29" data-origem="lp-catalogo-canon-r5-mark-ii-24-105" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Canon EOS R5 Mark II + RF 24-105mm (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="cat-marca">
+          <h3 class="cat-marca-t">Sony</h3>
+          <p class="cat-grupo">Sem lente</p>
+          <ul class="cat-lista">
+            <li class="catp">
+              <img src="assets/produtos/catalogo/sony-a7s-iii-800.webp" srcset="assets/produtos/catalogo/sony-a7s-iii-480.webp 480w, assets/produtos/catalogo/sony-a7s-iii-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Sony A7S III" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Sony A7S III</h4>
+                <span class="preco"><b>R$ 18.603,71</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Sony%20A7S%20III%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2018.603%2C71%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-sony-a7s-iii%29" data-origem="lp-catalogo-sony-a7s-iii" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Sony A7S III (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/sony-fx3a-800.webp" srcset="assets/produtos/catalogo/sony-fx3a-480.webp 480w, assets/produtos/catalogo/sony-fx3a-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Sony FX3A" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Sony FX3A</h4>
+                <span class="preco"><b>R$ 21.470,43</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Sony%20FX3A%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2021.470%2C43%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-sony-fx3a%29" data-origem="lp-catalogo-sony-fx3a" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Sony FX3A (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/sony-a7r-vi-800.webp" srcset="assets/produtos/catalogo/sony-a7r-vi-480.webp 480w, assets/produtos/catalogo/sony-a7r-vi-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Sony A7R VI" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Sony A7R VI</h4>
+                <span class="preco"><b>R$ 29.217,27</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Sony%20A7R%20VI%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2029.217%2C27%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-sony-a7r-vi%29" data-origem="lp-catalogo-sony-a7r-vi" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Sony A7R VI (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/sony-a9-iii-800.webp" srcset="assets/produtos/catalogo/sony-a9-iii-480.webp 480w, assets/produtos/catalogo/sony-a9-iii-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Sony A9 III" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Sony A9 III</h4>
+                <span class="preco"><b>R$ 33.856,58</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Sony%20A9%20III%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2033.856%2C58%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-sony-a9-iii%29" data-origem="lp-catalogo-sony-a9-iii" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Sony A9 III (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/sony-fx6t-800.webp" srcset="assets/produtos/catalogo/sony-fx6t-480.webp 480w, assets/produtos/catalogo/sony-fx6t-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Sony FX6T" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Sony FX6T</h4>
+                <span class="preco"><b>R$ 35.445,81</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Sony%20FX6T%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2035.445%2C81%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-sony-fx6t%29" data-origem="lp-catalogo-sony-fx6t" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Sony FX6T (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/sony-fx6v-800.webp" srcset="assets/produtos/catalogo/sony-fx6v-480.webp 480w, assets/produtos/catalogo/sony-fx6v-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Sony FX6V" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Sony FX6V</h4>
+                <span class="preco"><b>R$ 35.751,43</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Sony%20FX6V%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2035.751%2C43%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-sony-fx6v%29" data-origem="lp-catalogo-sony-fx6v" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Sony FX6V (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/sony-a1-ii-800.webp" srcset="assets/produtos/catalogo/sony-a1-ii-480.webp 480w, assets/produtos/catalogo/sony-a1-ii-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Sony A1 II" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Sony A1 II</h4>
+                <span class="preco"><b>R$ 39.669,48</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Sony%20A1%20II%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2039.669%2C48%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-sony-a1-ii%29" data-origem="lp-catalogo-sony-a1-ii" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Sony A1 II (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+          </ul>
+          <p class="cat-grupo">Com lente fixa</p>
+          <ul class="cat-lista">
+            <li class="catp">
+              <img src="assets/produtos/catalogo/sony-rx10-v-800.webp" srcset="assets/produtos/catalogo/sony-rx10-v-480.webp 480w, assets/produtos/catalogo/sony-rx10-v-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Sony Cyber-shot RX10 V" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Sony Cyber-shot RX10 V</h4>
+                <span class="preco"><b>R$ 17.420,34</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Sony%20Cyber-shot%20RX10%20V%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2017.420%2C34%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-sony-rx10-v%29" data-origem="lp-catalogo-sony-rx10-v" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Sony Cyber-shot RX10 V (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/sony-rx1-mark-iii-800.webp" srcset="assets/produtos/catalogo/sony-rx1-mark-iii-480.webp 480w, assets/produtos/catalogo/sony-rx1-mark-iii-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Sony RX1 Mark III" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Sony RX1 Mark III</h4>
+                <span class="preco"><b>R$ 27.499,69</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Sony%20RX1%20Mark%20III%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2027.499%2C69%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-sony-rx1-mark-iii%29" data-origem="lp-catalogo-sony-rx1-mark-iii" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Sony RX1 Mark III (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="cat-marca">
+          <h3 class="cat-marca-t">Nikon</h3>
+          <p class="cat-grupo">Sem lente</p>
+          <ul class="cat-lista">
+            <li class="catp">
+              <img src="assets/produtos/catalogo/nikon-z8-800.webp" srcset="assets/produtos/catalogo/nikon-z8-480.webp 480w, assets/produtos/catalogo/nikon-z8-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Nikon Z8" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Nikon Z8</h4>
+                <span class="preco"><b>R$ 19.804,18</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Nikon%20Z8%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2019.804%2C18%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-nikon-z8%29" data-origem="lp-catalogo-nikon-z8" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Nikon Z8 (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/nikon-z9-800.webp" srcset="assets/produtos/catalogo/nikon-z9-480.webp 480w, assets/produtos/catalogo/nikon-z9-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Nikon Z9" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Nikon Z9</h4>
+                <span class="preco"><b>R$ 27.866,43</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Nikon%20Z9%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2027.866%2C43%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-nikon-z9%29" data-origem="lp-catalogo-nikon-z9" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Nikon Z9 (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+          </ul>
+          <p class="cat-grupo">Com lente</p>
+          <ul class="cat-lista">
+            <li class="catp">
+              <img src="assets/produtos/catalogo/nikon-z7-ii-24-70-800.webp" srcset="assets/produtos/catalogo/nikon-z7-ii-24-70-480.webp 480w, assets/produtos/catalogo/nikon-z7-ii-24-70-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Nikon Z7 II + Z 24-70mm S" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Nikon Z7 II + Z 24-70mm S</h4>
+                <span class="preco"><b>R$ 17.249,19</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Nikon%20Z7%20II%20%2B%20Z%2024-70mm%20S%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2017.249%2C19%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-nikon-z7-ii-24-70%29" data-origem="lp-catalogo-nikon-z7-ii-24-70" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Nikon Z7 II + Z 24-70mm S (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/nikon-z6-iii-24-120-800.webp" srcset="assets/produtos/catalogo/nikon-z6-iii-24-120-480.webp 480w, assets/produtos/catalogo/nikon-z6-iii-24-120-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Nikon Z6 III + Z 24-120mm F/4 S" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Nikon Z6 III + Z 24-120mm F/4 S</h4>
+                <span class="preco"><b>R$ 18.337,20</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Nikon%20Z6%20III%20%2B%20Z%2024-120mm%20F%2F4%20S%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2018.337%2C20%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-nikon-z6-iii-24-120%29" data-origem="lp-catalogo-nikon-z6-iii-24-120" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Nikon Z6 III + Z 24-120mm F/4 S (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+            <li class="catp">
+              <img src="assets/produtos/catalogo/nikon-z8-24-120-800.webp" srcset="assets/produtos/catalogo/nikon-z8-24-120-480.webp 480w, assets/produtos/catalogo/nikon-z8-24-120-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Nikon Z8 + 24-120mm F/4" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Nikon Z8 + 24-120mm F/4</h4>
+                <span class="preco"><b>R$ 27.805,31</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Nikon%20Z8%20%2B%2024-120mm%20F%2F4%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2027.805%2C31%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-nikon-z8-24-120%29" data-origem="lp-catalogo-nikon-z8-24-120" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Nikon Z8 + 24-120mm F/4 (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="cat-marca">
+          <h3 class="cat-marca-t">Panasonic</h3>
+          <p class="cat-grupo">Sem lente</p>
+          <ul class="cat-lista">
+            <li class="catp">
+              <img src="assets/produtos/catalogo/panasonic-s1-ii-800.webp" srcset="assets/produtos/catalogo/panasonic-s1-ii-480.webp 480w, assets/produtos/catalogo/panasonic-s1-ii-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Panasonic Lumix S1 II" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Panasonic Lumix S1 II</h4>
+                <span class="preco"><b>R$ 17.805,42</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Panasonic%20Lumix%20S1%20II%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2017.805%2C42%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-panasonic-s1-ii%29" data-origem="lp-catalogo-panasonic-s1-ii" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Panasonic Lumix S1 II (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="cat-marca">
+          <h3 class="cat-marca-t">Blackmagic</h3>
+          <p class="cat-grupo">Sem lente</p>
+          <ul class="cat-lista">
+            <li class="catp">
+              <img src="assets/produtos/catalogo/blackmagic-pyxis-6k-800.webp" srcset="assets/produtos/catalogo/blackmagic-pyxis-6k-480.webp 480w, assets/produtos/catalogo/blackmagic-pyxis-6k-800.webp 800w" sizes="(min-width: 1200px) 260px, (min-width: 760px) 30vw, 46vw" width="800" height="1000" alt="Câmera Blackmagic Pyxis 6K Leica" loading="lazy" decoding="async">
+              <div class="catp-body">
+                <h4>Blackmagic Pyxis 6K Leica</h4>
+                <span class="preco"><b>R$ 20.140,36</b> no Pix</span>
+                <span class="catp-parc">ou até 12x no cartão</span>
+                <a class="btn btn-wa-outline btn-block" href="https://wa.me/5545998382728?text=Ol%C3%A1%21%20Vi%20a%20c%C3%A2mera%20Blackmagic%20Pyxis%206K%20Leica%20no%20cat%C3%A1logo%20do%20site%20%28R%24%2020.140%2C36%20no%20Pix%29%20e%20tenho%20interesse.%20%28origem%3A%20lp-catalogo-blackmagic-pyxis-6k%29" data-origem="lp-catalogo-blackmagic-pyxis-6k" target="_blank" rel="noopener"><svg class="ico ico-fill ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Quero esta<span class="sr-only"> câmera Blackmagic Pyxis 6K Leica (abre o WhatsApp em nova aba)</span></a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
