@@ -817,6 +817,11 @@
     .story-ig a:hover strong { text-decoration: underline; }
     .story > a:focus-visible { outline-offset: -4px; border-radius: 15px; }
     a.story-ph { text-decoration: none; color: inherit; }
+    .story-print { background: #0B0F19; }
+    .story-print::before { content: none; }
+    .story-print a { position: absolute; inset: 0; display: block; }
+    .story-print img { width: 100%; height: 100%; object-fit: contain; transition: transform .2s ease; }
+    .story-print a:hover img { transform: scale(1.03); }
     a.story-ph:hover small { color: var(--text); }
     .ig-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 16px; }
     .ig-row .btn .ico { width: 20px; height: 20px; }
@@ -836,7 +841,7 @@
     @media (min-width: 1024px) {
       .prova-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
       .stories-wrap { margin-inline: 0; overflow: visible; }
-      .stories { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); width: auto; padding: 0; gap: 12px; }
+      .stories { grid-auto-flow: row; grid-template-columns: repeat(5, 1fr); width: auto; padding: 0; gap: 12px; }
       .story-ig { display: none; } /* no computador o botão "Ver o perfil" logo abaixo cumpre esse papel */
       .garantia { margin-top: 0; padding: 30px; position: sticky; top: calc(var(--header-h) + 24px); }
       .stat { padding: 14px; }
@@ -1445,59 +1450,73 @@
           <h3 class="prova-h3">Depoimentos de clientes no Instagram</h3>
 
           <!--
-            MURAL DE STORIES — espaços reservados (sem foto) para os prints REAIS dos clientes.
-            Enquanto os prints não chegam, cada quadro é um link para o @behe_ofc (o cliente vê "Veja no Instagram",
-            nunca um aviso de bastidor). Como trocar (publique só prints com autorização do cliente):
-            1. Salve cada print (vertical, 9:16, ex.: 1080×1920) em assets/stories/ como .webp.
-            2. Em cada <li class="story">, troque o bloco <a class="story-ph" ...>…</a> inteiro por:
-               <img src="assets/stories/cliente-1.webp" width="1080" height="1920" loading="lazy" decoding="async"
-                    alt="Story de cliente mostrando o unboxing do equipamento e marcando @behe_ofc">
-               e acrescente ao CSS:  .story img { width: 100%; height: 100%; object-fit: cover; }
-            3. A moldura 9:16, os cantos e a barra de progresso continuam vindo do CSS (classe .story).
-            4. Para mais prints, copie um <li class="story"> inteiro. A barra do topo usa --p (0% a 100%).
-            Prints de conversa no WhatsApp ou no Direct (elogio à rapidez do envio, à embalagem, ao pós-venda)
-            entram do mesmo jeito; o alt descreve o que o cliente disse, sem expor nome ou número dele.
+            MURAL DE DEPOIMENTOS: prints REAIS de clientes (Instagram e WhatsApp), enviados pelo Gabriel em 23/10/2026.
+            Nome, foto de perfil, telefone, @ e código de rastreio vêm desfocados no próprio arquivo.
+            Cada quadro mostra a miniatura (assets/depoimentos/cliente-N-360.webp, 360 de largura) e abre o print
+            grande (cliente-N.webp) em nova aba. Para acrescentar um print: desfoque os dados do cliente, gere os
+            dois .webp e copie um <li class="story story-print"> inteiro, com um alt que descreva o que o cliente
+            disse, sem expor nome ou número dele.
           -->
           <section class="stories-wrap" aria-label="Mural de prints de clientes satisfeitos (role para os lados)" tabindex="0">
             <ul class="stories">
-              <li class="story">
-                <!-- TROCAR: print real de cliente (unboxing) -->
-                <a class="story-ph" href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener" aria-label="Unboxing: veja os Stories de clientes no Instagram @behe_ofc (abre em nova aba)">
-                  <span class="story-topo"><span class="story-av"></span>cliente</span>
-                  <svg class="ico" aria-hidden="true"><use href="#i-package"/></svg>
-                  <b>Unboxing</b>
-                  <small>Veja no Instagram</small>
-                  <span class="story-mencao">@behe_ofc</span>
+              <li class="story story-print">
+                <a href="assets/depoimentos/cliente-1.webp" target="_blank" rel="noopener">
+                  <img src="assets/depoimentos/cliente-1-360.webp" width="360" height="782" loading="lazy" decoding="async" alt="Post de cliente no Instagram mostrando a lente Sony que chegou, marcando a BeHe">
+                  <span class="sr-only"> (abre o print em tamanho grande em nova aba)</span>
                 </a>
               </li>
-              <li class="story">
-                <!-- TROCAR: print real de cliente (caixa aberta) -->
-                <a class="story-ph" href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener" aria-label="Caixa aberta: veja os Stories de clientes no Instagram @behe_ofc (abre em nova aba)">
-                  <span class="story-topo"><span class="story-av"></span>cliente</span>
-                  <svg class="ico" aria-hidden="true"><use href="#i-box-open"/></svg>
-                  <b>Caixa aberta</b>
-                  <small>Veja no Instagram</small>
-                  <span class="story-mencao">@behe_ofc</span>
+              <li class="story story-print">
+                <a href="assets/depoimentos/cliente-2.webp" target="_blank" rel="noopener">
+                  <img src="assets/depoimentos/cliente-2-360.webp" width="360" height="782" loading="lazy" decoding="async" alt="Post de cliente no Instagram contando a conquista do novo equipamento e agradecendo à BeHe">
+                  <span class="sr-only"> (abre o print em tamanho grande em nova aba)</span>
                 </a>
               </li>
-              <li class="story">
-                <!-- TROCAR: print real de cliente (setup montado) -->
-                <a class="story-ph" href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener" aria-label="Setup montado: veja os Stories de clientes no Instagram @behe_ofc (abre em nova aba)">
-                  <span class="story-topo"><span class="story-av"></span>cliente</span>
-                  <svg class="ico" aria-hidden="true"><use href="#i-camera"/></svg>
-                  <b>Setup montado</b>
-                  <small>Veja no Instagram</small>
-                  <span class="story-mencao">@behe_ofc</span>
+              <li class="story story-print">
+                <a href="assets/depoimentos/cliente-3.webp" target="_blank" rel="noopener">
+                  <img src="assets/depoimentos/cliente-3-360.webp" width="360" height="782" loading="lazy" decoding="async" alt="Vídeo de cliente no Instagram abrindo a caixa do pedido da BeHe">
+                  <span class="sr-only"> (abre o print em tamanho grande em nova aba)</span>
                 </a>
               </li>
-              <li class="story">
-                <!-- TROCAR: print real de cliente (agradecimento marcando a loja) -->
-                <a class="story-ph" href="https://www.instagram.com/behe_ofc/" target="_blank" rel="noopener" aria-label="Agradecimento: veja os Stories de clientes no Instagram @behe_ofc (abre em nova aba)">
-                  <span class="story-topo"><span class="story-av"></span>cliente</span>
-                  <svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg>
-                  <b>Agradecimento</b>
-                  <small>Veja no Instagram</small>
-                  <span class="story-mencao">@behe_ofc</span>
+              <li class="story story-print">
+                <a href="assets/depoimentos/cliente-4.webp" target="_blank" rel="noopener">
+                  <img src="assets/depoimentos/cliente-4-360.webp" width="360" height="782" loading="lazy" decoding="async" alt="Cliente no WhatsApp com a foto do equipamento: chegou certo, obrigado pela ajuda na aquisição">
+                  <span class="sr-only"> (abre o print em tamanho grande em nova aba)</span>
+                </a>
+              </li>
+              <li class="story story-print">
+                <a href="assets/depoimentos/cliente-5.webp" target="_blank" rel="noopener">
+                  <img src="assets/depoimentos/cliente-5-360.webp" width="360" height="782" loading="lazy" decoding="async" alt="Cliente no WhatsApp com a foto do equipamento DJI recebido: chegou aqui, Gabriel">
+                  <span class="sr-only"> (abre o print em tamanho grande em nova aba)</span>
+                </a>
+              </li>
+              <li class="story story-print">
+                <a href="assets/depoimentos/cliente-6.webp" target="_blank" rel="noopener">
+                  <img src="assets/depoimentos/cliente-6-360.webp" width="360" height="402" loading="lazy" decoding="async" alt="Cliente no WhatsApp segurando a câmera Sony: chegou hoje">
+                  <span class="sr-only"> (abre o print em tamanho grande em nova aba)</span>
+                </a>
+              </li>
+              <li class="story story-print">
+                <a href="assets/depoimentos/cliente-7.webp" target="_blank" rel="noopener">
+                  <img src="assets/depoimentos/cliente-7-360.webp" width="360" height="422" loading="lazy" decoding="async" alt="Cliente no WhatsApp com a câmera Sony e a lente: chegou tudo certinho">
+                  <span class="sr-only"> (abre o print em tamanho grande em nova aba)</span>
+                </a>
+              </li>
+              <li class="story story-print">
+                <a href="assets/depoimentos/cliente-8.webp" target="_blank" rel="noopener">
+                  <img src="assets/depoimentos/cliente-8-360.webp" width="360" height="422" loading="lazy" decoding="async" alt="Cliente no WhatsApp com vídeo da lente Sony recebida: muito obrigado, tudo certo">
+                  <span class="sr-only"> (abre o print em tamanho grande em nova aba)</span>
+                </a>
+              </li>
+              <li class="story story-print">
+                <a href="assets/depoimentos/cliente-9.webp" target="_blank" rel="noopener">
+                  <img src="assets/depoimentos/cliente-9-360.webp" width="360" height="782" loading="lazy" decoding="async" alt="Cliente no WhatsApp com o cartão de memória Lexar de 512 GB: chegou o cartão, muito obrigado">
+                  <span class="sr-only"> (abre o print em tamanho grande em nova aba)</span>
+                </a>
+              </li>
+              <li class="story story-print">
+                <a href="assets/depoimentos/cliente-10.webp" target="_blank" rel="noopener">
+                  <img src="assets/depoimentos/cliente-10-360.webp" width="360" height="520" loading="lazy" decoding="async" alt="Cliente no WhatsApp com a câmera Sony e os acessórios: tudo certo, graças a Deus">
+                  <span class="sr-only"> (abre o print em tamanho grande em nova aba)</span>
                 </a>
               </li>
               <li class="story story-ig">
